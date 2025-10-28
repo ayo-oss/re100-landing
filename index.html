@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- 외부 헤더(partials/re100-head.html) 주입 -->
     <script>
+      // 헤더 파셜 불러오기
       (function () {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/partials/re100-head.html");
@@ -25,78 +25,69 @@
     </script>
     <style>
       :root {
-        --bg: #0b5c38;
-        --fg: #0a0a0a;
-        --muted: #6b7280;
-        --card: #fff;
+        --green: #0b5c38;
+        --gray: #6b7280;
+        --white: #fff;
       }
-      * {
-        box-sizing: border-box;
-      }
-      html,
       body {
         margin: 0;
-        padding: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-          Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
         background: #f4f7f5;
-        color: var(--fg);
+        color: #111;
       }
       .container {
         width: min(1040px, 92vw);
-        margin: 0 auto;
+        margin: auto;
       }
       .hero {
         background: linear-gradient(180deg, #0b5c38, #0c6d41);
         color: #fff;
         padding: 56px 0 28px;
+        text-align: center;
       }
       .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: #0b5c38;
+        display: inline-block;
+        background: var(--green);
         color: #fff;
-        border: 0;
-        border-radius: 14px;
-        padding: 0.9rem 1.2rem;
         font-weight: 700;
+        border: 0;
+        border-radius: 12px;
+        padding: 0.9rem 1.4rem;
         cursor: pointer;
       }
       .card {
-        background: var(--card);
-        border: 1px solid #e5e7eb;
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      }
-      .section {
-        padding: 32px 0;
+        background: #fff;
+        border-radius: 14px;
+        padding: 22px;
+        margin-top: 20px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
       }
       label {
-        font-weight: 600;
         display: block;
-        margin: 0.6rem 0 0.3rem;
+        margin-top: 8px;
+        font-weight: 600;
       }
       input,
       select {
         width: 100%;
         padding: 0.8rem;
         border: 1px solid #d1d5db;
-        border-radius: 12px;
+        border-radius: 10px;
+        margin-top: 4px;
       }
       .row {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
-      @media (max-width: 720px) {
+      @media (max-width: 700px) {
         .row {
           grid-template-columns: 1fr;
         }
       }
       .note {
-        color: var(--muted);
+        color: var(--gray);
         font-size: 0.9rem;
       }
     </style>
@@ -113,97 +104,83 @@
           class="btn"
           onclick="document.getElementById('survey').scrollIntoView({behavior:'smooth'})"
         >
-          지금 설문 시작하기
+          지금 바로 진단하기
         </button>
       </div>
     </header>
 
     <main class="container">
-      <!-- 설문: 태양광 단일 주제, 쉬운 문항만 -->
-      <section class="section card" id="survey">
-        <h2>3분 설문 — 우리 집/회사, 태양광 준비도</h2>
+      <section class="card" id="survey">
+        <h2>3분 설문 — 우리 집/회사 태양광 가능성 확인</h2>
         <form id="surveyForm">
           <label>1) 거주/건물 유형</label>
-          <div>
-            <label
-              ><input type="radio" name="building" value="주택" required />
-              주택</label
-            >
-            <label
-              ><input type="radio" name="building" value="아파트" />
-              아파트</label
-            >
-            <label
-              ><input type="radio" name="building" value="상가/공장" />
-              상가/공장</label
-            >
-          </div>
+          <label
+            ><input type="radio" name="building" value="주택" required />
+            주택</label
+          >
+          <label
+            ><input type="radio" name="building" value="아파트" /> 아파트</label
+          >
+          <label
+            ><input type="radio" name="building" value="상가/공장" />
+            상가/공장</label
+          >
 
           <label>2) 지붕/옥상 형태</label>
-          <div>
-            <label
-              ><input type="radio" name="roof" value="지붕있음" required />
-              지붕/옥상 있음</label
-            >
-            <label
-              ><input type="radio" name="roof" value="없음" />
-              없음(베란다/기타)</label
-            >
-          </div>
+          <label
+            ><input type="radio" name="roof" value="지붕있음" required />
+            지붕/옥상 있음</label
+          >
+          <label
+            ><input type="radio" name="roof" value="없음" />
+            없음(베란다/기타)</label
+          >
 
           <label>3) 월 전기요금</label>
-          <div>
-            <label
-              ><input type="radio" name="bill" value="5만원 이하" required />
-              5만원 이하</label
-            >
-            <label
-              ><input type="radio" name="bill" value="5–10만원" />
-              5–10만원</label
-            >
-            <label
-              ><input type="radio" name="bill" value="10만원 이상" /> 10만원
-              이상</label
-            >
-          </div>
+          <label
+            ><input type="radio" name="bill" value="5만원 이하" required />
+            5만원 이하</label
+          >
+          <label
+            ><input type="radio" name="bill" value="5–10만원" /> 5–10만원</label
+          >
+          <label
+            ><input type="radio" name="bill" value="10만원 이상" /> 10만원
+            이상</label
+          >
 
           <label>4) 설치 의향</label>
-          <div>
-            <label
-              ><input type="radio" name="intent" value="검토중" required /> 검토
-              중</label
-            >
-            <label
-              ><input type="radio" name="intent" value="빠른설치원함" /> 빠른
-              설치 원함</label
-            >
-            <label
-              ><input type="radio" name="intent" value="정보만원함" /> 정보만
-              원함</label
-            >
-          </div>
+          <label
+            ><input type="radio" name="intent" value="검토중" required /> 검토
+            중</label
+          >
+          <label
+            ><input type="radio" name="intent" value="빠른설치원함" /> 빠른 설치
+            원함</label
+          >
+          <label
+            ><input type="radio" name="intent" value="정보만원함" /> 정보만
+            원함</label
+          >
 
-          <div style="margin-top: 12px">
-            <button class="btn" type="submit">설문 제출하고 결과 보기</button>
-          </div>
-          <p class="note">※ 전문용어 없이 쉬운 문항만 구성했습니다.</p>
+          <button class="btn" type="submit" style="margin-top: 16px">
+            결과 보기
+          </button>
         </form>
       </section>
 
-      <!-- 결과 요약 + 리드 폼 게이트 -->
-      <section class="section card" id="result" style="display: none">
-        <h2>나의 RE100(태양광) 결과 요약</h2>
-        <p id="summary">—</p>
+      <section class="card" id="result" style="display: none">
+        <h2>진단 결과</h2>
+        <p id="summary">계산 중...</p>
         <button
           class="btn"
           onclick="document.getElementById('lead').style.display='block';this.style.display='none'"
         >
-          상담 신청하고 상세 리포트 받기
+          상담 신청하기
         </button>
       </section>
 
-      <!-- 상담 리드 폼 -->
-      <section class="section card" id="lead" style="display: none">
+      <section class="card" id="lead" style="display: none">
         <h2>무료 상담 신청</h2>
         <form id="leadForm">
           <div class="row">
@@ -245,29 +222,27 @@
             ><input type="checkbox" name="consent" required /> (필수) 개인정보
             수집·이용 동의</label
           >
-          <div style="margin-top: 12px">
-            <button class="btn" type="submit">무료 상담 신청</button>
-          </div>
-          <p class="note">상담은 무료이며 언제든 취소 가능합니다.</p>
+          <button class="btn" type="submit" style="margin-top: 16px">
+            무료 상담 신청
+          </button>
         </form>
       </section>
     </main>
 
-    <footer class="container" style="padding: 28px 0; color: #6b7280">
-      <div>© 2025 RE100 진단. 이용약관 · 개인정보처리방침</div>
+    <footer
+      class="container"
+      style="padding: 30px 0; color: #6b7280; text-align: center"
+    >
+      © 2025 RE100 진단. All rights reserved.
     </footer>
 
-    <!-- 설문/리드 제출 스크립트 (Apps Script Web App으로 전송) -->
     <script>
-      const APPS_SCRIPT_WEB_APP_URL =
-        "https://script.google.com/macros/s/AKfycbydwKT0NYUcDVN7ZEV7AlT4MLQQijihHgz3u6JwRM0HOJvGiKQxjyfJjVf3pv8evhQ4Xg/exec"; // 2단계에서 교체
-
       const surveyForm = document.getElementById("surveyForm");
       const resultBox = document.getElementById("result");
       const summaryEl = document.getElementById("summary");
       const leadForm = document.getElementById("leadForm");
 
-      surveyForm.addEventListener("submit", (e) => {
+      surveyForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const fd = new FormData(surveyForm);
         const answers = Object.fromEntries(fd.entries());
@@ -285,11 +260,11 @@
             : score >= 40
             ? "초기 검토 단계"
             : "기초 정보 수집 단계";
-        summaryEl.textContent = `진단 점수 ${score} / 100 · 현재 단계: ${stage}`;
+        summaryEl.textContent = `진단 점수 ${score}/100 — 현재 단계: ${stage}`;
         resultBox.style.display = "block";
         resultBox.scrollIntoView({ behavior: "smooth" });
-        // 설문 저장(익명, 연락처는 리드 폼에서 별도 수집)
-        fetch(APPS_SCRIPT_WEB_APP_URL, {
+
+        await fetch("/api/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -299,19 +274,19 @@
             stage,
             source: "landing-re100",
           }),
-        }).catch(() => {});
+        });
       });
 
       leadForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const fd = new FormData(leadForm);
         if (!fd.get("consent")) {
-          alert("동의가 필요합니다.");
+          alert("개인정보 수집 동의가 필요합니다.");
           return;
         }
         const payload = Object.fromEntries(fd.entries());
         try {
-          const res = await fetch(APPS_SCRIPT_WEB_APP_URL, {
+          const res = await fetch("/api/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -321,13 +296,13 @@
             }),
           });
           const r = await res.json();
-          if (r && r.ok) {
-            alert("상담 신청 완료! 곧 연락드릴게요.");
+          if (r.ok) {
+            alert("상담 신청이 완료되었습니다.");
             leadForm.reset();
           } else {
-            alert("전송 오류가 발생했습니다. 다시 시도해주세요.");
+            alert("전송 실패, 다시 시도해주세요.");
           }
-        } catch (e) {
+        } catch (err) {
           alert("네트워크 오류가 발생했습니다.");
         }
       });
