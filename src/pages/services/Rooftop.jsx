@@ -241,7 +241,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
             <h2 className="text-content-title text-slate-900">
               {features.title}
             </h2>
-            <div className="mt-6 grid sm:grid-cols-2 gap-6">
+            <div className="mt-6 grid sm:grid-cols-3 gap-6">
               {features.items.map((item) => (
                 <FeatureItem key={item.title} item={item} />
               ))}
