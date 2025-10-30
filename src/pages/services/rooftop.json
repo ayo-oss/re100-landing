@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "badge": "지붕임대사업",
+    "title": "공장 지붕 빌려주고 안정적인 고정 임대 수익 확보하세요!",
+    "ctaText": "지붕임대사업 문의하기",
+    "highlight": "업계 최고 태양광 지붕임대 수익 지급!",
+    "rentPerKw": "지붕 임대료 40,000 원/kW당",
+    "bullets": [
+      "상업개시일 기준으로 1년치 임대료 선 지급",
+      "태양광 발전량과 상관없이 임대료 단가 고정",
+      "임대료 최대 5년 선납 가능 (임대료 35,000원/kW당)"
+    ]
+  },
+  "estimator": {
+    "title": "임대로 수익은 얼마나 발생 할까?",
+    "areaLabel": "면적(평)",
+    "areaOptions": [
+      "200~300평",
+      "500~1,200평",
+      "1,000~2,000평",
+      "2,500~4,000평"
+    ],
+    "capacityLabel": "설치용량 (kW)",
+    "capacityPlaceholder": "예: 100",
+    "ratePerKw": 40000,
+    "annualIncomeLabel": "연수익",
+    "lifetimePrefix": "20년간 최대",
+    "lifetimeIncomeLabel": "20년 총 임대료",
+    "lifetimeYears": 20,
+    "lifetimeSuffix": "수익 발생!",
+    "note": "지붕 임대료는 설치용량 1kW당 연 40,000원으로 계산됩니다."
+  },
+  "features": {
+    "title": "CTR에너지만의 맞춤형 솔루션을 지금 바로 경험해보세요",
+    "items": [
+      {
+        "title": "유휴 공간을 통한 수익창출",
+        "desc": "공장 지붕 활용",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0301.png"
+      },
+      {
+        "title": "초기 투자비용과 관리비 0원",
+        "desc": "무자본 사업참여 가능",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0302.png"
+      },
+      {
+        "title": "번거로운 절차는 그만",
+        "desc": "지상권 설정 불필요",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0303.png"
+      },
+      {
+        "title": "노후화된 지붕에도 설치가능",
+        "desc": "지붕 개수 및 보수 진행",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0304.png"
+      },
+      {
+        "title": "임대 종료후 수익창출",
+        "desc": "전력판매·소유권 무상이전",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0305.png"
+      }
+    ]
+  },
+  "process": {
+    "title": "복잡한 허가 절차부터 시공까지 ONE-STOP 으로 걱정없이!",
+    "subtitle": "사업성 검토단계부터 유지보수까지 CTR에너지만의 특화된 맞춤 설계를 제공합니다.",
+    "steps": [
+      {
+        "step": 1,
+        "label": "검토",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0401.png"
+      },
+      {
+        "step": 2,
+        "label": "계약",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0402.png"
+      },
+      {
+        "step": 3,
+        "label": "인허가",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0403.png"
+      },
+      {
+        "step": 4,
+        "label": "시공",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0404.png"
+      },
+      {
+        "step": 5,
+        "label": "유지보수",
+        "icon": "https://www.eneris.kr/images/service/img_service01_0405.png"
+      }
+    ]
+  },
+  "cases": {
+    "title": "지붕임대사업 대표 진행사례",
+    "items": [
+      {
+        "capacity": "999.6 kW",
+        "location": "경상남도 창원시",
+        "image": "https://www.eneris.kr/images/service/img_service0101_01.jpg"
+      },
+      {
+        "capacity": "1,098.2 kW",
+        "location": "대구광역시",
+        "image": "https://www.eneris.kr/images/service/img_service0101_02.jpg"
+      },
+      {
+        "capacity": "780 kW",
+        "location": "경상남도 창녕군",
+        "image": "https://www.eneris.kr/images/service/img_service0101_03.jpg"
+      },
+      {
+        "capacity": "720 kW",
+        "location": "부산광역시",
+        "image": "https://www.eneris.kr/images/service/img_service0101_04.jpg"
+      },
+      {
+        "capacity": "625 kW",
+        "location": "경상남도 창녕군",
+        "image": "https://www.eneris.kr/images/service/img_service0101_05.jpg"
+      },
+      {
+        "capacity": "595 kW",
+        "location": "충청남도 아산시",
+        "image": "https://www.eneris.kr/images/service/img_service0101_06.jpg"
+      },
+      {
+        "capacity": "495.04 kW",
+        "location": "경상남도 창녕군",
+        "image": "https://www.eneris.kr/images/service/img_service0101_07.jpg"
+      },
+      {
+        "capacity": "350.4 kW",
+        "location": "충청남도 서산시",
+        "image": "https://www.eneris.kr/images/service/img_service0101_08.jpg"
+      },
+      {
+        "capacity": "290 kW",
+        "location": "경상남도 창녕군",
+        "image": "https://www.eneris.kr/images/service/img_service0101_09.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "title": "태양광 전문가에게 문의하세요",
+    "disclaimer": "내용과 무관한 글, 광고성 글을 등록할 시 법적 책임을 받을 수 있습니다.",
+    "cta": "문의하기"
+  }
+}

@@ -1,8 +1,11 @@
-import { Route, Routes } from 'react-router-dom'
-import MainLayout from './layouts/MainLayout.jsx'
-import ComingSoon from './pages/ComingSoon.jsx'
-import Home from './pages/Home.jsx'
-import AboutGreeting from './pages/about/AboutGreeting.jsx'
+import { Route, Routes } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout.jsx";
+import ComingSoon from "./pages/ComingSoon.jsx";
+import Home from "./pages/Home.jsx";
+import AboutGreeting from "./pages/about/AboutGreeting.jsx";
+
+//서비스
+import Rooftop from "./pages/services/Rooftop.jsx";
 
 function App() {
   return (
@@ -10,15 +13,15 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="about">
-          <Route index element={<ComingSoon />} />
+          <Route index element={<AboutGreeting />} />
           <Route path="about-1" element={<AboutGreeting />} />
           <Route path="mission" element={<ComingSoon />} />
           <Route path="news" element={<ComingSoon />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
         <Route path="services">
-          <Route index element={<ComingSoon />} />
-          <Route path="rooftop" element={<ComingSoon />} />
+          <Route index element={<Rooftop />} />
+          <Route path="rooftop" element={<Rooftop />} />
           <Route path="power-plant" element={<ComingSoon />} />
           <Route path="finance" element={<ComingSoon />} />
           <Route path="gov-support" element={<ComingSoon />} />
@@ -56,8 +59,7 @@ function App() {
         <Route path="*" element={<ComingSoon />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
-
+export default App;
