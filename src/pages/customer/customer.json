@@ -1,4 +1,7 @@
 {
+  "title": "고객문의",
+  "subtitle": "문의글을 남겨주시면 확인 후 빠른 시일내에 연락드리겠습니다.",
+  "requiredMark": "*",
   "requiredNotice": "는 필수입력 항목입니다.",
   "fields": {
     "name": "이름",

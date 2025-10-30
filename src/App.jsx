@@ -7,6 +7,9 @@ import AboutGreeting from "./pages/about/AboutGreeting.jsx";
 //서비스
 import Rooftop from "./pages/services/Rooftop.jsx";
 
+//문의
+import Customer from "./pages/customer/Customer.jsx";
+
 function App() {
   return (
     <Routes>
@@ -38,9 +41,8 @@ function App() {
           <Route path="*" element={<ComingSoon />} />
         </Route>
         <Route path="support">
-          <Route index element={<ComingSoon />} />
-          <Route path="notices" element={<ComingSoon />} />
-          <Route path="contact" element={<ComingSoon />} />
+          <Route index element={<Customer />} />
+          <Route path="contact" element={<Customer />} />
           <Route path="faq" element={<ComingSoon />} />
           <Route path="guide" element={<ComingSoon />} />
           <Route path="resources" element={<ComingSoon />} />

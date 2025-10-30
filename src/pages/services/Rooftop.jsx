@@ -11,11 +11,19 @@ function Pill({ children }) {
 
 function FeatureItem({ item }) {
   return (
-    <div className="flex items-start gap-4">
-      <img src={item.icon} alt="" className="w-10 h-10 shrink-0" />
-      <div>
-        <div className="text-content-title text-slate-900">{item.title}</div>
-        <div className="mt-1 text-body text-slate-600">{item.desc}</div>
+    <div className="group relative mx-auto flex aspect-square w-full max-w-[18rem] flex-col items-center justify-center gap-6 rounded-full border border-emerald-100 bg-white/90 px-8 text-center shadow-soft transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl sm:max-w-[20rem]">
+      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100/70 text-emerald-600 transition group-hover:bg-emerald-100">
+        <img
+          src={item.icon}
+          alt={item.title || ""}
+          className="h-12 w-12 object-contain"
+        />
+      </div>
+      <div className="space-y-2 px-2 leading-snug">
+        <div className="text-title font-semibold text-brand-dark">
+          {item.desc}
+        </div>
+        <div className="text-body font-medium text-slate-600">{item.title}</div>
       </div>
     </div>
   );
@@ -160,6 +168,29 @@ function Calculator({ est }) {
 
 export default function ServiceRoofLease({ data = rooftop, onCta }) {
   const { hero, estimator, features, process, cases, contact } = data;
+  const featureItems = React.useMemo(
+    () => (Array.isArray(features?.items) ? features.items : []),
+    [features?.items]
+  );
+  const featureFirstRow = React.useMemo(
+    () => featureItems.slice(0, 3),
+    [featureItems]
+  );
+  const featureRemaining = React.useMemo(
+    () => featureItems.slice(3),
+    [featureItems]
+  );
+  const featureSecondRowClass = React.useMemo(() => {
+    const base = "grid place-items-center gap-6";
+    const count = featureRemaining.length;
+    if (count === 1) {
+      return `${base} sm:grid-cols-1 lg:grid-cols-1 lg:max-w-[22rem] lg:mx-auto`;
+    }
+    if (count === 2) {
+      return `${base} sm:grid-cols-2 lg:grid-cols-2 lg:max-w-[44rem] lg:mx-auto`;
+    }
+    return `${base} sm:grid-cols-2 lg:grid-cols-3`;
+  }, [featureRemaining.length]);
   return (
     <section className="relative overflow-hidden py-40">
       <div className="absolute inset-0 bg-white" />
@@ -238,13 +269,22 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         <div className="mt-16 grid md:grid-cols-1">
           <Calculator est={estimator} />
           <div className="rounded-[10px] p-6 bg-white/70">
-            <h2 className="text-content-title text-slate-900">
+            <h2 className="text-content-title text-slate-900 mb-20">
               {features.title}
             </h2>
-            <div className="mt-6 grid sm:grid-cols-3 gap-6">
-              {features.items.map((item) => (
-                <FeatureItem key={item.title} item={item} />
-              ))}
+            <div className="mt-6 space-y-6">
+              <div className="grid place-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {featureFirstRow.map((item) => (
+                  <FeatureItem key={item.title} item={item} />
+                ))}
+              </div>
+              {featureRemaining.length > 0 && (
+                <div className={featureSecondRowClass}>
+                  {featureRemaining.map((item) => (
+                    <FeatureItem key={item.title} item={item} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
