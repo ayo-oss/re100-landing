@@ -39,60 +39,121 @@ function numberWithCommas(n) {
 }
 
 function Calculator({ est }) {
-  const [kw, setKw] = React.useState(100);
-  const annual = kw * est.ratePerKw;
-  const lifetime = annual * est.lifetimeYears;
+  const options = React.useMemo(() => {
+    if (!Array.isArray(est.areaOptions)) return [];
+    return est.areaOptions.map((option) => {
+      if (typeof option === "string") {
+        return { label: option, capacity: est.defaultCapacity ?? 0 };
+      }
+      return option;
+    });
+  }, [est.areaOptions, est.defaultCapacity]);
+
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    setSelectedIndex(0);
+  }, [options.length]);
+
+  const selected = options[selectedIndex] ??
+    options[0] ?? {
+      label: "",
+      capacity: 0,
+    };
+
+  const kw = selected.capacity ?? 0;
+  const annual = kw * (est.ratePerKw ?? 0);
+  const lifetime = annual * (est.lifetimeYears ?? 0);
   return (
-    <div className="rounded-[10px] p-6">
-      <h2 className="text-content-title text-slate-900">{est.title}</h2>
-      <div className="mt-6 grid grid-cols-3 gap-40">
-        <div>
-          <div className="text-body font-medium text-slate-600">
-            {est.capacityLabel}
+    <div className="relative overflow-hidden p-8 mb-20">
+      <div className="relative z-10">
+        <h2 className="text-content-title text-slate-900">{est.title}</h2>
+        <div className="mt-8 grid gap-10 lg:grid-cols-[260px,minmax(0,1fr)] lg:items-center">
+          <div>
+            <label
+              htmlFor="areaSelect"
+              className="text-body font-medium text-slate-700"
+            >
+              {est.areaLabel}
+            </label>
+            <div className="relative mt-4">
+              <select
+                id="areaSelect"
+                value={selectedIndex}
+                onChange={(event) =>
+                  setSelectedIndex(Number(event.target.value))
+                }
+                className="w-full appearance-none rounded-full bg-emerald-600 px-5 py-4 pr-12 text-left text-title font-semibold text-white shadow-lg transition focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
+              >
+                {options.map((option, index) => (
+                  <option
+                    key={option.label ?? index}
+                    value={index}
+                    className="text-slate-900"
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-white">
+                <svg
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 9l6 6 6-6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <p className="mt-4 text-footer text-slate-600">{est.note}</p>
           </div>
-          <div className="mt-2 flex items-center gap-3">
-            <input
-              id="kwInput"
-              type="number"
-              min={0}
-              step={1}
-              value={kw}
-              onChange={(e) =>
-                setKw(Math.max(0, parseInt(e.target.value || "0", 10)))
-              }
-              placeholder={est.capacityPlaceholder}
-              className="w-40 px-3 py-2 rounded-xl border bg-white/80 text-body text-slate-800"
-            />
-            <input
-              type="range"
-              min={0}
-              max={3000}
-              step={10}
-              value={kw}
-              onChange={(e) => setKw(parseInt(e.target.value, 10))}
-              className="flex-1"
-            />
-          </div>
-        </div>
-        <div>
-          <div className="text-body font-medium text-slate-600">
-            {est.annualIncomeLabel}
-          </div>
-          <div className="mt-2 text-content-title text-emerald-700">
-            {numberWithCommas(annual)}원
-          </div>
-        </div>
-        <div className="flex flex-col justify-end">
-          <div className="text-body font-medium text-slate-600">
-            {est.lifetimePrefix}
-          </div>
-          <div className="mt-1 text-content-title text-emerald-700">
-            {numberWithCommas(lifetime)}원
-          </div>
-          <div className="text-footer text-slate-600">{est.lifetimeSuffix}</div>
+          <dl className="grid gap-6 text-center sm:grid-cols-3">
+            <div className="px-6 py-6">
+              <dt className="text-body font-medium text-slate-600">
+                {est.capacityLabel}
+              </dt>
+              <dd className="mt-2 text-display font-semibold text-slate-900">
+                {numberWithCommas(kw)}
+                <span className="ml-1 text-title font-semibold text-slate-500">
+                  kW
+                </span>
+              </dd>
+            </div>
+            <div className="px-6 py-6">
+              <dt className="text-body font-medium text-slate-600">
+                {est.annualIncomeLabel}
+              </dt>
+              <dd className="mt-2 text-display font-semibold text-slate-900">
+                {numberWithCommas(annual)}
+                <span className="ml-1 text-title font-semibold text-slate-500">
+                  {est.currencySuffix}
+                </span>
+              </dd>
+            </div>
+            <div className="px-6 py-6">
+              <dt className="text-body font-medium text-slate-600">
+                {est.lifetimePrefix}
+              </dt>
+              <dd className="mt-2 text-display font-semibold text-red-500">
+                {numberWithCommas(lifetime)}
+                <span className="ml-1 text-title font-semibold text-slate-500">
+                  {est.currencySuffix}
+                </span>
+              </dd>
+              <div className="mt-1 text-footer text-slate-600">
+                {est.lifetimeSuffix}
+              </div>
+            </div>
+          </dl>
         </div>
       </div>
-      <p className="mt-4 text-footer text-slate-500">{est.note}</p>
     </div>
   );
 }

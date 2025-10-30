@@ -1,0 +1,64 @@
+{
+  "requiredNotice": "는 필수입력 항목입니다.",
+  "fields": {
+    "name": "이름",
+    "phone": "연락처",
+    "address": "설치주소지",
+    "email": "이메일",
+    "type": "문의유형",
+    "message": "문의내용",
+    "file": "첨부파일"
+  },
+  "placeholders": {
+    "name": "이름을 입력해 주세요",
+    "phone": "연락처를 입력해 주세요",
+    "address": "주소를 입력해 주세요",
+    "email": "이메일을 입력해 주세요",
+    "type": "문의 유형을 선택해 주세요.",
+    "message": "문의 내용을 입력해 주세요"
+  },
+  "inquiryTypes": [
+    { "value": "금융솔루션", "label": "금융솔루션" },
+    { "value": "지붕임대사업", "label": "지붕임대사업" },
+    { "value": "태양광 발전사업", "label": "태양광 발전사업" },
+    { "value": "주택용 태양광", "label": "주택용 태양광" },
+    { "value": "건물용 태양광", "label": "건물용 태양광" },
+    { "value": "모듈/인버터", "label": "모듈/인버터" },
+    { "value": "RE100컨설팅", "label": "RE100컨설팅" },
+    { "value": "기타", "label": "기타" }
+  ],
+  "privacy": {
+    "prefix": "",
+    "anchor": "개인정보처리방침",
+    "link": "/privacy.php",
+    "suffix": "에 대한 내용을 읽었으며 이에 동의합니다.",
+    "checkAll": "전체동의"
+  },
+  "buttons": {
+    "submit": "문의하기",
+    "submitting": "접수 중...",
+    "reset": "초기화",
+    "close": "닫기"
+  },
+  "modal": {
+    "thanksTitle": "감사합니다.",
+    "thanksBody": "문의하기가 접수되었습니다."
+  },
+  "contact": {
+    "title": "고객문의",
+    "labelPhone": "대표번호",
+    "phone": "1600-8439",
+    "labelHours": "업무시간",
+    "hours": "평일: 08:30 ~ 17:30 (주말·공휴일 제외)",
+    "note": "내용과 무관한 글, 광고성 글을 등록할 시 법적 책임을 받을 수 있습니다."
+  },
+  "errors": {
+    "name": "이름을 입력해 주세요.",
+    "phone": "올바른 연락처를 입력해 주세요.",
+    "address": "주소를 입력해 주세요.",
+    "email": "올바른 이메일을 입력해 주세요.",
+    "type": "문의 유형을 선택해 주세요.",
+    "message": "문의 내용을 입력해 주세요.",
+    "agree": "개인정보 처리방침에 동의해 주세요."
+  }
+}

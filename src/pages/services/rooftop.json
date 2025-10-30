@@ -12,23 +12,34 @@
     ]
   },
   "estimator": {
-    "title": "임대로 수익은 얼마나 발생 할까?",
+    "title": "임대로 수익은 얼마나 발생할까?",
     "areaLabel": "면적(평)",
     "areaOptions": [
-      "200~300평",
-      "500~1,200평",
-      "1,000~2,000평",
-      "2,500~4,000평"
+      {
+        "label": "200~300평",
+        "capacity": 100
+      },
+      {
+        "label": "500~1,200평",
+        "capacity": 300
+      },
+      {
+        "label": "1,000~2,000평",
+        "capacity": 500
+      },
+      {
+        "label": "2,500~4,000평",
+        "capacity": 1000
+      }
     ],
-    "capacityLabel": "설치용량 (kW)",
-    "capacityPlaceholder": "예: 100",
+    "capacityLabel": "설치용량",
     "ratePerKw": 40000,
     "annualIncomeLabel": "연수익",
     "lifetimePrefix": "20년간 최대",
-    "lifetimeIncomeLabel": "20년 총 임대료",
     "lifetimeYears": 20,
     "lifetimeSuffix": "수익 발생!",
-    "note": "지붕 임대료는 설치용량 1kW당 연 40,000원으로 계산됩니다."
+    "currencySuffix": "원",
+    "note": "임대료는 1kW당 40,000원으로 계산합니다."
   },
   "features": {
     "title": "CTR에너지만의 맞춤형 솔루션을 지금 바로 경험해보세요",
