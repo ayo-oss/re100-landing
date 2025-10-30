@@ -47,7 +47,9 @@ function Calculator({ est }) {
       <h2 className="text-content-title text-slate-900">{est.title}</h2>
       <div className="mt-6 grid grid-cols-2 gap-4">
         <div>
-          <div className="text-body font-medium text-slate-600">{est.areaLabel}</div>
+          <div className="text-body font-medium text-slate-600">
+            {est.areaLabel}
+          </div>
           <div className="mt-2 flex flex-wrap gap-2">
             {est.areaOptions.map((opt) => (
               <span
@@ -60,7 +62,9 @@ function Calculator({ est }) {
           </div>
         </div>
         <div>
-          <div className="text-body font-medium text-slate-600">{est.capacityLabel}</div>
+          <div className="text-body font-medium text-slate-600">
+            {est.capacityLabel}
+          </div>
           <div className="mt-2 flex items-center gap-3">
             <input
               id="kwInput"
@@ -86,15 +90,19 @@ function Calculator({ est }) {
           </div>
         </div>
         <div>
-          <div className="text-body font-medium text-slate-600">{est.annualIncomeLabel}</div>
+          <div className="text-body font-medium text-slate-600">
+            {est.annualIncomeLabel}
+          </div>
           <div className="mt-2 text-content-title text-emerald-700">
-            {numberWithCommas(annual)} ??
+            {numberWithCommas(annual)}원
           </div>
         </div>
         <div className="flex flex-col justify-end">
-          <div className="text-body font-medium text-slate-600">{est.lifetimePrefix}</div>
+          <div className="text-body font-medium text-slate-600">
+            {est.lifetimePrefix}
+          </div>
           <div className="mt-1 text-content-title text-emerald-700">
-            {numberWithCommas(lifetime)} ??
+            {numberWithCommas(lifetime)}원
           </div>
           <div className="text-footer text-slate-600">{est.lifetimeSuffix}</div>
         </div>
@@ -111,29 +119,72 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
       <div className="absolute inset-0 bg-white" />
       <div className="container mx-auto px-4 relative">
         {/* Hero */}
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-4xl text-center">
           <Pill>{hero.badge}</Pill>
-          <h1 className="mt-5 text-title text-slate-900 leading-tight tracking-tight">
+          <h1 className="mt-5 text-display text-slate-900 leading-tight tracking-tight">
             {hero.title}
           </h1>
-          <p className="mt-6 text-content-title text-brand-dark">{hero.highlight}</p>
-          <div className="mt-3 text-body text-slate-700">{hero.rentPerKw}</div>
-          <ul className="mt-4 space-y-2 text-body text-slate-700">
-            {hero.bullets.map((b, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="mt-[6px] block h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-7">
-            <button
-              type="button"
-              onClick={onCta}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 text-white text-button font-semibold hover:opacity-90"
-            >
-              {hero.ctaText}
-            </button>
+          <p className="mt-6 text-title text-brand-dark">{hero.highlight}</p>
+
+          <div className="mt-12 rounded-[32px] border border-brand/60 bg-white px-8 py-10 shadow-soft sm:px-12">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr),200px] lg:items-center">
+              <div className="text-left lg:pl-4">
+                <p className="text-button font-semibold text-brand-dark">
+                  {hero.badge}
+                </p>
+                <p className="mt-2 text-display text-brand-dark">
+                  {hero.rentPerKw}
+                </p>
+              </div>
+              <div className="mx-auto hidden h-28 w-28 items-center justify-center rounded-full bg-emerald-50 text-brand-dark lg:flex">
+                <svg
+                  aria-hidden="true"
+                  className="h-16 w-16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 48 48"
+                >
+                  <path d="M24 6v6M37.5 10.5l-4.2 4.2M42 24h-6M37.5 37.5l-4.2-4.2M24 36v6M14.7 14.7l-4.2-4.2M12 24H6M14.7 33.3l-4.2 4.2" />
+                  <path d="M24 18a9 9 0 1 1-9 9" />
+                  <path d="M6 42h36" strokeLinecap="round" />
+                  <path d="M11 42l6-10h14l6 10" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
+
+            <ul className="mt-8 divide-y divide-emerald-100 rounded-[24px] bg-white text-left text-body text-slate-700">
+              {hero.bullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-3 px-6 py-4">
+                  <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-brand-dark">
+                    <svg
+                      aria-hidden="true"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+              <p className="text-description text-slate-600">
+                {hero.highlight}
+              </p>
+              <button
+                type="button"
+                onClick={onCta}
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition-colors hover:bg-brand-dark"
+              >
+                {hero.ctaText}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -141,7 +192,9 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         <div className="mt-16 grid md:grid-cols-2 gap-6">
           <Calculator est={estimator} />
           <div className="rounded-2xl p-6 border bg-white/70">
-          <h2 className="text-content-title text-slate-900">{features.title}</h2>
+            <h2 className="text-content-title text-slate-900">
+              {features.title}
+            </h2>
             <div className="mt-6 grid sm:grid-cols-2 gap-6">
               {features.items.map((item) => (
                 <FeatureItem key={item.title} item={item} />
@@ -176,8 +229,12 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
                   className="w-full h-48 object-cover"
                 />
                 <figcaption className="p-4">
-                  <div className="text-content-title text-slate-900">{c.capacity}</div>
-                  <div className="mt-1 text-body text-slate-600">{c.location}</div>
+                  <div className="text-content-title text-slate-900">
+                    {c.capacity}
+                  </div>
+                  <div className="mt-1 text-body text-slate-600">
+                    {c.location}
+                  </div>
                 </figcaption>
               </figure>
             ))}
@@ -187,8 +244,12 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         {/* Bottom CTA */}
         <div className="mt-16 flex items-center justify-between rounded-2xl p-6 border bg-white/70">
           <div>
-            <h3 className="text-content-title text-slate-900">{contact.title}</h3>
-            <p className="text-body text-slate-600 mt-2">{contact.disclaimer}</p>
+            <h3 className="text-content-title text-slate-900">
+              {contact.title}
+            </h3>
+            <p className="text-body text-slate-600 mt-2">
+              {contact.disclaimer}
+            </p>
           </div>
           <button
             type="button"
