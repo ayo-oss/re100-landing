@@ -43,24 +43,9 @@ function Calculator({ est }) {
   const annual = kw * est.ratePerKw;
   const lifetime = annual * est.lifetimeYears;
   return (
-    <div className="rounded-[10px] p-6 border bg-white/70">
+    <div className="rounded-[10px] p-6">
       <h2 className="text-content-title text-slate-900">{est.title}</h2>
-      <div className="mt-6 grid grid-cols-2 gap-4">
-        <div>
-          <div className="text-body font-medium text-slate-600">
-            {est.areaLabel}
-          </div>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {est.areaOptions.map((opt) => (
-              <span
-                key={opt}
-                className="px-3 py-1.5 rounded-xl border text-body bg-white/70 text-slate-700"
-              >
-                {opt}
-              </span>
-            ))}
-          </div>
-        </div>
+      <div className="mt-6 grid grid-cols-3 gap-40">
         <div>
           <div className="text-body font-medium text-slate-600">
             {est.capacityLabel}
@@ -189,9 +174,9 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         </div>
 
         {/* Estimator + Features (two-column like source) */}
-        <div className="mt-16 grid md:grid-cols-2 gap-6">
+        <div className="mt-16 grid md:grid-cols-1">
           <Calculator est={estimator} />
-          <div className="rounded-[10px] p-6 border bg-white/70">
+          <div className="rounded-[10px] p-6 bg-white/70">
             <h2 className="text-content-title text-slate-900">
               {features.title}
             </h2>
@@ -204,10 +189,10 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         </div>
 
         {/* Process */}
-        <div className="mt-16 rounded-[10px] p-6 border bg-white/70">
+        <div className="mt-16 rounded-[10px] p-6">
           <h2 className="text-content-title text-slate-900">{process.title}</h2>
           <p className="mt-2 text-body text-slate-600">{process.subtitle}</p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-5 gap-6">
             {process.steps.map((s) => (
               <Step key={s.step} step={s} />
             ))}
@@ -242,7 +227,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 flex items-center justify-between rounded-[10px] p-6 border bg-white/70">
+        <div className="mt-16 flex items-center justify-between rounded-[10px] p-6">
           <div>
             <h3 className="text-content-title text-slate-900">
               {contact.title}
