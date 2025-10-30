@@ -17,3 +17,9 @@ body {
 #root {
   @apply flex min-h-screen flex-col;
 }
+
+@layer base {
+  .container {
+    @apply mx-auto w-full max-w-[1400px] px-6;
+  }
+}

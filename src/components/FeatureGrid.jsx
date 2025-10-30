@@ -1,59 +1,144 @@
-const features = [
+import { Link } from "react-router-dom";
+import content from "../content/ko/ko.json";
+
+const { services } = content;
+
+const cardVisuals = [
   {
-    title: 'RE100 컨설팅',
-    description: '기업별 전력 사용 패턴과 목표를 분석해 맞춤형 RE100 로드맵을 설계합니다.',
+    accent: "bg-brand text-white",
+    image: new URL("../assets/hero/a1.jpeg", import.meta.url).href,
+    overlay: "rgba(221, 244, 236, 0.9)",
+    tint: "rgba(221, 244, 236, 0.6)",
+    fallback: "#d7f2e6",
   },
   {
-    title: '지붕형 태양광',
-    description: '유휴 지붕 자산을 활용한 발전소 구축으로 임대 수익과 전력 절감을 동시에 제공합니다.',
+    accent: "bg-[#f97316] text-white",
+    image: new URL("../assets/hero/a2.png", import.meta.url).href,
+    overlay: "rgba(252, 232, 211, 0.9)",
+    tint: "rgba(252, 232, 211, 0.6)",
+    fallback: "#fbe3cc",
   },
   {
-    title: '금융 · PPA 솔루션',
-    description: '금융기관 및 파트너사와 연계해 초기 투자 부담을 낮추는 맞춤형 패키지를 구성합니다.',
+    accent: "bg-[#2563eb] text-white",
+    image: new URL("../assets/hero/a3.jpeg", import.meta.url).href,
+    overlay: "rgba(231, 235, 251, 0.92)",
+    tint: "rgba(231, 235, 251, 0.55)",
+    fallback: "#e3e9fb",
   },
-  {
-    title: '데이터 모니터링',
-    description: '발전 효율을 높이는 통합 관제 시스템으로 운영 리스크를 선제적으로 관리합니다.',
-  },
-]
+];
+
+const isExternal = (href) => /^https?:\/\//i.test(href);
 
 function FeatureGrid() {
+  const cards = services.items;
+
   return (
     <section id="services" className="bg-white py-24">
-      <div className="mx-auto w-full max-w-6xl px-4">
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-dark">
-            Services
-          </p>
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            RE100 목표 달성을 위한 핵심 서비스
+      <div className="container relative">
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+            {services.heading}
           </h2>
-          <p className="text-base text-slate-600">
-            컨설팅부터 금융, 시공, 운영까지 CTR에너지 한 곳에서 지원 받을 수
-            있도록 구성했습니다.
-          </p>
+          <p className="text-base text-slate-600">{services.description}</p>
+          <span className="pointer-events-none absolute inset-y-6 -z-10 hidden text-[11rem] font-black uppercase tracking-[0.4em] text-slate-100/40 sm:block">
+            CTR ENERGY
+          </span>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {features.map((feature) => (
-            <article
-              key={feature.title}
-              className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-soft transition-transform duration-200 hover:-translate-y-2 hover:border-brand/40"
-            >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/10 text-sm font-semibold text-brand-dark">
-                CTR
-              </span>
-              <h3 className="mt-6 text-xl font-semibold text-slate-900">
-                {feature.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                {feature.description}
-              </p>
-            </article>
-          ))}
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {cards.map((item, index) => {
+            const visual = cardVisuals[index % cardVisuals.length];
+            const backgroundStyle = {
+              backgroundImage: `linear-gradient(140deg, ${visual.overlay} 0%, ${visual.tint} 65%, rgba(255,255,255,0.92) 100%)`,
+              backgroundColor: visual.fallback,
+            };
+
+            return (
+              <CardWrapper
+                key={item.title}
+                href={item.href}
+                image={visual.image}
+                style={backgroundStyle}
+              >
+                <div className="flex h-full flex-col justify-between rounded-[36px] p-12 pb-[62%] text-slate-900 transition-colors duration-300">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold">{item.title}</h3>
+                    <p className="text-md leading-relaxed text-slate-700">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="mt-10 flex items-center justify-between text-sm font-semibold">
+                    <span className="flex items-center gap-2">
+                      view more
+                      <span
+                        className={`inline-flex h-6 items-center rounded-full px-3 text-[11px] font-semibold uppercase tracking-[0.2em] transition-transform duration-300 group-hover:translate-x-1 ${visual.accent}`}
+                      >
+                        ctr
+                      </span>
+                    </span>
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/70 text-slate-600 transition-colors duration-300 group-hover:border-brand/40 group-hover:bg-brand group-hover:text-white">
+                      <svg
+                        aria-hidden="true"
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeatureGrid
+function CardWrapper({ href, children, style, image }) {
+  const external = isExternal(href);
+  const commonClasses =
+    "group relative block h-full overflow-hidden rounded-[13px] border border-white/70 shadow-[0_20px_50px_-35px_rgba(15,84,54,0.45)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_28px_60px_-40px_rgba(15,84,54,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand/60";
+  const cardStyle = { minHeight: "540px", ...style };
+
+  const content = (
+    <>
+      <div className="relative z-10 h-full">{children}</div>
+      {image && (
+        <div className="pointer-events-none absolute inset-x-0 left-0 bottom-0 h-[70%] rounded-b-[13px] overflow-hidden">
+          <img
+            alt=""
+            className="h-full w-full rounded-b-[13px] object-cover object-center"
+            src={image}
+          />
+        </div>
+      )}
+    </>
+  );
+
+  if (external) {
+    return (
+      <a
+        className={commonClasses}
+        href={href}
+        rel="noreferrer"
+        style={cardStyle}
+        target="_blank"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className={commonClasses} style={cardStyle} to={href}>
+      {content}
+    </Link>
+  );
+}
+
+export default FeatureGrid;
