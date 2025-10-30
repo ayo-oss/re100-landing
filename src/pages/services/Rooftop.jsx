@@ -43,7 +43,7 @@ function Calculator({ est }) {
   const annual = kw * est.ratePerKw;
   const lifetime = annual * est.lifetimeYears;
   return (
-    <div className="rounded-2xl p-6 border bg-white/70">
+    <div className="rounded-[10px] p-6 border bg-white/70">
       <h2 className="text-content-title text-slate-900">{est.title}</h2>
       <div className="mt-6 grid grid-cols-2 gap-4">
         <div>
@@ -126,7 +126,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
           </h1>
           <p className="mt-6 text-title text-brand-dark">{hero.highlight}</p>
 
-          <div className="mt-12 rounded-[32px] border border-brand/60 bg-white px-8 py-10 shadow-soft sm:px-12">
+          <div className="mt-12 rounded-[10px] border border-brand/60 bg-white px-8 py-10 shadow-soft sm:px-12">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr),200px] lg:items-center">
               <div className="text-left lg:pl-4">
                 <p className="text-button font-semibold text-brand-dark">
@@ -191,7 +191,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         {/* Estimator + Features (two-column like source) */}
         <div className="mt-16 grid md:grid-cols-2 gap-6">
           <Calculator est={estimator} />
-          <div className="rounded-2xl p-6 border bg-white/70">
+          <div className="rounded-[10px] p-6 border bg-white/70">
             <h2 className="text-content-title text-slate-900">
               {features.title}
             </h2>
@@ -204,7 +204,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         </div>
 
         {/* Process */}
-        <div className="mt-16 rounded-2xl p-6 border bg-white/70">
+        <div className="mt-16 rounded-[10px] p-6 border bg-white/70">
           <h2 className="text-content-title text-slate-900">{process.title}</h2>
           <p className="mt-2 text-body text-slate-600">{process.subtitle}</p>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-6">
@@ -221,7 +221,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
             {cases.items.map((c, idx) => (
               <figure
                 key={idx}
-                className="rounded-2xl overflow-hidden border bg-white/70"
+                className="rounded-[10px] overflow-hidden border bg-white/70"
               >
                 <img
                   src={c.image}
@@ -242,7 +242,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 flex items-center justify-between rounded-2xl p-6 border bg-white/70">
+        <div className="mt-16 flex items-center justify-between rounded-[10px] p-6 border bg-white/70">
           <div>
             <h3 className="text-content-title text-slate-900">
               {contact.title}
@@ -254,7 +254,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
           <button
             type="button"
             onClick={onCta}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border text-button font-semibold text-slate-800 hover:bg-slate-100"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] border text-button font-semibold text-slate-800 hover:bg-slate-100"
           >
             {contact.cta}
           </button>
