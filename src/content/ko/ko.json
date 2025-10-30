@@ -1,13 +1,13 @@
 ﻿{
   "meta": {
-    "title": "(주)CTR에너지",
-    "description": "신재생에너지 전문기업 CTR에너지는 RE100 실현을 위한 전 과정에서 고객과 함께하며 기대 이상의 가치를 제공합니다."
+    "title": "플래그(유)",
+    "description": "신재생에너지 전문기업 플래그(유)는 RE100 실현을 위한 전 과정에서 고객과 함께하며 기대 이상의 가치를 제공합니다."
   },
   "navigation": {
     "brand": {
-      "short": "CTR",
-      "caption": "Eneris",
-      "name": "CTR에너지"
+      "short": "FLAG",
+      "caption": "(유)",
+      "name": "플래그(유)"
     },
     "primary": [
       {
@@ -15,14 +15,9 @@
         "href": "/about/about-1",
         "children": [
           {
-            "label": "CTR에너지",
+            "label": "인사말",
             "href": "/about/about-1",
-            "description": "신재생에너지 전문기업 CTR에너지의 역사와 핵심 가치를 소개합니다."
-          },
-          {
-            "label": "CTR에너지 소식",
-            "href": "/about/news",
-            "description": "기업 활동과 언론 보도, 최신 소식을 한눈에 확인하세요."
+            "description": "신재생에너지 전문기업 플래그(유)의 역사와 핵심 가치를 소개합니다."
           }
         ]
       },
@@ -95,7 +90,7 @@
           {
             "label": "공지사항",
             "href": "/support/notices",
-            "description": "CTR에너지의 주요 공지사항과 안내를 확인하세요."
+            "description": "플래그의 주요 공지사항과 안내를 확인하세요."
           },
           {
             "label": "고객문의",
@@ -129,11 +124,11 @@
     "secondary": [
       {
         "label": "Blog",
-        "href": "https://blog.naver.com/ctr_energy"
+        "href": ""
       },
       {
         "label": "KakaoCH",
-        "href": "https://pf.kakao.com/_SgTtT"
+        "href": ""
       }
     ],
     "labels": {
@@ -144,7 +139,7 @@
   "hero": {
     "eyebrow": "Renewable Energy Partner",
     "title": "기업 맞춤 RE100 컨설팅",
-    "summary": "CTR에너지는 RE100 실현을 위한 전체 프로세스를 책임지는 신재생에너지 전문 기업입니다.\n지붕형 태양광부터 PPA, 금융 조달까지 고객사의 상황에 맞춘 솔루션을 제안합니다.",
+    "summary": "플래그는 RE100 실현을 위한 전체 프로세스를 책임지는 신재생에너지 전문 기업입니다.\n지붕형 태양광부터 PPA, 금융 조달까지 고객사의 상황에 맞춘 솔루션을 제안합니다.",
     "primaryCta": "컨설팅 문의하기",
     "secondaryCta": "서비스 살펴보기",
     "video": {
@@ -184,7 +179,7 @@
   },
   "services": {
     "heading": "자연과 하나되는 공해 없는 깨끗한 에너지",
-    "description": "RE100 목표 달성을 위한 컨설팅부터 금융 솔루션까지 CTR에너지의 핵심 서비스를 살펴보세요.",
+    "description": "RE100 목표 달성을 위한 컨설팅부터 금융 솔루션까지 플래그의 핵심 서비스를 살펴보세요.",
     "items": [
       {
         "title": "RE100 컨설팅",
@@ -204,7 +199,7 @@
     ]
   },
   "stats": {
-    "heading": "CTR에너지의 기술과 경험으로\n신재생에너지 선도기업으로 자리하고 있습니다.",
+    "heading": "플래그지의 기술과 경험으로\n신재생에너지 선도기업으로 자리하고 있습니다.",
     "items": [
       {
         "value": 86,
@@ -221,8 +216,8 @@
     ]
   },
   "insights": {
-    "heading": "CTR에너지 소식과 RE100 인사이트",
-    "description": "CTR에너지의 최신 소식과 RE100 트렌드를 모아보세요.",
+    "heading": "플래그(유) 소식과 RE100 인사이트",
+    "description": "플래그의 최신 소식과 RE100 트렌드를 모아보세요.",
     "cta": "소식 더보기",
     "imagePlaceholder": "이미지 자리",
     "detailNote": "자세한 내용은 원문 링크에서 확인하세요.",
@@ -242,7 +237,7 @@
       {
         "image": "/images/main/news03.png",
         "title": "그린에너지 엑스포 참가 후기",
-        "summary": "국내 최대 신재생에너지 전시회에서 CTR에너지 부스를 통해 스마트 솔루션을 소개했습니다.",
+        "summary": "국내 최대 신재생에너지 전시회에서 플래그 부스를 통해 스마트 솔루션을 소개했습니다.",
         "href": "/about/news"
       },
       {
@@ -254,8 +249,8 @@
     ]
   },
   "newsletter": {
-    "heading": "CTR에너지 뉴스레터와 프로모션을 가장 먼저 만나보세요",
-    "description": "구독 유형을 선택하고 이메일을 남겨주시면 CTR에너지의 RE100 프로모션과 뉴스레터를 빠르게 전달해 드립니다.",
+    "heading": "플래그 뉴스레터와 프로모션을 가장 먼저 만나보세요",
+    "description": "구독 유형을 선택하고 이메일을 남겨주시면 플래그의 RE100 프로모션과 뉴스레터를 빠르게 전달해 드립니다.",
     "tabs": ["개인 고객", "기업 고객"],
     "categoryPlaceholder": "관심 고객 유형을 선택해 주세요",
     "emailPlaceholder": "이메일 주소를 입력해 주세요",
@@ -342,7 +337,7 @@
       },
       "history": {
         "title": "주요연혁",
-        "subtitle": "자연을 보호하며 자연과 하나되는 공해없고 깨끗한 에너지!\nCTR에너지가 만들어갑니다.",
+        "subtitle": "자연을 보호하며 자연과 하나되는 공해없고 깨끗한 에너지!\n플래그가 만들어갑니다.",
         "years": [
           {
             "year": "2017",
@@ -425,13 +420,13 @@
     }
   },
   "footer": {
-    "tagline": "신뢰할 수 있는 RE100 파트너 CTR에너지가 에너지 전환의 여정을 함께합니다.",
+    "tagline": "신뢰할 수 있는 RE100 파트너 플래그가 에너지 전환의 여정을 함께합니다.",
     "menus": [
       {
         "title": "회사소개",
         "items": [
           {
-            "label": "CTR에너지",
+            "label": "인사말",
             "href": "/about/about-1"
           },
           {
@@ -484,11 +479,10 @@
       }
     ],
     "infoLines": [
-      "(주)CTR에너지 | 대표이사: 모유진",
-      "본사: 경상남도 창원시 의창구 중앙대로 28번길 6 (중동 CTR빌딩)",
-      "공장: 부산광역시 강서구 과학단지로 119번길 21",
-      "지사: 서울특별시 성동구 아차산로 17길 49 10층",
-      "사업자등록번호: 783-81-00706"
+      "(주)FLAG Co., Ltd. | 대표이사: 강도현",
+      "본사: 서울특별시 강남구 테헤란로70길 14-6, 8층 804호(대치동, 세왕종합상사빌딩)",
+      "지사: -",
+      "사업자등록번호: 821-86-01526"
     ],
     "quickLinks": [
       {
@@ -506,21 +500,21 @@
     ],
     "hotline": {
       "title": "고객문의",
-      "phone": "1600-8439",
+      "phone": "1666-0309",
       "details": ["상담시간: 평일 08:30 ~ 17:30", "주말 및 공휴일 휴무"]
     },
     "socials": [
       {
         "label": "네이버 블로그",
-        "href": "https://blog.naver.com/ctr_energy"
+        "href": ""
       },
       {
         "label": "카카오 채널",
-        "href": "https://pf.kakao.com/_SgTtT"
+        "href": ""
       },
       {
         "label": "Eneris Manager",
-        "href": "https://www.eneris.kr/"
+        "href": ""
       }
     ]
   }

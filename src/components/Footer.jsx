@@ -1,24 +1,30 @@
-﻿import { Link } from "react-router-dom"
-import content from "../content/ko/ko.json"
+﻿import { Link } from "react-router-dom";
+import content from "../content/ko/ko.json";
 
-const { footer } = content
+const { footer } = content;
 
-const isExternal = (href = "") => /^https?:\/\//i.test(href)
+const isExternal = (href = "") => /^https?:\/\//i.test(href);
 
 function Footer() {
   return (
     <footer className="border-t border-slate-100 bg-white py-16">
       <div className="container grid gap-12 lg:grid-cols-[minmax(0,2fr),minmax(0,3fr)]">
         <div className="space-y-4">
-          <p className="text-lg font-semibold text-slate-900">{footer.tagline}</p>
+          <p className="text-lg font-semibold text-slate-900">
+            {footer.tagline}
+          </p>
           <ul className="space-y-2 text-sm text-slate-600">
             {footer.infoLines.map((line) => (
               <li key={line}>{line}</li>
             ))}
           </ul>
           <div className="space-y-2 text-sm text-slate-600">
-            <p className="font-semibold text-brand-dark">{footer.hotline.title}</p>
-            <p className="text-lg font-bold text-slate-900">{footer.hotline.phone}</p>
+            <p className="font-semibold text-brand-dark">
+              {footer.hotline.title}
+            </p>
+            <p className="text-lg font-bold text-slate-900">
+              {footer.hotline.phone}
+            </p>
             <ul className="space-y-1 text-xs text-slate-500">
               {footer.hotline.details.map((detail) => (
                 <li key={detail}>{detail}</li>
@@ -69,16 +75,16 @@ function Footer() {
       </div>
       <div className="container mt-12 border-t border-slate-100 pt-6">
         <p className="text-center text-xs text-slate-400">
-          © {new Date().getFullYear()} CTR Energy. All rights reserved.
+          © {new Date().getFullYear()} FLAG. All rights reserved.
         </p>
       </div>
     </footer>
-  )
+  );
 }
 
 function FooterLink({ item }) {
   if (!item?.href) {
-    return <span>{item?.label ?? ""}</span>
+    return <span>{item?.label ?? ""}</span>;
   }
 
   if (isExternal(item.href)) {
@@ -91,14 +97,14 @@ function FooterLink({ item }) {
       >
         {item.label}
       </a>
-    )
+    );
   }
 
   return (
     <Link className="transition-colors hover:text-brand-dark" to={item.href}>
       {item.label}
     </Link>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
