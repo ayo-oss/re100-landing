@@ -36,15 +36,15 @@ function FeatureGrid() {
     <section id="services" className="bg-white py-24">
       <div className="container relative">
         <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
-          <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+          <h2 className="text-title font-bold text-slate-900">
             {services.heading}
           </h2>
-          <p className="text-base text-slate-600">{services.description}</p>
+          <p className="text-body text-slate-600">{services.description}</p>
           <span className="pointer-events-none absolute inset-y-6 -z-10 hidden text-[11rem] font-black uppercase tracking-[0.4em] text-slate-100/40 sm:block">
             CTR ENERGY
           </span>
         </div>
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-4 text-body md:grid-cols-2 lg:grid-cols-3">
           {cards.map((item, index) => {
             const visual = cardVisuals[index % cardVisuals.length];
             const backgroundStyle = {
@@ -61,16 +61,16 @@ function FeatureGrid() {
               >
                 <div className="flex h-full flex-col justify-between rounded-[36px] p-12 pb-[62%] text-slate-900 transition-colors duration-300">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold">{item.title}</h3>
-                    <p className="text-md leading-relaxed text-slate-700">
+                    <h3 className="text-content-title font-bold">{item.title}</h3>
+                    <p className="text-description leading-relaxed text-slate-700">
                       {item.description}
                     </p>
                   </div>
-                  <div className="mt-10 flex items-center justify-between text-sm font-semibold">
+                  <div className="mt-10 flex items-center justify-between text-button font-semibold">
                     <span className="flex items-center gap-2">
                       view more
                       <span
-                        className={`inline-flex h-6 items-center rounded-full px-3 text-[11px] font-semibold uppercase tracking-[0.2em] transition-transform duration-300 group-hover:translate-x-1 ${visual.accent}`}
+                        className={`inline-flex h-6 items-center rounded-full px-3 text-footer font-semibold uppercase tracking-[0.2em] transition-transform duration-300 group-hover:translate-x-1 ${visual.accent}`}
                       >
                         ctr
                       </span>

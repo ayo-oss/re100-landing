@@ -1,8 +1,8 @@
-// /api/submit.js
-const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL;
+﻿// /api/submit.js
+const APPS_SCRIPT_URL = import.meta.env?.VITE_APPS_SCRIPT_URL || "";
 
 export default async function handler(req, res) {
-  // ✅ CORS 허용
+  // ??CORS ?덉슜
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Apps Script로 데이터 전달
+    // Apps Script濡??곗씠???꾨떖
     const upstream = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

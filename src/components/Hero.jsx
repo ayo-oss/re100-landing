@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import content from "../content/ko/ko.json";
 
-const { hero, today } = content;
+const { hero } = content;
 
 const heroImages = [
   new URL("../assets/hero/a1.jpeg", import.meta.url).href,
@@ -43,17 +43,17 @@ function Hero() {
       </div>
       <div className="relative container grid min-h-[70vh] gap-12 py-24 lg:grid-cols-[minmax(0,1fr),360px] lg:items-center">
         <div className="flex flex-col gap-6">
-          <p className="text-xl font-semibold uppercase tracking-[0.3em] text-white">
+          <p className="text-button uppercase tracking-[0.3em] text-white">
             {hero.eyebrow}
           </p>
-          <h1 className="text-4xl font-bold text-white sm:text-5xl">
+          <h1 className="text-display text-white">
             {hero.title.split("\n").map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </h1>
-          <div className="max-w-xl space-y-2 text-xl font-semibold leading-relaxed text-white">
+          <div className="max-w-xl space-y-2 text-description leading-relaxed text-white">
             {hero.summary.split("\n").map((line) => (
               <p key={line}>{line}</p>
             ))}
@@ -61,7 +61,7 @@ function Hero() {
           <div className="flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="rounded-full bg-brand px-6 py-3 text-xl font-semibold text-white shadow-soft transition-colors hover:bg-brand-dark"
+              className="rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition-colors hover:bg-brand-dark"
             >
               {hero.primaryCta}
             </a>

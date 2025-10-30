@@ -3,7 +3,7 @@ import rooftop from "./rooftop.json";
 
 function Pill({ children }) {
   return (
-    <span className="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full border bg-white/60 backdrop-blur">
+    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-white/70 text-button font-semibold text-emerald-900 backdrop-blur">
       {children}
     </span>
   );
@@ -14,8 +14,8 @@ function FeatureItem({ item }) {
     <div className="flex items-start gap-4">
       <img src={item.icon} alt="" className="w-10 h-10 shrink-0" />
       <div>
-        <div className="font-semibold">{item.title}</div>
-        <div className="text-sm text-gray-600">{item.desc}</div>
+        <div className="text-content-title text-slate-900">{item.title}</div>
+        <div className="mt-1 text-body text-slate-600">{item.desc}</div>
       </div>
     </div>
   );
@@ -25,7 +25,7 @@ function Step({ step }) {
   return (
     <div className="text-center">
       <img src={step.icon} alt="" className="mx-auto w-12 h-12" />
-      <div className="mt-2 text-sm text-gray-600">{`Step.${step.step} ${step.label}`}</div>
+      <div className="mt-3 text-body font-medium text-slate-700">{`Step.${step.step} ${step.label}`}</div>
     </div>
   );
 }
@@ -44,15 +44,15 @@ function Calculator({ est }) {
   const lifetime = annual * est.lifetimeYears;
   return (
     <div className="rounded-2xl p-6 border bg-white/70">
-      <h2 className="text-xl font-bold">{est.title}</h2>
+      <h2 className="text-content-title text-slate-900">{est.title}</h2>
       <div className="mt-6 grid grid-cols-2 gap-4">
         <div>
-          <div className="text-sm text-gray-500">{est.areaLabel}</div>
+          <div className="text-body font-medium text-slate-600">{est.areaLabel}</div>
           <div className="mt-2 flex flex-wrap gap-2">
             {est.areaOptions.map((opt) => (
               <span
                 key={opt}
-                className="px-3 py-1.5 rounded-xl border text-sm bg-white/60"
+                className="px-3 py-1.5 rounded-xl border text-body bg-white/70 text-slate-700"
               >
                 {opt}
               </span>
@@ -60,7 +60,7 @@ function Calculator({ est }) {
           </div>
         </div>
         <div>
-          <div className="text-sm text-gray-500">{est.capacityLabel}</div>
+          <div className="text-body font-medium text-slate-600">{est.capacityLabel}</div>
           <div className="mt-2 flex items-center gap-3">
             <input
               id="kwInput"
@@ -72,7 +72,7 @@ function Calculator({ est }) {
                 setKw(Math.max(0, parseInt(e.target.value || "0", 10)))
               }
               placeholder={est.capacityPlaceholder}
-              className="w-40 px-3 py-2 rounded-xl border bg-white/80 text-sm"
+              className="w-40 px-3 py-2 rounded-xl border bg-white/80 text-body text-slate-800"
             />
             <input
               type="range"
@@ -86,20 +86,20 @@ function Calculator({ est }) {
           </div>
         </div>
         <div>
-          <div className="text-sm text-gray-500">{est.annualIncomeLabel}</div>
-          <div className="mt-2 text-lg font-bold">
-            {numberWithCommas(annual)} 원
+          <div className="text-body font-medium text-slate-600">{est.annualIncomeLabel}</div>
+          <div className="mt-2 text-content-title text-emerald-700">
+            {numberWithCommas(annual)} ??
           </div>
         </div>
         <div className="flex flex-col justify-end">
-          <div className="text-sm text-gray-500">{est.lifetimePrefix}</div>
-          <div className="mt-1 text-lg font-bold">
-            {numberWithCommas(lifetime)} 원
+          <div className="text-body font-medium text-slate-600">{est.lifetimePrefix}</div>
+          <div className="mt-1 text-content-title text-emerald-700">
+            {numberWithCommas(lifetime)} ??
           </div>
-          <div className="text-sm text-gray-600">{est.lifetimeSuffix}</div>
+          <div className="text-footer text-slate-600">{est.lifetimeSuffix}</div>
         </div>
       </div>
-      <p className="mt-4 text-xs text-gray-500">{est.note}</p>
+      <p className="mt-4 text-footer text-slate-500">{est.note}</p>
     </div>
   );
 }
@@ -113,12 +113,12 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         {/* Hero */}
         <div className="max-w-3xl">
           <Pill>{hero.badge}</Pill>
-          <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+          <h1 className="mt-5 text-title text-slate-900 leading-tight tracking-tight">
             {hero.title}
           </h1>
-          <p className="mt-6 text-lg font-semibold">{hero.highlight}</p>
-          <div className="mt-3 text-gray-700">{hero.rentPerKw}</div>
-          <ul className="mt-4 space-y-2 text-sm">
+          <p className="mt-6 text-content-title text-brand-dark">{hero.highlight}</p>
+          <div className="mt-3 text-body text-slate-700">{hero.rentPerKw}</div>
+          <ul className="mt-4 space-y-2 text-body text-slate-700">
             {hero.bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="mt-[6px] block h-1.5 w-1.5 rounded-full bg-emerald-600" />
@@ -130,7 +130,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
             <button
               type="button"
               onClick={onCta}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 text-white text-sm font-semibold hover:opacity-90"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 text-white text-button font-semibold hover:opacity-90"
             >
               {hero.ctaText}
             </button>
@@ -141,7 +141,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         <div className="mt-16 grid md:grid-cols-2 gap-6">
           <Calculator est={estimator} />
           <div className="rounded-2xl p-6 border bg-white/70">
-            <h2 className="text-xl font-bold">{features.title}</h2>
+          <h2 className="text-content-title text-slate-900">{features.title}</h2>
             <div className="mt-6 grid sm:grid-cols-2 gap-6">
               {features.items.map((item) => (
                 <FeatureItem key={item.title} item={item} />
@@ -152,8 +152,8 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
 
         {/* Process */}
         <div className="mt-16 rounded-2xl p-6 border bg-white/70">
-          <h2 className="text-xl font-bold">{process.title}</h2>
-          <p className="mt-2 text-gray-600 text-sm">{process.subtitle}</p>
+          <h2 className="text-content-title text-slate-900">{process.title}</h2>
+          <p className="mt-2 text-body text-slate-600">{process.subtitle}</p>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-6">
             {process.steps.map((s) => (
               <Step key={s.step} step={s} />
@@ -163,7 +163,7 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
 
         {/* Cases */}
         <div className="mt-16">
-          <h2 className="text-xl font-bold">{cases.title}</h2>
+          <h2 className="text-content-title text-slate-900">{cases.title}</h2>
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cases.items.map((c, idx) => (
               <figure
@@ -176,8 +176,8 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
                   className="w-full h-48 object-cover"
                 />
                 <figcaption className="p-4">
-                  <div className="text-2xl font-bold">{c.capacity}</div>
-                  <div className="mt-1 text-gray-600">{c.location}</div>
+                  <div className="text-content-title text-slate-900">{c.capacity}</div>
+                  <div className="mt-1 text-body text-slate-600">{c.location}</div>
                 </figcaption>
               </figure>
             ))}
@@ -187,13 +187,13 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
         {/* Bottom CTA */}
         <div className="mt-16 flex items-center justify-between rounded-2xl p-6 border bg-white/70">
           <div>
-            <h3 className="text-lg font-semibold">{contact.title}</h3>
-            <p className="text-sm text-gray-600 mt-1">{contact.disclaimer}</p>
+            <h3 className="text-content-title text-slate-900">{contact.title}</h3>
+            <p className="text-body text-slate-600 mt-2">{contact.disclaimer}</p>
           </div>
           <button
             type="button"
             onClick={onCta}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border text-sm font-semibold hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border text-button font-semibold text-slate-800 hover:bg-slate-100"
           >
             {contact.cta}
           </button>
