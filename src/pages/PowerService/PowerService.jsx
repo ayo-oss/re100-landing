@@ -351,7 +351,7 @@ export default function PowerService() {
                     key={i}
                     className="relative flex flex-col items-center gap-8 px-10 py-10 text-center"
                   >
-                    <div className="flex h-24 w-24 border rounded-full items-center justify-center rounded-full bg-white/15">
+                    <div className="flex h-24 w-24 border items-center justify-center rounded-full bg-white/15">
                       {icon}
                     </div>
                     <p className="text-body leading-relaxed">{b}</p>
