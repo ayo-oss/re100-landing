@@ -1,12 +1,6 @@
 import React from "react";
 
-export function SectionCard({
-  title,
-  eyebrow,
-  description,
-  children,
-  className,
-}) {
+function SectionCard({ title, eyebrow, description, children, className }) {
   return (
     <section className={`p-8 ${className || ""}`}>
       {eyebrow ? (
@@ -15,7 +9,9 @@ export function SectionCard({
         </p>
       ) : null}
       {title ? (
-        <h2 className="mt-3 text-content-title font-semibold ">{title}</h2>
+        <h2 className="mt-3 text-content-title font-semibold text-slate-900">
+          {title}
+        </h2>
       ) : null}
       {description ? (
         <p className="mt-2 text-description text-slate-600">{description}</p>
@@ -24,3 +20,6 @@ export function SectionCard({
     </section>
   );
 }
+
+export default SectionCard;
+export { SectionCard };

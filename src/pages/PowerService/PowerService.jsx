@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 import { isArray, isObject, asString, formatNumber } from "./utils";
 import { Pill } from "./Pill";
 import { BulletItem } from "./BulletItem";
-import { SectionCard } from "./SectionCard";
+import SectionCard from "@/components/SectionCard";
+import ContactCTA from "@/components/ContactCTA";
+import ctaContent from "@/content/ko/cta.json";
+
 import { Tag } from "./Tag";
 import { TariffTable } from "./TariffTable";
 import SavingsCalculator from "./SavingsCalculator";
-import segmentFactoryImg from "../../assets/PowerService/aa1.jpeg";
-import segmentRetailImg from "../../assets/PowerService/aa2.jpeg";
-import segmentDataImg from "../../assets/PowerService/aa3.jpeg";
+import segmentFactoryImg from "@/assets/PowerService/aa1.jpeg";
+import segmentRetailImg from "@/assets/PowerService/aa2.jpeg";
+import segmentDataImg from "@/assets/PowerService/aa3.jpeg";
 
 export default function PowerService() {
   const hero = isObject(power.hero) ? power.hero : {};
@@ -23,6 +26,7 @@ export default function PowerService() {
   const process = isObject(power.process) ? power.process : {};
   const badges = isObject(power.badges) ? power.badges : {};
   const alliances = isObject(power.alliances) ? power.alliances : {};
+  const contactCTA = ctaContent.roofLease;
 
   const heroBullets = isArray(hero.bullets);
   const heroMetrics = isArray(hero.metrics);
@@ -436,22 +440,15 @@ export default function PowerService() {
               ))}
             </div>
           </SectionCard>
-
-          {/* Bottom CTA */}
-          {/* <SectionCard
-            eyebrow="CTA"
-            title={contact.title}
-            description={contact.disclaimer}
-            className="mt-16 text-center"
-          >
-            <Link
-              to="/support/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-brand px-6 py-3 text-button font-semibold text-brand transition hover:bg-brand/10"
-            >
-              {contact.cta}
-            </Link>
-          </SectionCard> */}
         </div>
+        {/* Bottom CTA */}
+        <ContactCTA
+          eyebrow="CTA"
+          title={contactCTA.title}
+          description={contactCTA.description}
+          ctaLabel={contactCTA.cta}
+          className="mt-16 "
+        />
       </div>
     </section>
   );

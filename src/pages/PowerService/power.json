@@ -138,9 +138,19 @@
   "cases": {
     "title": "절감 실적",
     "items": [
-      { "name": "제조공장 A", "from": 400, "to": 250, "saving": 3500 },
-      { "name": "물류센터 B", "from": 1200, "to": 820, "saving": 4100 },
-      { "name": "리테일 C", "from": 500, "to": 360, "saving": 4200 }
+      {
+        "name": "인*스카이뷰 아파트",
+        "from": 13900,
+        "to": 11150,
+        "saving": 3000
+      },
+      { "name": "**일보 사옥", "from": 400, "to": 250, "saving": 3500 },
+      { "name": "**시험연구원", "from": 1200, "to": 800, "saving": 4100 },
+      { "name": "**** 아파트", "from": 500, "to": 350, "saving": 4200 },
+      { "name": "** 아파트(서)", "from": 1750, "to": 500, "saving": 2000 },
+      { "name": "** 빌딩(북)", "from": 2250, "to": 750, "saving": 3000 },
+      { "name": "** 수산마트", "from": 300, "to": 250, "saving": 3000 },
+      { "name": "** 신문사", "from": 3400, "to": 2500, "saving": 5100 }
     ],
     "unit": { "power": "kW", "money": "만원" }
   },

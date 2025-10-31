@@ -47,27 +47,27 @@
       {
         "title": "유휴 공간을 통한 수익창출",
         "desc": "공장 지붕 활용",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0301.png"
+        "icon": "solar"
       },
       {
         "title": "초기 투자비용과 관리비 0원",
         "desc": "무자본 사업참여 가능",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0302.png"
+        "icon": "dollar"
       },
       {
         "title": "번거로운 절차는 그만",
         "desc": "지상권 설정 불필요",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0303.png"
+        "icon": "gear"
       },
       {
         "title": "노후화된 지붕에도 설치가능",
         "desc": "지붕 개수 및 보수 진행",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0304.png"
+        "icon": "roof"
       },
       {
-        "title": "임대 종료후 수익창출",
+        "title": "임대 종료 후 수익창출",
         "desc": "전력판매·소유권 무상이전",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0305.png"
+        "icon": "chart"
       }
     ]
   },
@@ -102,54 +102,9 @@
     "items": [
       {
         "capacity": "999.6 kW",
-        "location": "경상남도 창원시",
-        "image": "https://www.eneris.kr/images/service/img_service0101_01.jpg"
-      },
-      {
-        "capacity": "1,098.2 kW",
-        "location": "대구광역시",
-        "image": "https://www.eneris.kr/images/service/img_service0101_02.jpg"
-      },
-      {
-        "capacity": "780 kW",
-        "location": "경상남도 창녕군",
-        "image": "https://www.eneris.kr/images/service/img_service0101_03.jpg"
-      },
-      {
-        "capacity": "720 kW",
-        "location": "부산광역시",
-        "image": "https://www.eneris.kr/images/service/img_service0101_04.jpg"
-      },
-      {
-        "capacity": "625 kW",
-        "location": "경상남도 창녕군",
-        "image": "https://www.eneris.kr/images/service/img_service0101_05.jpg"
-      },
-      {
-        "capacity": "595 kW",
-        "location": "충청남도 아산시",
-        "image": "https://www.eneris.kr/images/service/img_service0101_06.jpg"
-      },
-      {
-        "capacity": "495.04 kW",
-        "location": "경상남도 창녕군",
-        "image": "https://www.eneris.kr/images/service/img_service0101_07.jpg"
-      },
-      {
-        "capacity": "350.4 kW",
-        "location": "충청남도 서산시",
-        "image": "https://www.eneris.kr/images/service/img_service0101_08.jpg"
-      },
-      {
-        "capacity": "290 kW",
-        "location": "경상남도 창녕군",
-        "image": "https://www.eneris.kr/images/service/img_service0101_09.jpg"
+        "location": "경상남도",
+        "image": ""
       }
     ]
-  },
-  "contact": {
-    "title": "태양광 전문가에게 문의하세요",
-    "disclaimer": "내용과 무관한 글, 광고성 글을 등록할 시 법적 책임을 받을 수 있습니다.",
-    "cta": "문의하기"
   }
 }

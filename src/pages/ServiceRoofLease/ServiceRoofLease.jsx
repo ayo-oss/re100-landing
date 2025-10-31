@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { Pill } from "./Pill";
 import { FeatureItem } from "./FeatureItem";
 import { Calculator } from "./Calculator";
-import { SectionCard } from "../PowerService";
+import SectionCard from "@/components/SectionCard";
+import ContactCTA from "@/components/ContactCTA";
+import ctaContent from "@/content/ko/cta.json";
 
 export default function ServiceRoofLease({ data = rooftop }) {
-  const { hero, estimator, features, process, cases, contact } = data;
+  const { hero, estimator, features, process, cases } = data;
+  const contactCTA = ctaContent.roofLease;
 
   const featureItems = React.useMemo(
     () => (Array.isArray(features?.items) ? features.items : []),
@@ -320,19 +323,13 @@ export default function ServiceRoofLease({ data = rooftop }) {
         </div> */}
 
         {/* Bottom CTA */}
-        <SectionCard
+        <ContactCTA
           eyebrow="CTA"
-          title={contact.title}
-          description={contact.disclaimer}
-          className="mt-16 text-center"
-        >
-          <Link
-            to="/support/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-brand px-6 py-3 text-button font-semibold text-brand transition hover:bg-brand/10"
-          >
-            {contact.cta}
-          </Link>
-        </SectionCard>
+          title={contactCTA.title}
+          description={contactCTA.description}
+          ctaLabel={contactCTA.cta}
+          className="mt-16"
+        />
       </div>
     </section>
   );
