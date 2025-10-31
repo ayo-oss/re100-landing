@@ -1,239 +1,12 @@
-﻿import React from "react";
+import React from "react";
 import power from "./power.json";
 import { Link } from "react-router-dom";
-
-const isArray = (value) => (Array.isArray(value) ? value : []);
-const isObject = (value) =>
-  value && typeof value === "object" && !Array.isArray(value);
-const asString = (value, fallback = "") =>
-  typeof value === "string" ? value : fallback;
-const formatNumber = (value) =>
-  typeof value === "number" ? value.toLocaleString() : asString(value);
-
-const Pill = ({ children }) => (
-  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-sm font-semibold text-emerald-600">
-    {children}
-  </span>
-);
-
-const BulletItem = ({ children }) => (
-  <li className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-soft">
-    <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-      <svg
-        aria-hidden="true"
-        className="h-3 w-3"
-        viewBox="0 0 12 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="m3 6 2 2 4-4"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
-    <span className="text-sm text-slate-700">{children}</span>
-  </li>
-);
-
-const SectionCard = ({ title, eyebrow, description, children, className }) => (
-  <section
-    className={`rounded-[28px] border border-emerald-100 bg-white/90 p-8 shadow-soft backdrop-blur ${
-      className || ""
-    }`}
-  >
-    {eyebrow ? (
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
-        {eyebrow}
-      </p>
-    ) : null}
-    {title ? (
-      <h2 className="mt-3 text-content-title font-semibold text-slate-900">
-        {title}
-      </h2>
-    ) : null}
-    {description ? (
-      <p className="mt-2 text-sm text-slate-600">{description}</p>
-    ) : null}
-    {children ? <div className="mt-6">{children}</div> : null}
-  </section>
-);
-
-const Tag = ({ children }) => (
-  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-    {children}
-  </span>
-);
-
-const palettes = {
-  emerald: {
-    border: "border-emerald-100",
-    headerBg: "bg-emerald-50/80",
-    bodyBorder: "border-emerald-50",
-  },
-  rose: {
-    border: "border-rose-100",
-    headerBg: "bg-rose-50/80",
-    bodyBorder: "border-rose-50",
-  },
-  neutral: {
-    border: "border-slate-200",
-    headerBg: "bg-slate-100",
-    bodyBorder: "border-slate-200/60",
-  },
-};
-
-const TariffTable = ({ table }) => {
-  if (!isObject(table)) return null;
-  const palette = palettes[table.tone] || palettes.emerald;
-  const columns = isObject(table.columns) ? table.columns : {};
-  const seasons = isArray(columns.seasons);
-  const rows = isArray(table.rows);
-  if (!rows.length) return null;
-
-  const showOption =
-    Boolean(columns.option) || rows.some((row) => !!row.option);
-  const showDetail =
-    Boolean(columns.detail) || rows.some((row) => isArray(row.details).length);
-
-  return (
-    <div
-      className={`overflow-hidden rounded-[24px] border ${palette.border} bg-white shadow-soft`}
-    >
-      <div
-        className={`border-b ${palette.border} ${
-          palette.headerBg
-        } px-6 py-4 text-left`}
-      >
-        <h3 className="text-title font-semibold text-slate-900">
-          {asString(table.title)}
-        </h3>
-        {table.note ? (
-          <p className="mt-1 text-xs text-slate-500">{table.note}</p>
-        ) : null}
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead
-            className={`${palette.headerBg} text-xs uppercase tracking-[0.12em] text-slate-600`}
-          >
-            <tr>
-              <th className="px-4 py-3 text-left">
-                {asString(columns.group, "Group")}
-              </th>
-              {showOption ? (
-                <th className="px-4 py-3 text-left">
-                  {asString(columns.option, "Option")}
-                </th>
-              ) : null}
-              <th className="px-4 py-3 text-left">
-                {asString(columns.base, "Base fee")}
-              </th>
-              {showDetail ? (
-                <th className="px-4 py-3 text-left">
-                  {asString(columns.detail, "Detail")}
-                </th>
-              ) : null}
-              {seasons.map((season, index) => (
-                <th key={index} className="px-4 py-3 text-left">
-                  {season}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, rowIndex) => {
-              const detailList = isArray(row.details);
-              const valueList = isArray(row.values);
-
-              if (detailList.length) {
-                return detailList.map((detail, detailIndex) => (
-                  <tr
-                    key={`${rowIndex}-${detailIndex}`}
-                    className={`border-t ${palette.bodyBorder} text-slate-700`}
-                  >
-                    {detailIndex === 0 ? (
-                      <td
-                        className="px-4 py-3 font-semibold text-slate-900"
-                        rowSpan={detailList.length}
-                      >
-                        {asString(row.group)}
-                      </td>
-                    ) : null}
-                    {showOption && detailIndex === 0 ? (
-                      <td
-                        className="px-4 py-3 text-slate-600"
-                        rowSpan={detailList.length}
-                      >
-                        {asString(row.option)}
-                      </td>
-                    ) : null}
-                    {detailIndex === 0 ? (
-                      <td
-                        className="px-4 py-3 font-medium text-emerald-700"
-                        rowSpan={detailList.length}
-                      >
-                        {formatNumber(row.base)}
-                      </td>
-                    ) : null}
-                    {showDetail ? (
-                      <td className="px-4 py-3 text-slate-600">
-                        {asString(detail.label)}
-                      </td>
-                    ) : null}
-                    {seasons.map((_, seasonIndex) => (
-                      <td
-                        key={seasonIndex}
-                        className="px-4 py-3 text-right text-slate-700"
-                      >
-                        {formatNumber(detail.values?.[seasonIndex])}
-                      </td>
-                    ))}
-                  </tr>
-                ));
-              }
-
-              return (
-                <tr
-                  key={rowIndex}
-                  className={`border-t ${palette.bodyBorder} text-slate-700`}
-                >
-                  <td className="px-4 py-3 font-semibold text-slate-900">
-                    {asString(row.group)}
-                  </td>
-                  {showOption ? (
-                    <td className="px-4 py-3 text-slate-600">
-                      {asString(row.option)}
-                    </td>
-                  ) : null}
-                  <td className="px-4 py-3 font-medium text-emerald-700">
-                    {formatNumber(row.base)}
-                  </td>
-                  {showDetail ? (
-                    <td className="px-4 py-3 text-slate-600">
-                      {asString(row.detail)}
-                    </td>
-                  ) : null}
-                  {seasons.map((_, seasonIndex) => (
-                    <td
-                      key={seasonIndex}
-                      className="px-4 py-3 text-right text-slate-700"
-                    >
-                      {formatNumber(valueList[seasonIndex])}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
+import { isArray, isObject, asString, formatNumber } from "./utils";
+import { Pill } from "./Pill";
+import { BulletItem } from "./BulletItem";
+import { SectionCard } from "./SectionCard";
+import { Tag } from "./Tag";
+import { TariffTable } from "./TariffTable";
 
 export default function PowerService() {
   const hero = isObject(power.hero) ? power.hero : {};
@@ -280,24 +53,24 @@ export default function PowerService() {
 
         {heroBullets.length ? (
           <ul className="grid list-none gap-3 text-sm text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
-            {heroBullets.map((item, index) => (
-              <BulletItem key={index}>{item}</BulletItem>
+            {heroBullets.map((item, i) => (
+              <BulletItem key={i}>{item}</BulletItem>
             ))}
           </ul>
         ) : null}
 
         {heroMetrics.length ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {heroMetrics.map((metric, index) => (
+            {heroMetrics.map((m, i) => (
               <div
-                key={index}
+                key={i}
                 className="rounded-[24px] border border-emerald-100 bg-white/90 px-6 py-5 text-center shadow-soft"
               >
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
-                  {asString(metric.label)}
+                  {asString(m.label)}
                 </div>
                 <div className="mt-2 text-title font-semibold text-slate-900">
-                  {asString(metric.value)}
+                  {asString(m.value)}
                 </div>
               </div>
             ))}
@@ -339,8 +112,8 @@ export default function PowerService() {
               ) : null}
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
-              {tariffTables.map((table, index) => (
-                <TariffTable key={index} table={table} />
+              {tariffTables.map((t, i) => (
+                <TariffTable key={i} table={t} />
               ))}
             </div>
           </section>
@@ -353,8 +126,8 @@ export default function PowerService() {
             description={asString(eligibility.subtitle)}
           >
             <ul className="grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
-              {eligibilityItems.map((item, index) => (
-                <BulletItem key={index}>{item}</BulletItem>
+              {eligibilityItems.map((item, i) => (
+                <BulletItem key={i}>{item}</BulletItem>
               ))}
             </ul>
           </SectionCard>
@@ -364,10 +137,10 @@ export default function PowerService() {
             description={asString(partner.name)}
           >
             <ul className="space-y-3 text-sm text-slate-700">
-              {partnerDesc.map((item, index) => (
-                <li key={index} className="flex gap-3">
+              {partnerDesc.map((d, i) => (
+                <li key={i} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>{item}</span>
+                  <span>{d}</span>
                 </li>
               ))}
             </ul>
@@ -380,9 +153,9 @@ export default function PowerService() {
           description={asString(segments.subtitle)}
         >
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {segmentCards.map((card, index) => (
+            {segmentCards.map((card, i) => (
               <div
-                key={index}
+                key={i}
                 className="flex h-full flex-col gap-4 rounded-[26px] border border-emerald-100 bg-white/95 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="flex items-center justify-between gap-3">
@@ -390,16 +163,16 @@ export default function PowerService() {
                     {asString(card.name)}
                   </h3>
                   <div className="flex flex-wrap justify-end gap-2">
-                    {isArray(card.conditions).map((condition, idx) => (
-                      <Tag key={idx}>{condition}</Tag>
+                    {isArray(card.conditions).map((c, idx) => (
+                      <Tag key={idx}>{c}</Tag>
                     ))}
                   </div>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-700">
-                  {isArray(card.methods).map((method, idx) => (
+                  {isArray(card.methods).map((m, idx) => (
                     <li key={idx} className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      <span>{method}</span>
+                      <span>{m}</span>
                     </li>
                   ))}
                 </ul>
@@ -414,16 +187,17 @@ export default function PowerService() {
           description="Real performance results achieved by our customers."
         >
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {caseItems.map((item, index) => (
+            {caseItems.map((item, i) => (
               <div
-                key={index}
+                key={i}
                 className="rounded-[26px] border border-emerald-100 bg-white/95 p-6 shadow-soft"
               >
                 <h3 className="text-title font-semibold text-slate-900">
                   {asString(item.name)}
                 </h3>
                 <p className="mt-2 text-sm text-slate-600">
-                  {formatNumber(item.from)}{powerUnit} → {formatNumber(item.to)}
+                  {formatNumber(item.from)}
+                  {powerUnit} → {formatNumber(item.to)}
                   {powerUnit}
                 </p>
                 <p className="mt-1 text-description font-semibold text-emerald-600">
@@ -440,8 +214,8 @@ export default function PowerService() {
           description={asString(benefits.subtitle)}
         >
           <ul className="grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
-            {benefitBullets.map((item, index) => (
-              <BulletItem key={index}>{item}</BulletItem>
+            {benefitBullets.map((b, i) => (
+              <BulletItem key={i}>{b}</BulletItem>
             ))}
           </ul>
         </SectionCard>
@@ -452,14 +226,14 @@ export default function PowerService() {
           description="Transparent step-by-step workflow from assessment to verification."
         >
           <ol className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {processSteps.map((step, index) => (
+            {processSteps.map((step, i) => (
               <li
-                key={index}
+                key={i}
                 className="flex h-full flex-col gap-3 rounded-[26px] border border-emerald-100 bg-white/95 p-5 shadow-soft"
               >
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-600">
-                    {index + 1}
+                    {i + 1}
                   </span>
                   <h3 className="text-sm font-semibold text-slate-900">
                     {asString(step.title)}
@@ -478,8 +252,8 @@ export default function PowerService() {
             description="Key differentiators that power FLAG's savings program."
           >
             <div className="flex flex-wrap gap-3">
-              {badgeItems.map((item, index) => (
-                <Tag key={index}>{item}</Tag>
+              {badgeItems.map((x, i) => (
+                <Tag key={i}>{x}</Tag>
               ))}
             </div>
           </SectionCard>
@@ -489,9 +263,9 @@ export default function PowerService() {
             description="Trusted alliances across the energy and construction ecosystem."
           >
             <div className="space-y-3">
-              {allianceOrgs.map((org, index) => (
+              {allianceOrgs.map((org, i) => (
                 <div
-                  key={index}
+                  key={i}
                   className="rounded-[26px] border border-emerald-100 bg-white/95 px-5 py-4 shadow-soft"
                 >
                   <div className="text-sm font-semibold text-slate-900">

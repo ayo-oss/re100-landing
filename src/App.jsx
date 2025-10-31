@@ -5,11 +5,12 @@ import Home from "./pages/Home.jsx";
 import AboutGreeting from "./pages/about/AboutGreeting.jsx";
 
 //서비스 지붕임대/한전수전
-import Rooftop from "./pages/services/Rooftop.jsx";
-import Power from "./pages/power/Power.jsx";
+import ServiceRoofLease from "./pages/ServiceRoofLease/ServiceRoofLease";
+import PowerService from "./pages/PowerService/PowerService";
 
 //문의/자주묻는질문/개인정보
-import Customer from "./pages/customer/Customer.jsx";
+import { EnerisCustomerSection } from "./pages/CustomerSection";
+
 import EnerisFaq from "./pages/enerisfaq/EnerisFaq.jsx";
 import EnerisPrivacy from "./pages/privacy/EnerisPrivacy.jsx";
 
@@ -27,8 +28,8 @@ function App() {
         </Route>
         <Route path="service">
           <Route index element={<Navigate replace to="service-1" />} />
-          <Route path="service-1" element={<Rooftop />} />
-          <Route path="service-2" element={<Power />} />
+          <Route path="service-1" element={<ServiceRoofLease />} />
+          <Route path="service-2" element={<PowerService />} />
           <Route path="service-3" element={<ComingSoon />} />
           <Route path="service-4" element={<ComingSoon />} />
           <Route path="service-5" element={<ComingSoon />} />
@@ -45,8 +46,8 @@ function App() {
           <Route path="residential" element={<ComingSoon />} />
         </Route>
         <Route path="support">
-          <Route index element={<Customer />} />
-          <Route path="contact" element={<Customer />} />
+          <Route index element={<EnerisCustomerSection />} />
+          <Route path="contact" element={<EnerisCustomerSection />} />
           <Route path="faq" element={<EnerisFaq />} />
         </Route>
         <Route path="legal">

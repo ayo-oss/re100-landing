@@ -1,167 +1,21 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import customer from "./customer.json";
-
-const GAS_ENDPOINT =
-  import.meta.env.VITE_GAS_ENDPOINT ||
-  import.meta.env.NEXT_PUBLIC_GAS_ENDPOINT ||
-  "";
-
-const phoneRegex = /^(01[0-9]|0[2-9])[0-9\-]{7,11}$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const underlineInputClass =
-  "block w-full border-b border-gray-300 bg-transparent px-0 pb-3 text-body text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
-const underlineErrorClass =
-  "border-red-400 text-red-600 placeholder:text-red-400 focus:border-red-500";
-const areaInputClass =
-  "block w-full rounded-md border border-gray-300 bg-transparent px-4 py-4 text-body text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
-const areaErrorClass =
-  "border-red-400 text-red-600 placeholder:text-red-400 focus:border-red-500";
-const getInputClass = (hasError, variant = "underline") =>
-  variant === "area"
-    ? `${areaInputClass}${hasError ? ` ${areaErrorClass}` : ""}`
-    : `${underlineInputClass}${hasError ? ` ${underlineErrorClass}` : ""}`;
-const buttonBaseClass =
-  "inline-flex items-center justify-center rounded-full border font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
-const buttonVariants = {
-  primary:
-    "bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-500 hover:border-emerald-500 active:bg-emerald-700 focus-visible:ring-emerald-500",
-  secondary:
-    "bg-white text-emerald-700 border-emerald-500 hover:bg-emerald-50 active:bg-emerald-100 focus-visible:ring-emerald-500",
-};
-const getButtonClass = (variant = "primary", fullWidth = true) => {
-  const widthClass = fullWidth ? "w-full sm:w-auto" : "w-auto";
-  return `${buttonBaseClass} ${widthClass} px-8 py-3 text-button text-[1.111rem] sm:px-12 sm:py-4 ${
-    buttonVariants[variant] || buttonVariants.primary
-  }`;
-};
-const createInitialFormState = () => ({
-  name: "",
-  phone: "",
-  address: "",
-  email: "",
-  type: "",
-  message: "",
-  agree: false,
-});
+import { Field } from "./Field";
+import { getInputClass, getButtonClass } from "./ui";
+import { useCustomerForm } from "./useCustomerForm";
 
 export default function EnerisCustomerSection() {
-  const [form, setForm] = useState(createInitialFormState);
-
-  const [fieldErrors, setFieldErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState(false);
-  const [error, setError] = useState("");
-
-  const inquiryTypes = useMemo(() => customer.inquiryTypes, []);
-  const expectsOpaqueResponse = GAS_ENDPOINT.includes("script.google");
-
-  useEffect(() => {
-    if (!done) return;
-    const timer = window.setTimeout(() => {
-      setDone(false);
-    }, 5000);
-    return () => window.clearTimeout(timer);
-  }, [done]);
-
-  const onChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((s) => ({
-      ...s,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-    if (fieldErrors[name]) {
-      setFieldErrors((prev) => {
-        const { [name]: _removed, ...rest } = prev;
-        return rest;
-      });
-    }
-  };
-
-  const validate = () => {
-    const nextErrors = {};
-    if (!form.name.trim()) nextErrors.name = customer.errors.name;
-    if (!form.phone.trim() || !phoneRegex.test(form.phone))
-      nextErrors.phone = customer.errors.phone;
-    if (!form.address.trim()) nextErrors.address = customer.errors.address;
-    if (!form.email.trim() || !emailRegex.test(form.email))
-      nextErrors.email = customer.errors.email;
-    if (!form.type) nextErrors.type = customer.errors.type;
-    if (!form.message.trim()) nextErrors.message = customer.errors.message;
-    if (!form.agree) nextErrors.agree = customer.errors.agree;
-    return nextErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length) {
-      setFieldErrors(validationErrors);
-      const firstKey = Object.keys(validationErrors)[0];
-      if (firstKey) {
-        requestAnimationFrame(() => {
-          if (firstKey === "agree") {
-            const checkbox = document.getElementById("agree");
-            if (checkbox) {
-              checkbox.focus();
-              checkbox.scrollIntoView({ block: "center", behavior: "smooth" });
-            }
-            return;
-          }
-          const field = document.querySelector(`[data-field='${firstKey}']`);
-          if (field && "focus" in field) {
-            field.focus();
-            field.scrollIntoView({ block: "center", behavior: "smooth" });
-          }
-        });
-      }
-      return;
-    }
-    setFieldErrors({});
-    if (!GAS_ENDPOINT) {
-      setError("Server endpoint is not configured.");
-      return;
-    }
-
-    const fd = new FormData();
-    fd.append("name", form.name);
-    fd.append("phone", form.phone);
-    fd.append("address", form.address);
-    fd.append("email", form.email);
-    fd.append("type", form.type);
-    fd.append("message", form.message);
-    fd.append("agree", String(form.agree));
-
-    try {
-      setSubmitting(true);
-      const fetchOptions = {
-        method: "POST",
-        body: fd,
-      };
-      if (expectsOpaqueResponse) {
-        fetchOptions.mode = "no-cors";
-      }
-      const res = await fetch(GAS_ENDPOINT, fetchOptions);
-      if (expectsOpaqueResponse || res.type === "opaque") {
-        setDone(true);
-        setForm(createInitialFormState());
-        return;
-      }
-      const isJsonResponse = res.headers
-        ?.get("content-type")
-        ?.includes("application/json");
-      const customer = isJsonResponse ? await res.json() : null;
-      if (!res.ok || (isJsonResponse && !customer?.ok)) {
-        throw new Error(customer?.message || "Server error");
-      }
-      setDone(true);
-      setForm(createInitialFormState());
-    } catch (err) {
-      setError(err?.message || "Server error");
-    } finally {
-      setSubmitting(false);
-    }
-  };
+  const {
+    form,
+    onChange,
+    fieldErrors,
+    submitting,
+    done,
+    setDone,
+    error,
+    inquiryTypes,
+    handleSubmit,
+  } = useCustomerForm(customer);
 
   return (
     <section className="bg-white py-20">
@@ -280,13 +134,7 @@ export default function EnerisCustomerSection() {
                   aria-hidden
                   className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                       d="M4 6.5 8 10.5 12 6.5"
                       stroke="currentColor"
@@ -378,13 +226,7 @@ export default function EnerisCustomerSection() {
           <div className="pointer-events-none fixed inset-x-0 top-6 z-50 flex justify-center px-4">
             <div className="pointer-events-auto flex w-full max-w-xl items-start gap-4 rounded-2xl border border-emerald-200 bg-white px-6 py-5 shadow-xl">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M5 10.5 8.5 14 15 6"
                     stroke="currentColor"
@@ -408,13 +250,7 @@ export default function EnerisCustomerSection() {
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
                 aria-label="알림 닫기"
               >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path
                     d="m5 5 8 8M13 5l-8 8"
                     stroke="currentColor"
@@ -431,28 +267,3 @@ export default function EnerisCustomerSection() {
     </section>
   );
 }
-
-function Field({ label, children, full = false, required = false, error }) {
-  return (
-    <label className={full ? "block sm:col-span-2" : "block"}>
-      <span className="flex items-center gap-2 text-body text-[1.125rem] font-semibold text-slate-900">
-        {label}
-        {required && (
-          <>
-            <span className="sr-only">Required field</span>
-            <span
-              aria-hidden
-              className="inline-flex h-2 w-2 rounded-full bg-emerald-500"
-            />
-          </>
-        )}
-      </span>
-      <div className="mt-3">{children}</div>
-      {error && (
-        <p className="mt-2 text-xs font-medium text-red-500">{error}</p>
-      )}
-    </label>
-  );
-}
-
-
