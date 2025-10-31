@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import power from "./power.json";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,9 @@ const BulletItem = ({ children }) => (
 
 const SectionCard = ({ title, eyebrow, description, children, className }) => (
   <section
-    className={`rounded-[28px] border border-emerald-100 bg-white/90 p-8 shadow-soft backdrop-blur ${className || ""}`}
+    className={`rounded-[28px] border border-emerald-100 bg-white/90 p-8 shadow-soft backdrop-blur ${
+      className || ""
+    }`}
   >
     {eyebrow ? (
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
@@ -66,6 +68,173 @@ const Tag = ({ children }) => (
   </span>
 );
 
+const palettes = {
+  emerald: {
+    border: "border-emerald-100",
+    headerBg: "bg-emerald-50/80",
+    bodyBorder: "border-emerald-50",
+  },
+  rose: {
+    border: "border-rose-100",
+    headerBg: "bg-rose-50/80",
+    bodyBorder: "border-rose-50",
+  },
+  neutral: {
+    border: "border-slate-200",
+    headerBg: "bg-slate-100",
+    bodyBorder: "border-slate-200/60",
+  },
+};
+
+const TariffTable = ({ table }) => {
+  if (!isObject(table)) return null;
+  const palette = palettes[table.tone] || palettes.emerald;
+  const columns = isObject(table.columns) ? table.columns : {};
+  const seasons = isArray(columns.seasons);
+  const rows = isArray(table.rows);
+  if (!rows.length) return null;
+
+  const showOption =
+    Boolean(columns.option) || rows.some((row) => !!row.option);
+  const showDetail =
+    Boolean(columns.detail) || rows.some((row) => isArray(row.details).length);
+
+  return (
+    <div
+      className={`overflow-hidden rounded-[24px] border ${palette.border} bg-white shadow-soft`}
+    >
+      <div
+        className={`border-b ${palette.border} ${
+          palette.headerBg
+        } px-6 py-4 text-left`}
+      >
+        <h3 className="text-title font-semibold text-slate-900">
+          {asString(table.title)}
+        </h3>
+        {table.note ? (
+          <p className="mt-1 text-xs text-slate-500">{table.note}</p>
+        ) : null}
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead
+            className={`${palette.headerBg} text-xs uppercase tracking-[0.12em] text-slate-600`}
+          >
+            <tr>
+              <th className="px-4 py-3 text-left">
+                {asString(columns.group, "Group")}
+              </th>
+              {showOption ? (
+                <th className="px-4 py-3 text-left">
+                  {asString(columns.option, "Option")}
+                </th>
+              ) : null}
+              <th className="px-4 py-3 text-left">
+                {asString(columns.base, "Base fee")}
+              </th>
+              {showDetail ? (
+                <th className="px-4 py-3 text-left">
+                  {asString(columns.detail, "Detail")}
+                </th>
+              ) : null}
+              {seasons.map((season, index) => (
+                <th key={index} className="px-4 py-3 text-left">
+                  {season}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, rowIndex) => {
+              const detailList = isArray(row.details);
+              const valueList = isArray(row.values);
+
+              if (detailList.length) {
+                return detailList.map((detail, detailIndex) => (
+                  <tr
+                    key={`${rowIndex}-${detailIndex}`}
+                    className={`border-t ${palette.bodyBorder} text-slate-700`}
+                  >
+                    {detailIndex === 0 ? (
+                      <td
+                        className="px-4 py-3 font-semibold text-slate-900"
+                        rowSpan={detailList.length}
+                      >
+                        {asString(row.group)}
+                      </td>
+                    ) : null}
+                    {showOption && detailIndex === 0 ? (
+                      <td
+                        className="px-4 py-3 text-slate-600"
+                        rowSpan={detailList.length}
+                      >
+                        {asString(row.option)}
+                      </td>
+                    ) : null}
+                    {detailIndex === 0 ? (
+                      <td
+                        className="px-4 py-3 font-medium text-emerald-700"
+                        rowSpan={detailList.length}
+                      >
+                        {formatNumber(row.base)}
+                      </td>
+                    ) : null}
+                    {showDetail ? (
+                      <td className="px-4 py-3 text-slate-600">
+                        {asString(detail.label)}
+                      </td>
+                    ) : null}
+                    {seasons.map((_, seasonIndex) => (
+                      <td
+                        key={seasonIndex}
+                        className="px-4 py-3 text-right text-slate-700"
+                      >
+                        {formatNumber(detail.values?.[seasonIndex])}
+                      </td>
+                    ))}
+                  </tr>
+                ));
+              }
+
+              return (
+                <tr
+                  key={rowIndex}
+                  className={`border-t ${palette.bodyBorder} text-slate-700`}
+                >
+                  <td className="px-4 py-3 font-semibold text-slate-900">
+                    {asString(row.group)}
+                  </td>
+                  {showOption ? (
+                    <td className="px-4 py-3 text-slate-600">
+                      {asString(row.option)}
+                    </td>
+                  ) : null}
+                  <td className="px-4 py-3 font-medium text-emerald-700">
+                    {formatNumber(row.base)}
+                  </td>
+                  {showDetail ? (
+                    <td className="px-4 py-3 text-slate-600">
+                      {asString(row.detail)}
+                    </td>
+                  ) : null}
+                  {seasons.map((_, seasonIndex) => (
+                    <td
+                      key={seasonIndex}
+                      className="px-4 py-3 text-right text-slate-700"
+                    >
+                      {formatNumber(valueList[seasonIndex])}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
 export default function PowerService() {
   const hero = isObject(power.hero) ? power.hero : {};
   const tariff = isObject(power.tariff) ? power.tariff : {};
@@ -79,8 +248,8 @@ export default function PowerService() {
   const alliances = isObject(power.alliances) ? power.alliances : {};
 
   const heroBullets = isArray(hero.bullets);
-  const tariffRows = isArray(tariff.rows);
-  const tariffNotes = isArray(tariff.notes);
+  const heroMetrics = isArray(hero.metrics);
+  const tariffTables = isArray(tariff.tables);
   const eligibilityItems = isArray(eligibility.items);
   const partnerDesc = isArray(partner.desc);
   const segmentCards = isArray(segments.cards);
@@ -97,121 +266,85 @@ export default function PowerService() {
     <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-white py-24">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(209,245,225,0.8)_0%,_rgba(255,255,255,0)_65%)]" />
       <div className="container flex flex-col gap-16">
-        <section className="grid gap-12 rounded-[32px] border border-emerald-100 bg-white/90 p-10 shadow-soft lg:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)]">
-          <div className="flex flex-col gap-6">
-            <div>
-              <Pill>{asString(hero.heading, "Power saving consultation")}</Pill>
-              <h1 className="mt-4 text-display font-semibold leading-tight text-slate-900">
-                {asString(power.title)}
-              </h1>
-              <p className="mt-3 text-description text-slate-600">
-                {asString(power.subtitle)}
+        <header className="mx-auto max-w-4xl space-y-6 text-center">
+          <Pill>{asString(hero.badge)}</Pill>
+          <div className="space-y-4">
+            <h1 className="text-display font-semibold leading-tight text-slate-900">
+              {asString(hero.title)}
+            </h1>
+            <p className="text-description text-slate-600">
+              {asString(hero.subtitle)}
+            </p>
+          </div>
+        </header>
+
+        {heroBullets.length ? (
+          <ul className="grid list-none gap-3 text-sm text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
+            {heroBullets.map((item, index) => (
+              <BulletItem key={index}>{item}</BulletItem>
+            ))}
+          </ul>
+        ) : null}
+
+        {heroMetrics.length ? (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {heroMetrics.map((metric, index) => (
+              <div
+                key={index}
+                className="rounded-[24px] border border-emerald-100 bg-white/90 px-6 py-5 text-center shadow-soft"
+              >
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+                  {asString(metric.label)}
+                </div>
+                <div className="mt-2 text-title font-semibold text-slate-900">
+                  {asString(metric.value)}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link
+            to="/support/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition hover:bg-brand-dark"
+          >
+            {asString(hero?.cta?.primary, "Request consultation")}
+          </Link>
+          <Link
+            to="/service/service-1"
+            className="inline-flex items-center gap-2 rounded-full border border-brand/40 px-6 py-3 text-button font-semibold text-brand-dark transition hover:bg-emerald-50"
+          >
+            {asString(hero?.cta?.secondary, "View services")}
+          </Link>
+        </div>
+
+        {hero.highlight ? (
+          <div className="mx-auto max-w-3xl rounded-[28px] border border-emerald-100 bg-emerald-50/70 px-6 py-4 text-center text-sm text-emerald-700 shadow-soft">
+            {hero.highlight}
+          </div>
+        ) : null}
+
+        {tariffTables.length ? (
+          <section className="space-y-8">
+            <div className="space-y-3 text-center">
+              <h2 className="text-content-title font-semibold text-slate-900">
+                {asString(tariff.title)}
+              </h2>
+              <p className="text-sm text-slate-600">
+                {asString(tariff.description)}
               </p>
+              {tariff.note ? (
+                <p className="text-xs text-slate-500">{tariff.note}</p>
+              ) : null}
             </div>
-
-            {heroBullets.length ? (
-              <ul className="divide-y divide-emerald-100 rounded-3xl border border-emerald-100 bg-white shadow-soft">
-                {heroBullets.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 px-6 py-4 text-sm text-slate-700"
-                  >
-                    <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                      <svg
-                        aria-hidden="true"
-                        className="h-3 w-3"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="m3 6 2 2 4-4"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                to="/support/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition hover:bg-brand-dark"
-              >
-                {asString(power?.cta?.primary, "Book a call")}
-              </Link>
-              <Link
-                to="/service/service-1"
-                className="inline-flex items-center gap-2 rounded-full border border-brand/40 px-6 py-3 text-button font-semibold text-brand-dark transition hover:bg-emerald-50"
-              >
-                {asString(power?.cta?.secondary, "View services")}
-              </Link>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {tariffTables.map((table, index) => (
+                <TariffTable key={index} table={table} />
+              ))}
             </div>
-          </div>
-
-          <div className="flex flex-col gap-6 rounded-[28px] border border-emerald-100 bg-emerald-50/70 p-8 shadow-inner">
-            <h2 className="text-content-title font-semibold text-emerald-800">
-              {asString(tariff.title, "Tariff comparison")}
-            </h2>
-            <div className="overflow-hidden rounded-3xl border border-white/70 bg-white shadow-soft">
-              <table className="min-w-full divide-y divide-emerald-100 text-sm">
-                <thead className="bg-emerald-50/80 text-xs uppercase tracking-[0.12em] text-emerald-600">
-                  <tr>
-                    <th className="px-4 py-3 text-left">
-                      {asString(tariff.colLabels?.plan, "Plan")}
-                    </th>
-                    <th className="px-4 py-3 text-left">
-                      {asString(tariff.colLabels?.base, "Base fee")}
-                    </th>
-                    <th className="px-4 py-3 text-left">
-                      {asString(tariff.colLabels?.usage, "Usage rate")}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-emerald-50 text-slate-700">
-                  {tariffRows.map((row, index) => (
-                    <tr key={index} className="bg-white/95">
-                      <td className="px-4 py-3 font-semibold">
-                        {asString(row?.class)}
-                      </td>
-                      <td className="px-4 py-3">{formatNumber(row?.basic)}</td>
-                      <td className="px-4 py-3">
-                        <div className="flex flex-wrap gap-2">
-                          {Object.entries(row?.kwh || {}).map(
-                            ([label, value]) => (
-                              <span
-                                key={label}
-                                className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs"
-                              >
-                                <span className="font-medium text-emerald-700">
-                                  {label}
-                                </span>
-                                <span>{formatNumber(value)}</span>
-                              </span>
-                            )
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {tariffNotes.length ? (
-              <ul className="list-disc space-y-2 pl-5 text-sm text-emerald-700">
-                {tariffNotes.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr),minmax(0,0.8fr)]">
           <SectionCard
@@ -290,13 +423,11 @@ export default function PowerService() {
                   {asString(item.name)}
                 </h3>
                 <p className="mt-2 text-sm text-slate-600">
-                  {formatNumber(item.from)}
-                  {powerUnit} → {formatNumber(item.to)}
+                  {formatNumber(item.from)}{powerUnit} → {formatNumber(item.to)}
                   {powerUnit}
                 </p>
                 <p className="mt-1 text-description font-semibold text-emerald-600">
-                  {formatNumber(item.saving)}
-                  {moneyUnit} savings
+                  {formatNumber(item.saving)} {moneyUnit} savings
                 </p>
               </div>
             ))}
