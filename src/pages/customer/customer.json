@@ -33,7 +33,7 @@
   "privacy": {
     "prefix": "",
     "anchor": "개인정보처리방침",
-    "link": "/privacy.php",
+    "link": "legal/privacy",
     "suffix": "에 대한 내용을 읽었으며 이에 동의합니다.",
     "checkAll": "전체동의"
   },
