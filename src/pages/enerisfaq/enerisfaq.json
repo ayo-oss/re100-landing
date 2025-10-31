@@ -1,6 +1,7 @@
 {
   "title": "자주묻는 질문",
   "searchPlaceholder": "검색",
+  "nonefaq": "검색 결과가 없습니다.",
   "items": [
     {
       "id": "gov-01",

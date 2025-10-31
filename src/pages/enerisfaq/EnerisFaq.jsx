@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import enerisfaq from "./enerisfaq.json";
 
-const EMPTY_MESSAGE = "\uAC80\uC0C9 \uACB0\uACFC\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4.";
-const CTA_LABEL = "\uCD94\uAC00 \uBB38\uC758\uD558\uAE30";
-
 export default function EnerisFaq() {
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState(null);
@@ -55,15 +52,17 @@ export default function EnerisFaq() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-[36px] border border-slate-200 bg-white shadow-sm">
+        <div className="mt-12 rounded-[10px] border border-slate-200 bg-white shadow-sm">
           {filtered.map((item, idx) => {
             const isOpen = openId === item.id;
             return (
               <div
                 key={item.id}
-                className={`transition-colors duration-300 ${
+                className={`transition-colors py-10 duration-300 ${
                   isOpen ? "bg-emerald-50/40" : "bg-transparent"
-                } ${idx !== filtered.length - 1 ? "border-b border-slate-200" : ""}`}
+                } ${
+                  idx !== filtered.length - 1 ? "border-b border-slate-200" : ""
+                }`}
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : item.id)}
@@ -89,7 +88,7 @@ export default function EnerisFaq() {
                   </div>
                   <span
                     className={`inline-flex h-6 w-6 items-center justify-center text-slate-400 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-emerald-500" : ""
+                      isOpen ? "rotate-180 text-emerald-500 py-10" : ""
                     }`}
                     aria-hidden
                   >
@@ -108,19 +107,19 @@ export default function EnerisFaq() {
                   </span>
                 </button>
                 <div
-                  className="grid overflow-hidden transition-[grid-template-rows] duration-300 ease-out"
-                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  className="overflow-hidden transition-[max-height] duration-300 ease-out"
+                  style={{ maxHeight: isOpen ? "640px" : "0px" }}
                   aria-hidden={!isOpen}
                 >
                   <div
-                    className="px-8 pb-8 pt-0 text-[1.125rem] leading-7 text-slate-700 transition-opacity duration-300 ease-out"
+                    className="px-8 pb-8 pt-0 text-[1.125rem] leading-7 text-slate-700 transition-opacity duration-200 ease-out"
                     style={{ opacity: isOpen ? 1 : 0 }}
                   >
                     <div className="flex gap-6 border-t border-slate-200 pt-6">
                       <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-lg font-bold text-white">
                         A.
                       </span>
-                      <div className="flex-1 space-y-4">
+                      <div className="flex-1 space-y-4 m-10">
                         {item.answer.map((block, index) => (
                           <AnswerBlock key={index} block={block} />
                         ))}
@@ -132,21 +131,10 @@ export default function EnerisFaq() {
             );
           })}
           {filtered.length === 0 && (
-            <div className="rounded-3xl border border-dashed border-slate-200 bg-white px-8 py-14 text-center text-[1.125rem] text-slate-500">
-              {EMPTY_MESSAGE}
+            <div className="mt-20 px-8 py-50 text-center text-[1.125rem] text-slate-500">
+              {enerisfaq.nonefaq}
             </div>
           )}
-        </div>
-
-        <div className="mt-14 flex justify-center">
-          <a
-            href="https://pf.kakao.com/_xfJxaG/chat"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500 bg-white px-8 py-3 text-[1.111rem] font-semibold text-emerald-600 transition-colors hover:bg-emerald-50"
-          >
-            {CTA_LABEL}
-          </a>
         </div>
       </div>
     </section>
