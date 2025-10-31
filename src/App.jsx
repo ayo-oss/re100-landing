@@ -10,6 +10,9 @@ import Rooftop from "./pages/services/Rooftop.jsx";
 //문의
 import Customer from "./pages/customer/Customer.jsx";
 
+//자주묻는질문
+import EnerisFaq from "./pages/enerisfaq/EnerisFaq.jsx";
+
 function App() {
   return (
     <Routes>
@@ -43,7 +46,7 @@ function App() {
         <Route path="support">
           <Route index element={<Customer />} />
           <Route path="contact" element={<Customer />} />
-          <Route path="faq" element={<ComingSoon />} />
+          <Route path="faq" element={<EnerisFaq />} />
           <Route path="guide" element={<ComingSoon />} />
           <Route path="resources" element={<ComingSoon />} />
           <Route path="*" element={<ComingSoon />} />

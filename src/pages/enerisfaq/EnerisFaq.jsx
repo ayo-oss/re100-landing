@@ -18,9 +18,6 @@ export default function EnerisFaq() {
         <div className="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-3xl font-bold">{enerisfaq.title}</h2>
-            <p className="text-sm text-gray-500">
-              {enerisfaq.totalLabel} {enerisfaq.totalCount}건
-            </p>
           </div>
           <input
             type="search"
