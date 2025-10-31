@@ -41,25 +41,15 @@ function App() {
           <Route path="power" element={<ComingSoon />} />
           <Route path="building" element={<ComingSoon />} />
           <Route path="residential" element={<ComingSoon />} />
-          <Route path="*" element={<ComingSoon />} />
         </Route>
         <Route path="support">
           <Route index element={<Customer />} />
           <Route path="contact" element={<Customer />} />
           <Route path="faq" element={<EnerisFaq />} />
-          <Route path="guide" element={<ComingSoon />} />
-          <Route path="resources" element={<ComingSoon />} />
-          <Route path="*" element={<ComingSoon />} />
         </Route>
         <Route path="legal">
           <Route index element={<ComingSoon />} />
           <Route path="privacy" element={<ComingSoon />} />
-          <Route path="*" element={<ComingSoon />} />
-        </Route>
-        <Route path="promotion">
-          <Route index element={<ComingSoon />} />
-          <Route path="events" element={<ComingSoon />} />
-          <Route path="*" element={<ComingSoon />} />
         </Route>
         <Route path="*" element={<ComingSoon />} />
       </Route>
