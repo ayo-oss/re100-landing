@@ -4,16 +4,13 @@ import ComingSoon from "./pages/ComingSoon.jsx";
 import Home from "./pages/Home.jsx";
 import AboutGreeting from "./pages/about/AboutGreeting.jsx";
 
-//서비스
+//서비스 지붕임대/한전수전
 import Rooftop from "./pages/services/Rooftop.jsx";
+import Power from "./pages/power/Power.jsx";
 
-//문의
+//문의/자주묻는질문/개인정보
 import Customer from "./pages/customer/Customer.jsx";
-
-//자주묻는질문
 import EnerisFaq from "./pages/enerisfaq/EnerisFaq.jsx";
-
-//개인정보
 import EnerisPrivacy from "./pages/privacy/EnerisPrivacy.jsx";
 
 function App() {
@@ -30,14 +27,11 @@ function App() {
         </Route>
         <Route path="services">
           <Route index element={<Rooftop />} />
-          <Route path="rooftop" element={<Rooftop />} />
-          <Route path="power-plant" element={<ComingSoon />} />
-          <Route path="finance" element={<ComingSoon />} />
-          <Route path="gov-support" element={<ComingSoon />} />
-          <Route path="re100" element={<ComingSoon />} />
-          <Route path="equipment" element={<ComingSoon />} />
-          <Route path="monitoring" element={<ComingSoon />} />
-          <Route path="*" element={<ComingSoon />} />
+          <Route path="services1" element={<Rooftop />} />
+          <Route path="services2" element={<Power />} />
+          <Route path="services3" element={<ComingSoon />} />
+          <Route path="services4" element={<ComingSoon />} />
+          <Route path="services5" element={<ComingSoon />} />
         </Route>
         <Route path="cases">
           <Route index element={<ComingSoon />} />
