@@ -1,6 +1,7 @@
 // SavePower.jsx
 import React from "react";
 import power from "./power.json";
+import { Link, NavLink } from "react-router-dom";
 
 const H2 = ({ children }) => (
   <h2 className="text-xl font-semibold text-gray-900">{children}</h2>
