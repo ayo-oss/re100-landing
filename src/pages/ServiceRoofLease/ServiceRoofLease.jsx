@@ -3,8 +3,8 @@ import rooftop from "./rooftop.json";
 import { Link } from "react-router-dom";
 import { Pill } from "./Pill";
 import { FeatureItem } from "./FeatureItem";
-import { Step } from "./Step";
 import { Calculator } from "./Calculator";
+import { SectionCard } from "../PowerService/SectionCard";
 
 export default function ServiceRoofLease({ data = rooftop }) {
   const { hero, estimator, features, process, cases, contact } = data;
@@ -31,6 +31,123 @@ export default function ServiceRoofLease({ data = rooftop }) {
       return `${base} sm:grid-cols-2 lg:grid-cols-2 lg:max-w-[44rem] lg:mx-auto`;
     return `${base} sm:grid-cols-2 lg:grid-cols-3`;
   }, [featureRemaining.length]);
+
+  const processSteps = React.useMemo(
+    () => (Array.isArray(process?.steps) ? process.steps : []),
+    [process?.steps]
+  );
+  const processPalettes = [
+    {
+      circleBg: "bg-emerald-500",
+      ring: "ring-emerald-200/60",
+      iconBg: "bg-emerald-50",
+      iconText: "text-emerald-600",
+    },
+    {
+      circleBg: "bg-sky-500",
+      ring: "ring-sky-200/60",
+      iconBg: "bg-sky-50",
+      iconText: "text-sky-600",
+    },
+    {
+      circleBg: "bg-blue-500",
+      ring: "ring-blue-200/60",
+      iconBg: "bg-blue-50",
+      iconText: "text-blue-600",
+    },
+    {
+      circleBg: "bg-purple-500",
+      ring: "ring-purple-200/60",
+      iconBg: "bg-purple-50",
+      iconText: "text-purple-600",
+    },
+    {
+      circleBg: "bg-indigo-500",
+      ring: "ring-indigo-200/60",
+      iconBg: "bg-indigo-50",
+      iconText: "text-indigo-600",
+    },
+  ];
+  const processIcons = [
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M4 4h16v6H4z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 14h16v6H4z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 4v16M12 8h4M12 18h4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M3 6h18M3 12h18M3 18h11"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M7 6v12"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M5 4h14v16H5z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 8h6M9 12h6M9 16h4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M5 20h14l-2-11H7l-2 11Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 9V6a3 3 0 0 1 6 0v3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 21a9 9 0 1 0-9-9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.5 13.5 11 16l5-5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+  ];
 
   return (
     <section className="relative overflow-hidden py-40">
@@ -108,9 +225,12 @@ export default function ServiceRoofLease({ data = rooftop }) {
         {/* Estimator + Features */}
         <div className="mt-16 grid md:grid-cols-1">
           <Calculator est={estimator} />
-          <div className="rounded-[10px] p-6 bg-white/70">
-            <h2 className="text-content-title  mb-20">{features.title}</h2>
-            <div className="mt-6 space-y-6">
+          <SectionCard
+            eyebrow="Eligibility"
+            title={features.title}
+            className="mt-16 text-center"
+          >
+            <div className="space-y-6 mt-20 ">
               <div className="grid place-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {featureFirstRow.map((item) => (
                   <FeatureItem key={item.title} item={item} />
@@ -124,19 +244,53 @@ export default function ServiceRoofLease({ data = rooftop }) {
                 </div>
               )}
             </div>
-          </div>
+          </SectionCard>
         </div>
 
         {/* Process */}
-        <div className="mt-16 rounded-[10px] p-6">
-          <h2 className="text-content-title ">{process.title}</h2>
-          <p className="mt-2 text-body text-slate-600">{process.subtitle}</p>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-5 gap-6">
-            {process.steps.map((s) => (
-              <Step key={s.step} step={s} />
-            ))}
-          </div>
-        </div>
+        <SectionCard
+          eyebrow="Process"
+          title={process.title}
+          description={process.subtitle}
+          className="mt-16 text-center"
+        >
+          <ol className="relative flex flex-col gap-10 mt-20  lg:flex-row lg:items-stretch lg:justify-between">
+            {processSteps.map((step, index) => {
+              const palette = processPalettes[index % processPalettes.length];
+              const icon = processIcons[index % processIcons.length];
+              return (
+                <li
+                  key={index}
+                  className="relative flex flex-1 flex-col items-center text-center"
+                >
+                  <div className="flex flex-col items-center gap-5">
+                    <div className="relative flex items-center justify-center">
+                      <div
+                        className={`flex h-16 w-16 items-center justify-center rounded-full text-title font-semibold text-white ring-4 ${palette.circleBg} ${palette.ring}`}
+                      >
+                        {index + 1}
+                      </div>
+                      {index < processSteps.length - 1 ? (
+                        <span className="hidden lg:block absolute left-full top-1/2 ml-4 h-[2px] w-40 -translate-y-1/2 bg-slate-200" />
+                      ) : null}
+                    </div>
+                    <div
+                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 ${palette.iconBg} shadow-soft ${palette.iconText}`}
+                    >
+                      <span className={palette.iconText}>{icon}</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <h3 className="text-title font-semibold text-slate-900">
+                      {step.title}
+                    </h3>
+                    <p className="text-body text-slate-600">{step.desc}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </SectionCard>
 
         {/* Cases */}
         {/* <div className="mt-16">
@@ -166,20 +320,19 @@ export default function ServiceRoofLease({ data = rooftop }) {
         </div> */}
 
         {/* Bottom CTA */}
-        <div className="mt-16 flex items-center justify-between rounded-[10px] p-6">
-          <div>
-            <h3 className="text-content-title ">{contact.title}</h3>
-            <p className="text-body text-slate-600 mt-2">
-              {contact.disclaimer}
-            </p>
-          </div>
+        <SectionCard
+          eyebrow="CTA"
+          title={contact.title}
+          description={contact.disclaimer}
+          className="mt-16 text-center"
+        >
           <Link
             to="/support/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] border text-button font-semibold text-slate-800 hover:bg-slate-100"
+            className="inline-flex items-center gap-2 rounded-full border border-brand px-6 py-3 text-button font-semibold text-brand transition hover:bg-brand/10"
           >
             {contact.cta}
           </Link>
-        </div>
+        </SectionCard>
       </div>
     </section>
   );

@@ -215,6 +215,7 @@ export default function PowerService() {
           eyebrow="Segments"
           title={asString(segments.title)}
           description={asString(segments.subtitle)}
+          className="text-center"
         >
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {segmentCards.map((card, i) => {
@@ -223,7 +224,7 @@ export default function PowerService() {
               return (
                 <div
                   key={i}
-                  className="flex h-full flex-col gap-4 rounded-[14px] border border-emerald-100 bg-white/95 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
+                  className="flex h-full flex-col gap-4 text-center rounded-[10px] border border-emerald-100 bg-white/95 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div>
                     <img
@@ -260,6 +261,7 @@ export default function PowerService() {
           eyebrow="Case Study"
           title={asString(cases.title)}
           description="Real performance results achieved by our customers."
+          className="text-center"
         >
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {caseItems.map((item, i) => (
@@ -285,9 +287,7 @@ export default function PowerService() {
 
         <SectionCard
           eyebrow="Benefits"
-          title={asString(benefits.title)}
-          description={asString(benefits.subtitle)}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden text-center"
         >
           <div className="relative">
             <header className="mb-12 text-center">
@@ -299,7 +299,7 @@ export default function PowerService() {
               </p>
             </header>
 
-            <ul className="grid gap-10 text-left sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="grid text-left sm:grid-cols-2 lg:grid-cols-3">
               {benefitBullets.map((b, i) => {
                 const index = i % 3;
                 const icon =
@@ -345,14 +345,12 @@ export default function PowerService() {
                 return (
                   <li
                     key={i}
-                    className="relative flex flex-col items-center gap-5 rounded-[24px] border border-white/20 bg-white/5 px-6 py-8 text-center"
+                    className="relative flex flex-col items-center gap-8 px-10 py-10 text-center"
                   >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-white">
+                    <div className="flex h-24 w-24 border rounded-full items-center justify-center rounded-full bg-white/15">
                       {icon}
                     </div>
-                    <p className="text-body leading-relaxed text-blue-50">
-                      {b}
-                    </p>
+                    <p className="text-body leading-relaxed">{b}</p>
                   </li>
                 );
               })}
@@ -363,9 +361,9 @@ export default function PowerService() {
         <SectionCard
           eyebrow="Process"
           title={asString(process.title)}
-          description="Transparent step-by-step workflow from assessment to verification."
+          className="text-center"
         >
-          <ol className="relative flex flex-col gap-10 lg:flex-row lg:items-stretch lg:justify-between">
+          <ol className="relative flex flex-col gap-10 mt-20 lg:flex-row lg:items-stretch lg:justify-between">
             {processSteps.map((step, i) => {
               const palette = processPalettes[i % processPalettes.length];
               const icon = processIcons[i % processIcons.length];
@@ -438,6 +436,21 @@ export default function PowerService() {
               ))}
             </div>
           </SectionCard>
+
+          {/* Bottom CTA */}
+          {/* <SectionCard
+            eyebrow="CTA"
+            title={contact.title}
+            description={contact.disclaimer}
+            className="mt-16 text-center"
+          >
+            <Link
+              to="/support/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-brand px-6 py-3 text-button font-semibold text-brand transition hover:bg-brand/10"
+            >
+              {contact.cta}
+            </Link>
+          </SectionCard> */}
         </div>
       </div>
     </section>

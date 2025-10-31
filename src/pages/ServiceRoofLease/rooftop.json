@@ -76,29 +76,24 @@
     "subtitle": "사업성 검토단계부터 유지보수까지 CTR에너지만의 특화된 맞춤 설계를 제공합니다.",
     "steps": [
       {
-        "step": 1,
-        "label": "검토",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0401.png"
+        "title": "타당성 검토",
+        "desc": "부지 여건과 사용 패턴을 분석해 사업성을 면밀히 확인합니다."
       },
       {
-        "step": 2,
-        "label": "계약",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0402.png"
+        "title": "맞춤 설계",
+        "desc": "지붕 구조와 계약 전력을 고려한 최적 설비 용량을 도출합니다."
       },
       {
-        "step": 3,
-        "label": "인허가",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0403.png"
+        "title": "계약 체결",
+        "desc": "임대 조건과 유지관리 범위를 명확히 정리한 계약을 체결합니다."
       },
       {
-        "step": 4,
-        "label": "시공",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0404.png"
+        "title": "시공 및 준공",
+        "desc": "안전 기준을 준수해 설비를 시공하고 한전 검사를 지원합니다."
       },
       {
-        "step": 5,
-        "label": "유지보수",
-        "icon": "https://www.eneris.kr/images/service/img_service01_0405.png"
+        "title": "운영·모니터링",
+        "desc": "발전량과 수익을 모니터링하며 최적 운영을 위한 개선을 제안합니다."
       }
     ]
   },
