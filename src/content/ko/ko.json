@@ -23,31 +23,31 @@
       },
       {
         "label": "태양광 서비스",
-        "href": "/services/services1",
+        "href": "/services/services-1",
         "children": [
           {
             "label": "지붕임대사업",
-            "href": "/services/services1",
+            "href": "/services/services-1",
             "description": "유휴 지붕을 활용한 발전소 구축으로 안정적인 임대 수익을 실현합니다."
           },
           {
             "label": "한전수전",
-            "href": "/services/services2",
+            "href": "/services/services-2",
             "description": "한전 수전 합리와 고압 → 저압으로 요금제를 변경하여 매월 전기요금 20~30% 절감하세요."
           },
           {
             "label": "정부지원사업",
-            "href": "/services/services3",
+            "href": "/services/services-3",
             "description": "정부 보조금 및 제도 연계로 투자 효율을 극대화하세요."
           },
           {
             "label": "RE100컨설팅",
-            "href": "/services/services4",
+            "href": "/services/services-4",
             "description": "탄소중립, 더 이상 선택이 아닌 필수 기업 맞춤 RE100 전략 수립과 실행 로드맵을 제시합니다."
           },
           {
             "label": "금융솔루션",
-            "href": "/services/services5",
+            "href": "/services/services-5",
             "description": "자금 조달의 부담을 겪고 있는 사업주 또는 시공기업 대상으로 금융지원 고민, 플래그가 해결해 드립니다!"
           }
         ]
@@ -405,19 +405,23 @@
         "items": [
           {
             "label": "지붕임대 사업",
-            "href": "/services/rooftop"
+            "href": "/services/services-1"
           },
           {
-            "label": "태양광 발전",
-            "href": "/services/power-plant"
+            "label": "한전수전",
+            "href": "/services/services-2"
           },
           {
-            "label": "금융 솔루션",
-            "href": "/services/finance"
+            "label": "정부지원사업",
+            "href": "/services/services-3"
           },
           {
-            "label": "RE100 컨설팅",
-            "href": "/services/re100"
+            "label": "RE100컨설팅",
+            "href": "/services/services-4"
+          },
+          {
+            "label": "금융솔루션팅",
+            "href": "/services/services-5"
           }
         ]
       },
