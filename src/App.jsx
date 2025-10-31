@@ -13,6 +13,9 @@ import Customer from "./pages/customer/Customer.jsx";
 //자주묻는질문
 import EnerisFaq from "./pages/enerisfaq/EnerisFaq.jsx";
 
+//개인정보
+import EnerisPrivacy from "./pages/privacy/EnerisPrivacy.jsx";
+
 function App() {
   return (
     <Routes>
@@ -49,7 +52,7 @@ function App() {
         </Route>
         <Route path="legal">
           <Route index element={<ComingSoon />} />
-          <Route path="privacy" element={<ComingSoon />} />
+          <Route path="privacy" element={<EnerisPrivacy />} />
         </Route>
         <Route path="*" element={<ComingSoon />} />
       </Route>
