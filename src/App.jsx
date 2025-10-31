@@ -27,11 +27,11 @@ function App() {
         </Route>
         <Route path="services">
           <Route index element={<Rooftop />} />
-          <Route path="services1" element={<Rooftop />} />
-          <Route path="services2" element={<Power />} />
-          <Route path="services3" element={<ComingSoon />} />
-          <Route path="services4" element={<ComingSoon />} />
-          <Route path="services5" element={<ComingSoon />} />
+          <Route path="services-1" element={<Rooftop />} />
+          <Route path="services-2" element={<Power />} />
+          <Route path="services-3" element={<ComingSoon />} />
+          <Route path="services-4" element={<ComingSoon />} />
+          <Route path="services-5" element={<ComingSoon />} />
         </Route>
         <Route path="cases">
           <Route index element={<ComingSoon />} />

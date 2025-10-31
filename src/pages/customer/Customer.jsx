@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import data from "./data.json";
+import data from "./customer.json";
 
 const GAS_ENDPOINT =
   import.meta.env.VITE_GAS_ENDPOINT ||

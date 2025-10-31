@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data.json";
+import data from "./rooftop.json";
 import { Link, NavLink } from "react-router-dom";
 
 function Pill({ children }) {
