@@ -141,7 +141,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
         </div>
 
         {/* Cases */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <h2 className="text-content-title text-slate-900">{cases.title}</h2>
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cases.items.map((c, idx) => (
@@ -165,7 +165,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
               </figure>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom CTA */}
         <div className="mt-16 flex items-center justify-between rounded-[10px] p-6">

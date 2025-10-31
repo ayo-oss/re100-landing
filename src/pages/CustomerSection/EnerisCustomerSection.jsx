@@ -264,6 +264,6 @@ export default function EnerisCustomerSection() {
           </div>
         )}
       </div>
-    </section>
+      </section>
   );
 }

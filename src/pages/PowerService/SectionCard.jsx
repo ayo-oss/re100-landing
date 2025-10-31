@@ -8,11 +8,7 @@ export function SectionCard({
   className,
 }) {
   return (
-    <section
-      className={`rounded-[28px] border border-emerald-100 bg-white/90 p-8 shadow-soft backdrop-blur ${
-        className || ""
-      }`}
-    >
+    <section className={`p-8 ${className || ""}`}>
       {eyebrow ? (
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
           {eyebrow}

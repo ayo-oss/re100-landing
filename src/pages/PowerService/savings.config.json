@@ -1,0 +1,47 @@
+{
+  "locale": "ko-KR",
+  "currency_code": "KRW",
+  "hours_per_month": 720,
+  "defaults": {
+    "usage_kw": 100
+  },
+  "categories": [
+    {
+      "id": "factory",
+      "label": "중소공장(산업용)",
+      "unit_kwh_won": 120,
+      "demand_kw_month_won": 8000,
+      "percent_min": 15,
+      "percent_max": 50
+    },
+    {
+      "id": "general",
+      "label": "지식산업센터/일반 건물",
+      "unit_kwh_won": 140,
+      "demand_kw_month_won": 9000,
+      "percent_min": 10,
+      "percent_max": 35
+    },
+    {
+      "id": "tower",
+      "label": "대형 빌딩",
+      "unit_kwh_won": 130,
+      "demand_kw_month_won": 10000,
+      "percent_min": 10,
+      "percent_max": 25
+    }
+  ],
+  "strings": {
+    "title": "예상 절감액은 얼마나 될까요?",
+    "subtitle": "분야와 월 사용량을 입력하면 예상 절감 범위를 확인할 수 있습니다.",
+    "categoryLabel": "분야 선택",
+    "usageLabel": "월 사용량",
+    "usageHint": "kW 단위로 입력하세요.",
+    "usageSuffix": "kW",
+    "rangeTemplate": "월 {min}% ~ {max}% 절감 예상",
+    "minLabel": "월 최저 절감액",
+    "maxLabel": "월 최대 절감액",
+    "annualSuffix": "연 환산",
+    "note": "※ 평균 단가를 이용한 추정치입니다. 실제 요금은 요금제, 계절/시간대별 요율 등에 따라 달라질 수 있습니다."
+  }
+}

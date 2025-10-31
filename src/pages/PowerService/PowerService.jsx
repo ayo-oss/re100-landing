@@ -7,6 +7,10 @@ import { BulletItem } from "./BulletItem";
 import { SectionCard } from "./SectionCard";
 import { Tag } from "./Tag";
 import { TariffTable } from "./TariffTable";
+import SavingsCalculator from "./SavingsCalculator";
+import segmentFactoryImg from "../../assets/PowerService/aa1.jpeg";
+import segmentRetailImg from "../../assets/PowerService/aa2.jpeg";
+import segmentDataImg from "../../assets/PowerService/aa3.jpeg";
 
 export default function PowerService() {
   const hero = isObject(power.hero) ? power.hero : {};
@@ -31,6 +35,11 @@ export default function PowerService() {
   const processSteps = isArray(process.steps);
   const badgeItems = isArray(badges.items);
   const allianceOrgs = isArray(alliances.orgs);
+  const segmentImageMap = {
+    "aa1.jpeg": segmentFactoryImg,
+    "aa2.jpeg": segmentRetailImg,
+    "aa3.jpeg": segmentDataImg,
+  };
 
   const powerUnit = asString(cases?.unit?.power, "kW");
   const moneyUnit = asString(cases?.unit?.money, "KRW");
@@ -64,7 +73,7 @@ export default function PowerService() {
             {heroMetrics.map((m, i) => (
               <div
                 key={i}
-                className="rounded-[24px] border border-emerald-100 bg-white/90 px-6 py-5 text-center shadow-soft"
+                className="rounded-[10px] border border-emerald-100 bg-white/90 px-6 py-5 text-center shadow-soft"
               >
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
                   {asString(m.label)}
@@ -77,23 +86,17 @@ export default function PowerService() {
           </div>
         ) : null}
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center">
           <Link
             to="/support/contact"
             className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition hover:bg-brand-dark"
           >
             {asString(hero?.cta?.primary, "Request consultation")}
           </Link>
-          <Link
-            to="/service/service-1"
-            className="inline-flex items-center gap-2 rounded-full border border-brand/40 px-6 py-3 text-button font-semibold text-brand-dark transition hover:bg-emerald-50"
-          >
-            {asString(hero?.cta?.secondary, "View services")}
-          </Link>
         </div>
 
         {hero.highlight ? (
-          <div className="mx-auto max-w-3xl rounded-[28px] border border-emerald-100 bg-emerald-50/70 px-6 py-4 text-center text-sm text-emerald-700 shadow-soft">
+          <div className="mx-auto max-w-3xl rounded-[10px] border border-emerald-100 bg-emerald-50/70 px-6 py-4 text-center text-sm text-emerald-700 shadow-soft">
             {hero.highlight}
           </div>
         ) : null}
@@ -108,16 +111,18 @@ export default function PowerService() {
                 {asString(tariff.description)}
               </p>
               {tariff.note ? (
-                <p className="text-xs text-slate-500">{tariff.note}</p>
+                <p className="text-xl text-slate-500">{tariff.note}</p>
               ) : null}
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
               {tariffTables.map((t, i) => (
-                <TariffTable key={i} table={t} />
+                <TariffTable key={i} table={t} labels={tariff.colLabels} />
               ))}
             </div>
           </section>
         ) : null}
+
+        <SavingsCalculator />
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr),minmax(0,0.8fr)]">
           <SectionCard
@@ -153,31 +158,42 @@ export default function PowerService() {
           description={asString(segments.subtitle)}
         >
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {segmentCards.map((card, i) => (
-              <div
-                key={i}
-                className="flex h-full flex-col gap-4 rounded-[26px] border border-emerald-100 bg-white/95 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-title font-semibold text-slate-900">
-                    {asString(card.name)}
-                  </h3>
+            {segmentCards.map((card, i) => {
+              const imageSrc =
+                segmentImageMap[asString(card.img)] || segmentFactoryImg;
+              return (
+                <div
+                  key={i}
+                  className="flex h-full flex-col gap-4 rounded-[14px] border border-emerald-100 bg-white/95 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div>
+                    <img
+                      className="h-full w-full rounded-[10px] object-cover"
+                      src={imageSrc}
+                      alt={asString(card.name)}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-title font-semibold text-slate-900">
+                      {asString(card.name)}
+                    </h3>
+                  </div>
                   <div className="flex flex-wrap justify-end gap-2">
                     {isArray(card.conditions).map((c, idx) => (
-                      <Tag key={idx}>{c}</Tag>
+                      <Pill key={idx}>{c}</Pill>
                     ))}
                   </div>
+                  <ul className="space-y-2 text-lg text-slate-700">
+                    {isArray(card.methods).map((m, idx) => (
+                      <li key={idx} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <span>{m}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2 text-sm text-slate-700">
-                  {isArray(card.methods).map((m, idx) => (
-                    <li key={idx} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      <span>{m}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </SectionCard>
 
@@ -190,7 +206,7 @@ export default function PowerService() {
             {caseItems.map((item, i) => (
               <div
                 key={i}
-                className="rounded-[26px] border border-emerald-100 bg-white/95 p-6 shadow-soft"
+                className="rounded-[10px] border border-emerald-100 bg-white/95 p-6 shadow-soft"
               >
                 <h3 className="text-title font-semibold text-slate-900">
                   {asString(item.name)}
@@ -229,7 +245,7 @@ export default function PowerService() {
             {processSteps.map((step, i) => (
               <li
                 key={i}
-                className="flex h-full flex-col gap-3 rounded-[26px] border border-emerald-100 bg-white/95 p-5 shadow-soft"
+                className="flex h-full flex-col gap-3 rounded-[10px] border border-emerald-100 bg-white/95 p-5 shadow-soft"
               >
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-600">
@@ -266,7 +282,7 @@ export default function PowerService() {
               {allianceOrgs.map((org, i) => (
                 <div
                   key={i}
-                  className="rounded-[26px] border border-emerald-100 bg-white/95 px-5 py-4 shadow-soft"
+                  className="rounded-[10px] border border-emerald-100 bg-white/95 px-5 py-4 shadow-soft"
                 >
                   <div className="text-sm font-semibold text-slate-900">
                     {asString(org.name)}
