@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import customer from "./customer.json";
+import data from "./data.json";
 
 const GAS_ENDPOINT =
   import.meta.env.VITE_GAS_ENDPOINT ||
@@ -44,7 +44,7 @@ const createInitialFormState = () => ({
   agree: false,
 });
 
-export default function EnerisCustomerSection() {
+export default function EnerisdataSection() {
   const [form, setForm] = useState(createInitialFormState);
 
   const [fieldErrors, setFieldErrors] = useState({});
@@ -52,7 +52,7 @@ export default function EnerisCustomerSection() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
 
-  const inquiryTypes = useMemo(() => customer.inquiryTypes, []);
+  const inquiryTypes = useMemo(() => data.inquiryTypes, []);
   const expectsOpaqueResponse = GAS_ENDPOINT.includes("script.google");
 
   const onChange = (e) => {
@@ -71,15 +71,15 @@ export default function EnerisCustomerSection() {
 
   const validate = () => {
     const nextErrors = {};
-    if (!form.name.trim()) nextErrors.name = customer.errors.name;
+    if (!form.name.trim()) nextErrors.name = data.errors.name;
     if (!form.phone.trim() || !phoneRegex.test(form.phone))
-      nextErrors.phone = customer.errors.phone;
-    if (!form.address.trim()) nextErrors.address = customer.errors.address;
+      nextErrors.phone = data.errors.phone;
+    if (!form.address.trim()) nextErrors.address = data.errors.address;
     if (!form.email.trim() || !emailRegex.test(form.email))
-      nextErrors.email = customer.errors.email;
-    if (!form.type) nextErrors.type = customer.errors.type;
-    if (!form.message.trim()) nextErrors.message = customer.errors.message;
-    if (!form.agree) nextErrors.agree = customer.errors.agree;
+      nextErrors.email = data.errors.email;
+    if (!form.type) nextErrors.type = data.errors.type;
+    if (!form.message.trim()) nextErrors.message = data.errors.message;
+    if (!form.agree) nextErrors.agree = data.errors.agree;
     return nextErrors;
   };
 
@@ -151,28 +151,24 @@ export default function EnerisCustomerSection() {
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         <header className="mb-12">
           <h1 className="text-display text-[2.5rem] font-bold leading-tight text-slate-900">
-            {customer.title}
+            {data.title}
           </h1>
           <p className="text-description mt-4 text-[1.222rem] leading-7 text-slate-600">
-            {customer.subtitle}
+            {data.subtitle}
           </p>
           <p className="text-body mt-3 flex items-center text-[1.125rem] text-slate-500">
             <span
               aria-hidden
               className="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500"
             />
-            <span className="sr-only">{customer.requiredMark}</span>
-            {customer.requiredNotice}
+            <span className="sr-only">{data.requiredMark}</span>
+            {data.requiredNotice}
           </p>
         </header>
 
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-            <Field
-              label={customer.fields.name}
-              required
-              error={fieldErrors.name}
-            >
+            <Field label={data.fields.name} required error={fieldErrors.name}>
               <input
                 type="text"
                 name="name"
@@ -181,15 +177,11 @@ export default function EnerisCustomerSection() {
                 data-field="name"
                 autoComplete="name"
                 className={getInputClass(Boolean(fieldErrors.name))}
-                placeholder={customer.placeholders.name}
+                placeholder={data.placeholders.name}
               />
             </Field>
 
-            <Field
-              label={customer.fields.phone}
-              required
-              error={fieldErrors.phone}
-            >
+            <Field label={data.fields.phone} required error={fieldErrors.phone}>
               <input
                 type="tel"
                 name="phone"
@@ -198,12 +190,12 @@ export default function EnerisCustomerSection() {
                 data-field="phone"
                 autoComplete="tel"
                 className={getInputClass(Boolean(fieldErrors.phone))}
-                placeholder={customer.placeholders.phone}
+                placeholder={data.placeholders.phone}
               />
             </Field>
 
             <Field
-              label={customer.fields.address}
+              label={data.fields.address}
               required
               full
               error={fieldErrors.address}
@@ -216,15 +208,11 @@ export default function EnerisCustomerSection() {
                 data-field="address"
                 autoComplete="street-address"
                 className={getInputClass(Boolean(fieldErrors.address))}
-                placeholder={customer.placeholders.address}
+                placeholder={data.placeholders.address}
               />
             </Field>
 
-            <Field
-              label={customer.fields.email}
-              required
-              error={fieldErrors.email}
-            >
+            <Field label={data.fields.email} required error={fieldErrors.email}>
               <input
                 type="email"
                 name="email"
@@ -233,15 +221,11 @@ export default function EnerisCustomerSection() {
                 data-field="email"
                 autoComplete="email"
                 className={getInputClass(Boolean(fieldErrors.email))}
-                placeholder={customer.placeholders.email}
+                placeholder={data.placeholders.email}
               />
             </Field>
 
-            <Field
-              label={customer.fields.type}
-              required
-              error={fieldErrors.type}
-            >
+            <Field label={data.fields.type} required error={fieldErrors.type}>
               <div className="relative">
                 <select
                   name="type"
@@ -252,7 +236,7 @@ export default function EnerisCustomerSection() {
                     Boolean(fieldErrors.type)
                   )} appearance-none pr-8`}
                 >
-                  <option value="">{customer.placeholders.type}</option>
+                  <option value="">{data.placeholders.type}</option>
                   {inquiryTypes.map((opt) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
@@ -283,7 +267,7 @@ export default function EnerisCustomerSection() {
             </Field>
 
             <Field
-              label={customer.fields.message}
+              label={data.fields.message}
               required
               full
               error={fieldErrors.message}
@@ -297,7 +281,7 @@ export default function EnerisCustomerSection() {
                   Boolean(fieldErrors.message),
                   "area"
                 )} min-h-[200px] resize-none`}
-                placeholder={customer.placeholders.message}
+                placeholder={data.placeholders.message}
               />
             </Field>
           </div>
@@ -311,17 +295,20 @@ export default function EnerisCustomerSection() {
               onChange={onChange}
               className="mt-1 h-5 w-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
             />
-            <label htmlFor="agree" className="text-body text-[1.125rem] text-slate-600">
-              {customer.privacy.prefix}
+            <label
+              htmlFor="agree"
+              className="text-body text-[1.125rem] text-slate-600"
+            >
+              {data.privacy.prefix}
               <a
-                href={customer.privacy.link}
+                href={data.privacy.link}
                 target="_blank"
                 rel="noreferrer"
                 className="mx-1 underline"
               >
-                {customer.privacy.anchor}
+                {data.privacy.anchor}
               </a>
-              {customer.privacy.suffix}
+              {data.privacy.suffix}
             </label>
           </div>
 
@@ -337,9 +324,7 @@ export default function EnerisCustomerSection() {
               disabled={submitting}
               className={getButtonClass("primary")}
             >
-              {submitting
-                ? customer.buttons.submitting
-                : customer.buttons.submit}
+              {submitting ? data.buttons.submitting : data.buttons.submit}
             </button>
           </div>
         </form>
@@ -352,17 +337,17 @@ export default function EnerisCustomerSection() {
           >
             <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
               <div className="text-title text-[2rem] font-semibold mb-2">
-                {customer.modal.thanksTitle}
+                {data.modal.thanksTitle}
               </div>
               <p className="text-body text-[1.125rem] text-gray-600">
-                {customer.modal.thanksBody}
+                {data.modal.thanksBody}
               </p>
               <div className="mt-6 flex justify-end">
                 <button
                   onClick={() => setDone(false)}
                   className={getButtonClass("primary", false)}
                 >
-                  {customer.buttons.close}
+                  {data.buttons.close}
                 </button>
               </div>
             </div>
