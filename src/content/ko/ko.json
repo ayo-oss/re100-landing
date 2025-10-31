@@ -75,7 +75,7 @@
       },
       {
         "label": "고객센터",
-        "href": "/support/notices",
+        "href": "/support/contact",
         "children": [
           {
             "label": "고객문의",
