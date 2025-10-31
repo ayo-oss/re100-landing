@@ -100,9 +100,18 @@ export default function EnerisCustomerSection() {
       const firstKey = Object.keys(validationErrors)[0];
       if (firstKey) {
         requestAnimationFrame(() => {
+          if (firstKey === "agree") {
+            const checkbox = document.getElementById("agree");
+            if (checkbox) {
+              checkbox.focus();
+              checkbox.scrollIntoView({ block: "center", behavior: "smooth" });
+            }
+            return;
+          }
           const field = document.querySelector(`[data-field='${firstKey}']`);
           if (field && "focus" in field) {
             field.focus();
+            field.scrollIntoView({ block: "center", behavior: "smooth" });
           }
         });
       }
@@ -310,30 +319,40 @@ export default function EnerisCustomerSection() {
             </Field>
           </div>
 
-          <div className="flex items-start gap-3">
-            <input
-              id="agree"
-              type="checkbox"
-              name="agree"
-              checked={form.agree}
-              onChange={onChange}
-              className="mt-1 h-5 w-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-            />
-            <label
-              htmlFor="agree"
-              className="text-body text-[1.125rem] text-slate-600"
-            >
-              {customer.privacy.prefix}
-              <a
-                href={customer.privacy.link}
-                target="_blank"
-                rel="noreferrer"
-                className="mx-1 underline"
+          <div className="flex flex-col gap-2">
+            <div className="flex items-start gap-3">
+              <input
+                id="agree"
+                type="checkbox"
+                name="agree"
+                checked={form.agree}
+                onChange={onChange}
+                className={`mt-1 h-5 w-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 ${
+                  fieldErrors.agree ? "border-red-400" : ""
+                }`}
+                data-field="agree"
+              />
+              <label
+                htmlFor="agree"
+                className="text-body text-[1.125rem] text-slate-600"
               >
-                {customer.privacy.anchor}
-              </a>
-              {customer.privacy.suffix}
-            </label>
+                {customer.privacy.prefix}
+                <a
+                  href={customer.privacy.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mx-1 underline"
+                >
+                  {customer.privacy.anchor}
+                </a>
+                {customer.privacy.suffix}
+              </label>
+            </div>
+            {fieldErrors.agree && (
+              <p className="text-sm font-medium text-red-500">
+                {fieldErrors.agree}
+              </p>
+            )}
           </div>
 
           {error && (
