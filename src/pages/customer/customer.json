@@ -38,7 +38,7 @@
     "checkAll": "전체동의"
   },
   "buttons": {
-    "submit": "문의하기",
+    "submit": "실사전 검토 문의하기",
     "submitting": "접수 중...",
     "close": "닫기"
   },
