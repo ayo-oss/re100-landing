@@ -1,91 +1,91 @@
 {
   "meta": {
-    "title": "ÇÃ·¡±×(À¯)",
-    "description": "½ÅÀç»ý¿¡³ÊÁö Àü¹®±â¾÷ ÇÃ·¡±×(À¯)´Â RE100 ½ÇÇöÀ» À§ÇÑ Àü °úÁ¤¿¡¼­ °í°´°ú ÇÔ²²ÇÏ¸ç ±â´ë ÀÌ»óÀÇ °¡Ä¡¸¦ Á¦°øÇÕ´Ï´Ù."
+    "title": "í”Œëž˜ê·¸(ìœ )",
+    "description": "ì‹ ìž¬ìƒì—ë„ˆì§€ ì „ë¬¸ê¸°ì—… í”Œëž˜ê·¸(ìœ )ëŠ” RE100 ì‹¤í˜„ì„ ìœ„í•œ ì „ ê³¼ì •ì—ì„œ ê³ ê°ê³¼ í•¨ê»˜í•˜ë©° ê¸°ëŒ€ ì´ìƒì˜ ê°€ì¹˜ë¥¼ ì œê³µí•©ë‹ˆë‹¤."
   },
   "navigation": {
     "brand": {
       "short": "FLAG",
-      "caption": "(À¯)",
-      "name": "ÇÃ·¡±×(À¯)"
+      "caption": "(ìœ )",
+      "name": "í”Œëž˜ê·¸(ìœ )"
     },
     "primary": [
       {
-        "label": "È¸»ç¼Ò°³",
+        "label": "íšŒì‚¬ì†Œê°œ",
         "href": "/about/about-1",
         "children": [
           {
-            "label": "ÀÎ»ç¸»",
+            "label": "ì¸ì‚¬ë§",
             "href": "/about/about-1",
-            "description": "½ÅÀç»ý¿¡³ÊÁö Àü¹®±â¾÷ ÇÃ·¡±×(À¯)ÀÇ ¿ª»ç¿Í ÇÙ½É °¡Ä¡¸¦ ¼Ò°³ÇÕ´Ï´Ù."
+            "description": "ì‹ ìž¬ìƒì—ë„ˆì§€ ì „ë¬¸ê¸°ì—… í”Œëž˜ê·¸(ìœ )ì˜ ì—­ì‚¬ì™€ í•µì‹¬ ê°€ì¹˜ë¥¼ ì†Œê°œí•©ë‹ˆë‹¤."
           }
         ]
       },
       {
-        "label": "ÅÂ¾ç±¤ ¼­ºñ½º",
+        "label": "íƒœì–‘ê´‘ ì„œë¹„ìŠ¤",
         "href": "/service/service-1",
         "children": [
           {
-            "label": "ÁöºØÀÓ´ë»ç¾÷",
+            "label": "ì§€ë¶•ìž„ëŒ€ì‚¬ì—…",
             "href": "/service/service-1",
-            "description": "À¯ÈÞ ÁöºØÀ» È°¿ëÇÑ ¹ßÀü¼Ò ±¸ÃàÀ¸·Î ¾ÈÁ¤ÀûÀÎ ÀÓ´ë ¼öÀÍÀ» ½ÇÇöÇÕ´Ï´Ù."
+            "description": "ìœ íœ´ ì§€ë¶•ì„ í™œìš©í•œ ë°œì „ì†Œ êµ¬ì¶•ìœ¼ë¡œ ì•ˆì •ì ì¸ ìž„ëŒ€ ìˆ˜ìµì„ ì‹¤í˜„í•©ë‹ˆë‹¤."
           },
           {
-            "label": "ÇÑÀü¼öÀü",
+            "label": "í•œì „ìˆ˜ì „",
             "href": "/service/service-2",
-            "description": "ÇÑÀü ¼öÀü ÇÕ¸®¿Í °í¾Ð ¡æ Àú¾ÐÀ¸·Î ¿ä±ÝÁ¦¸¦ º¯°æÇÏ¿© ¸Å¿ù Àü±â¿ä±Ý 20~30% Àý°¨ÇÏ¼¼¿ä."
+            "description": "í•œì „ ìˆ˜ì „ í•©ë¦¬ì™€ ê³ ì•• â†’ ì €ì••ìœ¼ë¡œ ìš”ê¸ˆì œë¥¼ ë³€ê²½í•˜ì—¬ ë§¤ì›” ì „ê¸°ìš”ê¸ˆ 20~30% ì ˆê°í•˜ì„¸ìš”."
           },
           {
-            "label": "Á¤ºÎÁö¿ø»ç¾÷",
+            "label": "ì •ë¶€ì§€ì›ì‚¬ì—…",
             "href": "/service/service-3",
-            "description": "Á¤ºÎ º¸Á¶±Ý ¹× Á¦µµ ¿¬°è·Î ÅõÀÚ È¿À²À» ±Ø´ëÈ­ÇÏ¼¼¿ä."
+            "description": "ì •ë¶€ ë³´ì¡°ê¸ˆ ë° ì œë„ ì—°ê³„ë¡œ íˆ¬ìž íš¨ìœ¨ì„ ê·¹ëŒ€í™”í•˜ì„¸ìš”."
           },
           {
-            "label": "RE100ÄÁ¼³ÆÃ",
+            "label": "RE100ì»¨ì„¤íŒ…",
             "href": "/service/service-4",
-            "description": "Åº¼ÒÁß¸³, ´õ ÀÌ»ó ¼±ÅÃÀÌ ¾Æ´Ñ ÇÊ¼ö ±â¾÷ ¸ÂÃã RE100 Àü·« ¼ö¸³°ú ½ÇÇà ·Îµå¸ÊÀ» Á¦½ÃÇÕ´Ï´Ù."
+            "description": "íƒ„ì†Œì¤‘ë¦½, ë” ì´ìƒ ì„ íƒì´ ì•„ë‹Œ í•„ìˆ˜ ê¸°ì—… ë§žì¶¤ RE100 ì „ëžµ ìˆ˜ë¦½ê³¼ ì‹¤í–‰ ë¡œë“œë§µì„ ì œì‹œí•©ë‹ˆë‹¤."
           },
           {
-            "label": "±ÝÀ¶¼Ö·ç¼Ç",
+            "label": "ê¸ˆìœµì†”ë£¨ì…˜",
             "href": "/service/service-5",
-            "description": "ÀÚ±Ý Á¶´ÞÀÇ ºÎ´ãÀ» °Þ°í ÀÖ´Â »ç¾÷ÁÖ ¶Ç´Â ½Ã°ø±â¾÷ ´ë»óÀ¸·Î ±ÝÀ¶Áö¿ø °í¹Î, ÇÃ·¡±×°¡ ÇØ°áÇØ µå¸³´Ï´Ù!"
+            "description": "ìžê¸ˆ ì¡°ë‹¬ì˜ ë¶€ë‹´ì„ ê²ªê³  ìžˆëŠ” ì‚¬ì—…ì£¼ ë˜ëŠ” ì‹œê³µê¸°ì—… ëŒ€ìƒìœ¼ë¡œ ê¸ˆìœµì§€ì› ê³ ë¯¼, í”Œëž˜ê·¸ê°€ í•´ê²°í•´ ë“œë¦½ë‹ˆë‹¤!"
           }
         ]
       },
       {
-        "label": "½Ã°ø»ç·Ê",
+        "label": "ì‹œê³µì‚¬ë¡€",
         "href": "/cases/power",
         "children": [
           {
-            "label": "¹ßÀü¼Ò",
+            "label": "ë°œì „ì†Œ",
             "href": "/cases/power",
-            "description": "»ê¾÷´ÜÁö¡¤¹°·ù¼¾ÅÍ µî ´ë±Ô¸ð ¹ßÀü¼Ò ±¸Ãà »ç·Ê¸¦ È®ÀÎÇÏ¼¼¿ä."
+            "description": "ì‚°ì—…ë‹¨ì§€Â·ë¬¼ë¥˜ì„¼í„° ë“± ëŒ€ê·œëª¨ ë°œì „ì†Œ êµ¬ì¶• ì‚¬ë¡€ë¥¼ í™•ì¸í•˜ì„¸ìš”."
           },
           {
-            "label": "°Ç¹°¿ë",
+            "label": "ê±´ë¬¼ìš©",
             "href": "/cases/building",
-            "description": "»ó¾÷ ½Ã¼³°ú °ø°ø±â°üÀ» À§ÇÑ ¸ÂÃãÇü ÅÂ¾ç±¤ ¼Ö·ç¼ÇÀÔ´Ï´Ù."
+            "description": "ìƒì—… ì‹œì„¤ê³¼ ê³µê³µê¸°ê´€ì„ ìœ„í•œ ë§žì¶¤í˜• íƒœì–‘ê´‘ ì†”ë£¨ì…˜ìž…ë‹ˆë‹¤."
           },
           {
-            "label": "ÁÖÅÃ¿ë",
+            "label": "ì£¼íƒìš©",
             "href": "/cases/residential",
-            "description": "ÁÖ°Å °ø°£¿¡ Æ¯È­µÈ °íÈ¿À² ÅÂ¾ç±¤ ½Ã°ø »ç·Ê ¸ðÀ½ÀÔ´Ï´Ù."
+            "description": "ì£¼ê±° ê³µê°„ì— íŠ¹í™”ëœ ê³ íš¨ìœ¨ íƒœì–‘ê´‘ ì‹œê³µ ì‚¬ë¡€ ëª¨ìŒìž…ë‹ˆë‹¤."
           }
         ]
       },
       {
-        "label": "°í°´¼¾ÅÍ",
+        "label": "ê³ ê°ì„¼í„°",
         "href": "/support/contact",
         "children": [
           {
-            "label": "°í°´¹®ÀÇ",
+            "label": "ê³ ê°ë¬¸ì˜",
             "href": "/support/contact",
-            "description": "±Ã±ÝÇÏ½Å ³»¿ëÀ» ³²°ÜÁÖ½Ã¸é ºü¸£°Ô ´äº¯µå¸³´Ï´Ù."
+            "description": "ê¶ê¸ˆí•˜ì‹  ë‚´ìš©ì„ ë‚¨ê²¨ì£¼ì‹œë©´ ë¹ ë¥´ê²Œ ë‹µë³€ë“œë¦½ë‹ˆë‹¤."
           },
           {
-            "label": "ÀÚÁÖ ¹¯´Â Áú¹®",
+            "label": "ìžì£¼ ë¬»ëŠ” ì§ˆë¬¸",
             "href": "/support/faq",
-            "description": "ÀÚÁÖ Áú¹®ÇÏ½Ã´Â ³»¿ëÀ» ÇÑ°÷¿¡ Á¤¸®Çß½À´Ï´Ù."
+            "description": "ìžì£¼ ì§ˆë¬¸í•˜ì‹œëŠ” ë‚´ìš©ì„ í•œê³³ì— ì •ë¦¬í–ˆìŠµë‹ˆë‹¤."
           }
         ]
       }
@@ -101,372 +101,372 @@
       }
     ],
     "labels": {
-      "menuOpen": "¸Þ´º ¿­±â",
-      "mobileDirect": "¹Ù·Î°¡±â"
+      "menuOpen": "ë©”ë‰´ ì—´ê¸°",
+      "mobileDirect": "ë°”ë¡œê°€ê¸°"
     }
   },
   "hero": {
     "eyebrow": "Renewable Energy Partner",
-    "title": "±â¾÷ ¸ÂÃã RE100 ÄÁ¼³ÆÃ",
-    "summary": "ÇÃ·¡±×´Â RE100 ½ÇÇöÀ» À§ÇÑ ÀüÃ¼ ÇÁ·Î¼¼½º¸¦ Ã¥ÀÓÁö´Â ½ÅÀç»ý¿¡³ÊÁö Àü¹® ±â¾÷ÀÔ´Ï´Ù.\nÁöºØÇü ÅÂ¾ç±¤ºÎÅÍ PPA, ±ÝÀ¶ Á¶´Þ±îÁö °í°´»çÀÇ »óÈ²¿¡ ¸ÂÃá ¼Ö·ç¼ÇÀ» Á¦¾ÈÇÕ´Ï´Ù.",
-    "primaryCta": "ÄÁ¼³ÆÃ ¹®ÀÇÇÏ±â",
-    "secondaryCta": "¼­ºñ½º »ìÆìº¸±â",
+    "title": "ê¸°ì—… ë§žì¶¤ RE100 ì»¨ì„¤íŒ…",
+    "summary": "í”Œëž˜ê·¸ëŠ” RE100 ì‹¤í˜„ì„ ìœ„í•œ ì „ì²´ í”„ë¡œì„¸ìŠ¤ë¥¼ ì±…ìž„ì§€ëŠ” ì‹ ìž¬ìƒì—ë„ˆì§€ ì „ë¬¸ ê¸°ì—…ìž…ë‹ˆë‹¤.\nì§€ë¶•í˜• íƒœì–‘ê´‘ë¶€í„° PPA, ê¸ˆìœµ ì¡°ë‹¬ê¹Œì§€ ê³ ê°ì‚¬ì˜ ìƒí™©ì— ë§žì¶˜ ì†”ë£¨ì…˜ì„ ì œì•ˆí•©ë‹ˆë‹¤.",
+    "primaryCta": "ì»¨ì„¤íŒ… ë¬¸ì˜í•˜ê¸°",
+    "secondaryCta": "ì„œë¹„ìŠ¤ ì‚´íŽ´ë³´ê¸°",
     "video": {
       "description": [
-        "ºê·£µå ¹«µå¿¡ ¸ÂÃá ¿µ»ó ¶Ç´Â ºñÁÖ¾óÀÌ µé¾î°¥ ¿µ¿ªÀÔ´Ï´Ù.",
-        "À¯Æ©ºê ¹è°æ ¿µ»óÀÌ³ª ÇÙ½É ÀÌ¹ÌÁö¸¦ »ðÀÔÇØ Ã¹ÀÎ»óÀ» °­È­ÇØ ÁÖ¼¼¿ä."
+        "ë¸Œëžœë“œ ë¬´ë“œì— ë§žì¶˜ ì˜ìƒ ë˜ëŠ” ë¹„ì£¼ì–¼ì´ ë“¤ì–´ê°ˆ ì˜ì—­ìž…ë‹ˆë‹¤.",
+        "ìœ íŠœë¸Œ ë°°ê²½ ì˜ìƒì´ë‚˜ í•µì‹¬ ì´ë¯¸ì§€ë¥¼ ì‚½ìž…í•´ ì²«ì¸ìƒì„ ê°•í™”í•´ ì£¼ì„¸ìš”."
       ],
-      "note": "½ÇÁ¦ ¼­ºñ½º¿¡¼­´Â YouTube background API ¶Ç´Â ÀÚÃ¼ È£½ºÆÃ ¿µ»óÀ» ¿¬°áÇÏ¼¼¿ä."
+      "note": "ì‹¤ì œ ì„œë¹„ìŠ¤ì—ì„œëŠ” YouTube background API ë˜ëŠ” ìžì²´ í˜¸ìŠ¤íŒ… ì˜ìƒì„ ì—°ê²°í•˜ì„¸ìš”."
     }
   },
   "today": {
-    "title": "¿À´ÃÀÇ SMP, REC",
-    "description": "REC °¡ÁßÄ¡¿Í ±Ç¿ªº° ½Ã¼¼¸¦ ÇÑ´«¿¡ È®ÀÎÇØ º¸¼¼¿ä.",
-    "placeholderValue": "µ¥ÀÌÅÍ ¼öÁý Áß",
+    "title": "ì˜¤ëŠ˜ì˜ SMP, REC",
+    "description": "REC ê°€ì¤‘ì¹˜ì™€ ê¶Œì—­ë³„ ì‹œì„¸ë¥¼ í•œëˆˆì— í™•ì¸í•´ ë³´ì„¸ìš”.",
+    "placeholderValue": "ë°ì´í„° ìˆ˜ì§‘ ì¤‘",
     "weights": [
-      "REC °¡ÁßÄ¡ 0.8",
-      "REC °¡ÁßÄ¡ 1.0",
-      "REC °¡ÁßÄ¡ 1.2",
-      "REC °¡ÁßÄ¡ 1.5"
+      "REC ê°€ì¤‘ì¹˜ 0.8",
+      "REC ê°€ì¤‘ì¹˜ 1.0",
+      "REC ê°€ì¤‘ì¹˜ 1.2",
+      "REC ê°€ì¤‘ì¹˜ 1.5"
     ],
-    "categories": ["Á¾ÇÕ", "±Ç¿ªº°", "ÁÖ°£"],
+    "categories": ["ì¢…í•©", "ê¶Œì—­ë³„", "ì£¼ê°„"],
     "metrics": [
       {
-        "label": "SMP ±âÁØ°¡",
-        "unit": "¿ø/kWh"
+        "label": "SMP ê¸°ì¤€ê°€",
+        "unit": "ì›/kWh"
       },
       {
-        "label": "REC Çö¹°°¡",
-        "unit": "¿ø/kWh"
+        "label": "REC í˜„ë¬¼ê°€",
+        "unit": "ì›/kWh"
       },
       {
-        "label": "SMP + REC °¡Áß",
-        "unit": "¿ø/kWh"
+        "label": "SMP + REC ê°€ì¤‘",
+        "unit": "ì›/kWh"
       }
     ],
-    "footnote": "½Ç½Ã°£ ¿¬µ¿ÀÌ ÇÊ¿äÇÑ °æ¿ì °ø°øµ¥ÀÌÅÍ Æ÷ÅÐÀÌ³ª ÀÚÃ¼ API¿Í ¿¬°áÇØ ½ÇÁ¦ °ªÀ» º¸¿©ÁÖ¼¼¿ä."
+    "footnote": "ì‹¤ì‹œê°„ ì—°ë™ì´ í•„ìš”í•œ ê²½ìš° ê³µê³µë°ì´í„° í¬í„¸ì´ë‚˜ ìžì²´ APIì™€ ì—°ê²°í•´ ì‹¤ì œ ê°’ì„ ë³´ì—¬ì£¼ì„¸ìš”."
   },
   "services": {
-    "heading": "ÀÚ¿¬°ú ÇÏ³ªµÇ´Â °øÇØ ¾ø´Â ±ú²ýÇÑ ¿¡³ÊÁö",
-    "description": "RE100 ¸ñÇ¥ ´Þ¼ºÀ» À§ÇÑ ÄÁ¼³ÆÃºÎÅÍ ±ÝÀ¶ ¼Ö·ç¼Ç±îÁö ÇÃ·¡±×ÀÇ ÇÙ½É ¼­ºñ½º¸¦ »ìÆìº¸¼¼¿ä.",
+    "heading": "ìžì—°ê³¼ í•˜ë‚˜ë˜ëŠ” ê³µí•´ ì—†ëŠ” ê¹¨ë—í•œ ì—ë„ˆì§€",
+    "description": "RE100 ëª©í‘œ ë‹¬ì„±ì„ ìœ„í•œ ì»¨ì„¤íŒ…ë¶€í„° ê¸ˆìœµ ì†”ë£¨ì…˜ê¹Œì§€ í”Œëž˜ê·¸ì˜ í•µì‹¬ ì„œë¹„ìŠ¤ë¥¼ ì‚´íŽ´ë³´ì„¸ìš”.",
     "items": [
       {
-        "title": "RE100 ÄÁ¼³ÆÃ",
-        "description": "±â¾÷ ¸ÂÃã Åº¼ÒÁß¸³ Àü·« ¼ö¸³°ú ½ÇÃµ ·Îµå¸ÊÀ» ¼³°èÇØµå¸®´Â ÅäÅÐ ÄÁ¼³ÆÃ ¼­ºñ½ºÀÔ´Ï´Ù.",
-        "href": "/service/service-4"
+        "title": "í•œì „ìˆ˜ì „",
+        "description": "ê¸°ì—… ë§žì¶¤ íƒ„ì†Œì¤‘ë¦½ ì „ëžµ ìˆ˜ë¦½ê³¼ ì‹¤ì²œ ë¡œë“œë§µì„ ì„¤ê³„í•´ë“œë¦¬ëŠ” í† í„¸ ì»¨ì„¤íŒ… ì„œë¹„ìŠ¤ìž…ë‹ˆë‹¤.",
+        "href": "/service/service-2"
       },
       {
-        "title": "ÁöºØÀÓ´ë ÅÂ¾ç±¤",
-        "description": "À¯ÈÞ ÁöºØÀ» È°¿ëÇÑ ¹ßÀü¼Ò ±¸ÃàÀ¸·Î ¾ÈÁ¤ÀûÀÎ ÀÓ´ë¼öÀÍ°ú ¿¡³ÊÁö Àý°¨À» µ¿½Ã¿¡ ½ÇÇöÇÕ´Ï´Ù.",
+        "title": "ì§€ë¶•ìž„ëŒ€ íƒœì–‘ê´‘",
+        "description": "ìœ íœ´ ì§€ë¶•ì„ í™œìš©í•œ ë°œì „ì†Œ êµ¬ì¶•ìœ¼ë¡œ ì•ˆì •ì ì¸ ìž„ëŒ€ìˆ˜ìµê³¼ ì—ë„ˆì§€ ì ˆê°ì„ ë™ì‹œì— ì‹¤í˜„í•©ë‹ˆë‹¤.",
         "href": "/service/service-1"
       },
       {
-        "title": "ÅÂ¾ç±¤ ±ÝÀ¶ ¼Ö·ç¼Ç",
-        "description": "ÇÁ·ÎÁ§Æ® ÆÄÀÌ³½½Ì, º¸Á¶±Ý, ¼¼Á¦ ÇýÅÃ µî ÃÊ±â ÅõÀÚºÎ´ãÀ» ÃÖ¼ÒÈ­ÇÏ´Â ±ÝÀ¶ Àü·«À» Á¦¾ÈÇÕ´Ï´Ù.",
+        "title": "íƒœì–‘ê´‘ ê¸ˆìœµ ì†”ë£¨ì…˜",
+        "description": "í”„ë¡œì íŠ¸ íŒŒì´ë‚¸ì‹±, ë³´ì¡°ê¸ˆ, ì„¸ì œ í˜œíƒ ë“± ì´ˆê¸° íˆ¬ìžë¶€ë‹´ì„ ìµœì†Œí™”í•˜ëŠ” ê¸ˆìœµ ì „ëžµì„ ì œì•ˆí•©ë‹ˆë‹¤.",
         "href": "/service/service-5"
       }
     ]
   },
   "stats": {
-    "heading": "ÇÃ·¡±×ÁöÀÇ ±â¼ú°ú °æÇèÀ¸·Î\n½ÅÀç»ý¿¡³ÊÁö ¼±µµ±â¾÷À¸·Î ÀÚ¸®ÇÏ°í ÀÖ½À´Ï´Ù.",
+    "heading": "í”Œëž˜ê·¸ì§€ì˜ ê¸°ìˆ ê³¼ ê²½í—˜ìœ¼ë¡œ\nì‹ ìž¬ìƒì—ë„ˆì§€ ì„ ë„ê¸°ì—…ìœ¼ë¡œ ìžë¦¬í•˜ê³  ìžˆìŠµë‹ˆë‹¤.",
     "items": [
       {
         "value": 86,
-        "label": "¼³Ä¡ ¿ë·® (MW)"
+        "label": "ì„¤ì¹˜ ìš©ëŸ‰ (MW)"
       },
       {
         "value": 94,
-        "label": "ÅÂ¾ç±¤ ¹ßÀü¼Ò"
+        "label": "íƒœì–‘ê´‘ ë°œì „ì†Œ"
       },
       {
         "value": 8000,
-        "label": "°¡Á¤¿ë ÅÂ¾ç±¤ ±¸Ãà »ç·Ê"
+        "label": "ê°€ì •ìš© íƒœì–‘ê´‘ êµ¬ì¶• ì‚¬ë¡€"
       }
     ]
   },
   "insights": {
-    "heading": "ÇÃ·¡±×(À¯) ¼Ò½Ä°ú RE100 ÀÎ»çÀÌÆ®",
-    "description": "ÇÃ·¡±×ÀÇ ÃÖ½Å ¼Ò½Ä°ú RE100 Æ®·»µå¸¦ ¸ð¾Æº¸¼¼¿ä.",
-    "cta": "¼Ò½Ä ´õº¸±â",
-    "imagePlaceholder": "ÀÌ¹ÌÁö ÀÚ¸®",
-    "detailNote": "ÀÚ¼¼ÇÑ ³»¿ëÀº ¿ø¹® ¸µÅ©¿¡¼­ È®ÀÎÇÏ¼¼¿ä.",
+    "heading": "í”Œëž˜ê·¸(ìœ ) ì†Œì‹ê³¼ RE100 ì¸ì‚¬ì´íŠ¸",
+    "description": "í”Œëž˜ê·¸ì˜ ìµœì‹  ì†Œì‹ê³¼ RE100 íŠ¸ë Œë“œë¥¼ ëª¨ì•„ë³´ì„¸ìš”.",
+    "cta": "ì†Œì‹ ë”ë³´ê¸°",
+    "imagePlaceholder": "ì´ë¯¸ì§€ ìžë¦¬",
+    "detailNote": "ìžì„¸í•œ ë‚´ìš©ì€ ì›ë¬¸ ë§í¬ì—ì„œ í™•ì¸í•˜ì„¸ìš”.",
     "items": [
       {
         "image": "/images/main/news01.png",
-        "title": "2025³â »ê¾÷ ¾ÈÀüº¸°Ç ±³À° ÁøÇà",
-        "summary": "¾ÈÀüÇÑ ½Ã°ø°ú ¿î¿µÀ» À§ÇØ Àü ÀÓÁ÷¿øÀÌ »ê¾÷ ¾ÈÀüº¸°Ç Á¾ÇÕ ±³À°À» ÀÌ¼öÇß½À´Ï´Ù.",
+        "title": "2025ë…„ ì‚°ì—… ì•ˆì „ë³´ê±´ êµìœ¡ ì§„í–‰",
+        "summary": "ì•ˆì „í•œ ì‹œê³µê³¼ ìš´ì˜ì„ ìœ„í•´ ì „ ìž„ì§ì›ì´ ì‚°ì—… ì•ˆì „ë³´ê±´ ì¢…í•© êµìœ¡ì„ ì´ìˆ˜í–ˆìŠµë‹ˆë‹¤.",
         "href": "/about/news"
       },
       {
         "image": "/images/main/news02.png",
-        "title": "RE100 ÆÄÆ®³Ê½Ê ¾÷¹«Çù¾à Ã¼°á",
-        "summary": "¾ÆÀÌ¿¤±×·ì°úÀÇ Àü·«Àû Çù¾àÀ¸·Î RE100 µµÀÔ Èñ¸Á ±â¾÷À» À§ÇÑ Àü´ã Áö¿øÀ» °­È­Çß½À´Ï´Ù.",
+        "title": "RE100 íŒŒíŠ¸ë„ˆì‹­ ì—…ë¬´í˜‘ì•½ ì²´ê²°",
+        "summary": "ì•„ì´ì—˜ê·¸ë£¹ê³¼ì˜ ì „ëžµì  í˜‘ì•½ìœ¼ë¡œ RE100 ë„ìž… í¬ë§ ê¸°ì—…ì„ ìœ„í•œ ì „ë‹´ ì§€ì›ì„ ê°•í™”í–ˆìŠµë‹ˆë‹¤.",
         "href": "/promotion/events"
       },
       {
         "image": "/images/main/news03.png",
-        "title": "±×¸°¿¡³ÊÁö ¿¢½ºÆ÷ Âü°¡ ÈÄ±â",
-        "summary": "±¹³» ÃÖ´ë ½ÅÀç»ý¿¡³ÊÁö Àü½ÃÈ¸¿¡¼­ ÇÃ·¡±× ºÎ½º¸¦ ÅëÇØ ½º¸¶Æ® ¼Ö·ç¼ÇÀ» ¼Ò°³Çß½À´Ï´Ù.",
+        "title": "ê·¸ë¦°ì—ë„ˆì§€ ì—‘ìŠ¤í¬ ì°¸ê°€ í›„ê¸°",
+        "summary": "êµ­ë‚´ ìµœëŒ€ ì‹ ìž¬ìƒì—ë„ˆì§€ ì „ì‹œíšŒì—ì„œ í”Œëž˜ê·¸ ë¶€ìŠ¤ë¥¼ í†µí•´ ìŠ¤ë§ˆíŠ¸ ì†”ë£¨ì…˜ì„ ì†Œê°œí–ˆìŠµë‹ˆë‹¤.",
         "href": "/about/news"
       },
       {
         "image": "/images/main/news04.png",
-        "title": "Áö¿ª»çÈ¸ ÅÂ¾ç±¤ ±âºÎ ÇÁ·ÎÁ§Æ®",
-        "summary": "Ãë¾à°èÃþ ½Ã¼³À» À§ÇÑ ÅÂ¾ç±¤ ¹ßÀü ¼³ºñ ±âºÎ ÇÁ·Î±×·¥À» ÁøÇàÇÏ°í ÀÖ½À´Ï´Ù.",
+        "title": "ì§€ì—­ì‚¬íšŒ íƒœì–‘ê´‘ ê¸°ë¶€ í”„ë¡œì íŠ¸",
+        "summary": "ì·¨ì•½ê³„ì¸µ ì‹œì„¤ì„ ìœ„í•œ íƒœì–‘ê´‘ ë°œì „ ì„¤ë¹„ ê¸°ë¶€ í”„ë¡œê·¸ëž¨ì„ ì§„í–‰í•˜ê³  ìžˆìŠµë‹ˆë‹¤.",
         "href": "/promotion/events"
       }
     ]
   },
   "newsletter": {
-    "heading": "ÇÃ·¡±× ´º½º·¹ÅÍ¿Í ÇÁ·Î¸ð¼ÇÀ» °¡Àå ¸ÕÀú ¸¸³ªº¸¼¼¿ä",
-    "description": "±¸µ¶ À¯ÇüÀ» ¼±ÅÃÇÏ°í ÀÌ¸ÞÀÏÀ» ³²°ÜÁÖ½Ã¸é ÇÃ·¡±×ÀÇ RE100 ÇÁ·Î¸ð¼Ç°ú ´º½º·¹ÅÍ¸¦ ºü¸£°Ô Àü´ÞÇØ µå¸³´Ï´Ù.",
-    "tabs": ["°³ÀÎ °í°´", "±â¾÷ °í°´"],
-    "categoryPlaceholder": "°ü½É °í°´ À¯ÇüÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä",
-    "emailPlaceholder": "ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä",
-    "consentLabel": "°³ÀÎÁ¤º¸ ¼öÁý¡¤ÀÌ¿ë¿¡ µ¿ÀÇÇÕ´Ï´Ù.",
-    "submitLabel": "±¸µ¶ÇÏ±â",
+    "heading": "í”Œëž˜ê·¸ ë‰´ìŠ¤ë ˆí„°ì™€ í”„ë¡œëª¨ì…˜ì„ ê°€ìž¥ ë¨¼ì € ë§Œë‚˜ë³´ì„¸ìš”",
+    "description": "êµ¬ë… ìœ í˜•ì„ ì„ íƒí•˜ê³  ì´ë©”ì¼ì„ ë‚¨ê²¨ì£¼ì‹œë©´ í”Œëž˜ê·¸ì˜ RE100 í”„ë¡œëª¨ì…˜ê³¼ ë‰´ìŠ¤ë ˆí„°ë¥¼ ë¹ ë¥´ê²Œ ì „ë‹¬í•´ ë“œë¦½ë‹ˆë‹¤.",
+    "tabs": ["ê°œì¸ ê³ ê°", "ê¸°ì—… ê³ ê°"],
+    "categoryPlaceholder": "ê´€ì‹¬ ê³ ê° ìœ í˜•ì„ ì„ íƒí•´ ì£¼ì„¸ìš”",
+    "emailPlaceholder": "ì´ë©”ì¼ ì£¼ì†Œë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”",
+    "consentLabel": "ê°œì¸ì •ë³´ ìˆ˜ì§‘Â·ì´ìš©ì— ë™ì˜í•©ë‹ˆë‹¤.",
+    "submitLabel": "êµ¬ë…í•˜ê¸°",
     "categoryOptions": [
       {
         "value": "customer",
-        "label": "°í°´"
+        "label": "ê³ ê°"
       },
       {
         "value": "partner",
-        "label": "½Ã°ø»ç"
+        "label": "ì‹œê³µì‚¬"
       },
       {
         "value": "research",
-        "label": "¿¬±¸¼Ò"
+        "label": "ì—°êµ¬ì†Œ"
       },
       {
         "value": "enterprise",
-        "label": "±â¾÷"
+        "label": "ê¸°ì—…"
       },
       {
         "value": "etc",
-        "label": "±âÅ¸"
+        "label": "ê¸°íƒ€"
       }
     ],
     "audiences": [
       {
-        "title": "±â¾÷ °í°´",
-        "description": "RE100 ÄÁ¼³ÆÃ, PPA, ±ÝÀ¶ Á¶´Þ µî ±â¾÷ ¸ÂÃã ÇÁ·Î±×·¥À» ¾È³»ÇÕ´Ï´Ù."
+        "title": "ê¸°ì—… ê³ ê°",
+        "description": "RE100 ì»¨ì„¤íŒ…, PPA, ê¸ˆìœµ ì¡°ë‹¬ ë“± ê¸°ì—… ë§žì¶¤ í”„ë¡œê·¸ëž¨ì„ ì•ˆë‚´í•©ë‹ˆë‹¤."
       },
       {
-        "title": "°³ÀÎ °í°´",
-        "description": "¼Ò±Ô¸ð ¹ßÀü¼Ò, ÁÖÅÃÇü ÅÂ¾ç±¤ µî ½Å±Ô Á¤Ã¥°ú Áö¿ø»ç¾÷ ¼Ò½ÄÀ» Á¦°øÇÕ´Ï´Ù."
+        "title": "ê°œì¸ ê³ ê°",
+        "description": "ì†Œê·œëª¨ ë°œì „ì†Œ, ì£¼íƒí˜• íƒœì–‘ê´‘ ë“± ì‹ ê·œ ì •ì±…ê³¼ ì§€ì›ì‚¬ì—… ì†Œì‹ì„ ì œê³µí•©ë‹ˆë‹¤."
       }
     ],
     "formLabels": {
-      "audience": "°í°´ À¯Çü",
-      "email": "ÀÌ¸ÞÀÏ"
+      "audience": "ê³ ê° ìœ í˜•",
+      "email": "ì´ë©”ì¼"
     },
-    "footnote": "½ÇÁ¦ ¼­ºñ½º¿¡¼­´Â °³ÀÎÁ¤º¸ Ã³¸®¹æÄ§°ú ½ºÆÔ ¹æÁö Á¤Ã¥À» ¾È³»ÇÏ°í, ±¸µ¶ È®ÀÎ ¸ÞÀÏÀ» ¹ß¼ÛÇÏ´Â ÀýÂ÷¸¦ ±¸¼ºÇÏ¼¼¿ä."
+    "footnote": "ì‹¤ì œ ì„œë¹„ìŠ¤ì—ì„œëŠ” ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨ê³¼ ìŠ¤íŒ¸ ë°©ì§€ ì •ì±…ì„ ì•ˆë‚´í•˜ê³ , êµ¬ë… í™•ì¸ ë©”ì¼ì„ ë°œì†¡í•˜ëŠ” ì ˆì°¨ë¥¼ êµ¬ì„±í•˜ì„¸ìš”."
   },
   "pages": {
     "aboutGreeting": {
       "hero": {
         "eyebrow": "Smart Power, Sustainable Future!",
-        "title": "¾ÈÀüÇÑ ¹Ì·¡¿Í ÇÔ²²ÇÏ´Â ±×¸° ¿¡³ÊÁö",
-        "description": "Áö±¸ È¯°æÀ» º¸È£ÇÏ°í ±â¾÷ÀÇ ¿¡³ÊÁö ºñ¿ëÀ» Àý°¨ÇÏ´Â Energy Management System"
+        "title": "ì•ˆì „í•œ ë¯¸ëž˜ì™€ í•¨ê»˜í•˜ëŠ” ê·¸ë¦° ì—ë„ˆì§€",
+        "description": "ì§€êµ¬ í™˜ê²½ì„ ë³´í˜¸í•˜ê³  ê¸°ì—…ì˜ ì—ë„ˆì§€ ë¹„ìš©ì„ ì ˆê°í•˜ëŠ” Energy Management System"
       },
       "greeting": {
-        "title": "ÀÎ»ç¸»",
-        "headline": "(À¯)ÇÃ·¡±× ±â¾÷ È¨ÆäÀÌÁö¿¡ ¹æ¹®ÇÏ½Å ¿©·¯ºÐ²² Áø½ÉÀ¸·Î °¨»çÀÇ ¸»¾¸¿Ã¸³´Ï´Ù.",
+        "title": "ì¸ì‚¬ë§",
+        "headline": "(ìœ )í”Œëž˜ê·¸ ê¸°ì—… í™ˆíŽ˜ì´ì§€ì— ë°©ë¬¸í•˜ì‹  ì—¬ëŸ¬ë¶„ê»˜ ì§„ì‹¬ìœ¼ë¡œ ê°ì‚¬ì˜ ë§ì”€ì˜¬ë¦½ë‹ˆë‹¤.",
         "image": "/assets/about/greeting-main.jpg",
         "paragraphs": [
-          "±âÈÄ À§±â ½Ã´ë, (À¯)ÇÃ·¡±×´Â ÃÖ½Å IT ±â¼úÀ» ÅëÇØ ¿¡³ÊÁö Àý¾à°ú ºñ¿ë Àý°¨ÀÌ¶ó´Â µÎ °¡Áö ¸ñÇ¥¸¦ µ¿½Ã¿¡ ´Þ¼ºÇÏ´Â Çõ½ÅÀûÀÎ ¼Ö·ç¼ÇÀ» Á¦°øÇÕ´Ï´Ù. ÀúÈñ´Â ¿¡³ÊÁö ÄÁ¼³ÆÃ, Á¤ºÎÁö¿ø»ç¾÷ ¿¬°è, ½Ã°ø, ¼ÒÇÁÆ®¿þ¾î °³¹ß ¹× »çÈÄ°ü¸®¿¡ ÀÌ¸£´Â °¢ ºÐ¾ß ÃÖ°íÀÇ Àü¹®°¡µé·Î ±¸¼ºµÈ ÆÀÀ¸·Î¼­, °í°´¿¡°Ô °¡Àå ÇÊ¿äÇÑ ¸ÂÃãÇü ¼Ö·ç¼ÇÀ» ¼³°èÇÕ´Ï´Ù.",
-          "Æ¯È÷ Smart Factory, Big Data ºÐ¾ßÀÇ ±íÀÌ ÀÖ´Â ³ëÇÏ¿ì¸¦ ¹ÙÅÁÀ¸·Î ºü¸£°Ô º¯È­ÇÏ´Â ½ÃÀåÀ» ¼±µµÇÏ°í ÀÖ½À´Ï´Ù. °¢ °í°´»çÀÇ ¿¡³ÊÁö ¼Òºñ ÆÐÅÏÀ» Á¤¹ÐÇÏ°Ô ºÐ¼®ÇÏ¿© ÃÖÀûÀÇ ÇØ°áÃ¥À» Á¦½ÃÇÔÀ¸·Î½á, ÇÃ·¡±×´Â ¸Å³â ÀÇ¹Ì ÀÖ´Â ¼ºÀåÀ» °ÅµìÇÏ°í ÀÖ½À´Ï´Ù.",
-          "¿ì¸®ÀÇ ¸ñÇ¥´Â ¸ðµç ±â¾÷°ú Á¶Á÷ÀÌ Áö¼Ó °¡´ÉÇÑ ¿¡³ÊÁö °ü¸®¸¦ ½ÇÇöÇÏµµ·Ï µ½´Â °ÍÀÔ´Ï´Ù. ÃÖ½Å ±â¼ú°ú Çõ½ÅÀ¸·Î ±â¾÷ÀÇ ¿î¿µ È¿À²Àº ±Ø´ëÈ­ÇÏ°í, È¯°æ¿¡ ¹ÌÄ¡´Â ¿µÇâÀº ÃÖ¼ÒÈ­ÇÏ´Â µ¥ ±â¿©ÇÏ°íÀÚ ÇÕ´Ï´Ù.",
-          "¿ì¸®´Â °í°´ÀÇ ¸ñÇ¥¿¡ Á¤È®È÷ ºÎÇÕÇÏ´Â ¼Ö·ç¼Ç°ú ÃÖ°í ¼öÁØÀÇ ¼­ºñ½º¸¦ ÅëÇØ ½Å·Ú¸¦ ½×°í Çù·ÂÀ» °­È­ÇØ ³ª°©´Ï´Ù. ²÷ÀÓ¾ø´Â Çõ½Å°ú µµÀüÀ» ÅëÇØ »ê¾÷ÀÇ º¯È­¿¡ ¹ß¸ÂÃç ³ª¾Æ°¥ °ÍÀ» ¾à¼Óµå¸³´Ï´Ù.",
-          "(À¯)ÇÃ·¡±×´Â Áö¼Ó °¡´ÉÇÑ ¹Ì·¡¸¦ ÇâÇÑ ¿©Á¤¿¡ µçµçÇÑ ÆÄÆ®³Ê°¡ µÇ¾î, °í°´ÀÇ ¼º°øÀ» ÇÔ²² ¸¸µé¾î°¡°Ú½À´Ï´Ù.",
-          "°¨»çÇÕ´Ï´Ù."
+          "ê¸°í›„ ìœ„ê¸° ì‹œëŒ€, (ìœ )í”Œëž˜ê·¸ëŠ” ìµœì‹  IT ê¸°ìˆ ì„ í†µí•´ ì—ë„ˆì§€ ì ˆì•½ê³¼ ë¹„ìš© ì ˆê°ì´ë¼ëŠ” ë‘ ê°€ì§€ ëª©í‘œë¥¼ ë™ì‹œì— ë‹¬ì„±í•˜ëŠ” í˜ì‹ ì ì¸ ì†”ë£¨ì…˜ì„ ì œê³µí•©ë‹ˆë‹¤. ì €í¬ëŠ” ì—ë„ˆì§€ ì»¨ì„¤íŒ…, ì •ë¶€ì§€ì›ì‚¬ì—… ì—°ê³„, ì‹œê³µ, ì†Œí”„íŠ¸ì›¨ì–´ ê°œë°œ ë° ì‚¬í›„ê´€ë¦¬ì— ì´ë¥´ëŠ” ê° ë¶„ì•¼ ìµœê³ ì˜ ì „ë¬¸ê°€ë“¤ë¡œ êµ¬ì„±ëœ íŒ€ìœ¼ë¡œì„œ, ê³ ê°ì—ê²Œ ê°€ìž¥ í•„ìš”í•œ ë§žì¶¤í˜• ì†”ë£¨ì…˜ì„ ì„¤ê³„í•©ë‹ˆë‹¤.",
+          "íŠ¹ížˆ Smart Factory, Big Data ë¶„ì•¼ì˜ ê¹Šì´ ìžˆëŠ” ë…¸í•˜ìš°ë¥¼ ë°”íƒ•ìœ¼ë¡œ ë¹ ë¥´ê²Œ ë³€í™”í•˜ëŠ” ì‹œìž¥ì„ ì„ ë„í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ê° ê³ ê°ì‚¬ì˜ ì—ë„ˆì§€ ì†Œë¹„ íŒ¨í„´ì„ ì •ë°€í•˜ê²Œ ë¶„ì„í•˜ì—¬ ìµœì ì˜ í•´ê²°ì±…ì„ ì œì‹œí•¨ìœ¼ë¡œì¨, í”Œëž˜ê·¸ëŠ” ë§¤ë…„ ì˜ë¯¸ ìžˆëŠ” ì„±ìž¥ì„ ê±°ë“­í•˜ê³  ìžˆìŠµë‹ˆë‹¤.",
+          "ìš°ë¦¬ì˜ ëª©í‘œëŠ” ëª¨ë“  ê¸°ì—…ê³¼ ì¡°ì§ì´ ì§€ì† ê°€ëŠ¥í•œ ì—ë„ˆì§€ ê´€ë¦¬ë¥¼ ì‹¤í˜„í•˜ë„ë¡ ë•ëŠ” ê²ƒìž…ë‹ˆë‹¤. ìµœì‹  ê¸°ìˆ ê³¼ í˜ì‹ ìœ¼ë¡œ ê¸°ì—…ì˜ ìš´ì˜ íš¨ìœ¨ì€ ê·¹ëŒ€í™”í•˜ê³ , í™˜ê²½ì— ë¯¸ì¹˜ëŠ” ì˜í–¥ì€ ìµœì†Œí™”í•˜ëŠ” ë° ê¸°ì—¬í•˜ê³ ìž í•©ë‹ˆë‹¤.",
+          "ìš°ë¦¬ëŠ” ê³ ê°ì˜ ëª©í‘œì— ì •í™•ížˆ ë¶€í•©í•˜ëŠ” ì†”ë£¨ì…˜ê³¼ ìµœê³  ìˆ˜ì¤€ì˜ ì„œë¹„ìŠ¤ë¥¼ í†µí•´ ì‹ ë¢°ë¥¼ ìŒ“ê³  í˜‘ë ¥ì„ ê°•í™”í•´ ë‚˜ê°‘ë‹ˆë‹¤. ëŠìž„ì—†ëŠ” í˜ì‹ ê³¼ ë„ì „ì„ í†µí•´ ì‚°ì—…ì˜ ë³€í™”ì— ë°œë§žì¶° ë‚˜ì•„ê°ˆ ê²ƒì„ ì•½ì†ë“œë¦½ë‹ˆë‹¤.",
+          "(ìœ )í”Œëž˜ê·¸ëŠ” ì§€ì† ê°€ëŠ¥í•œ ë¯¸ëž˜ë¥¼ í–¥í•œ ì—¬ì •ì— ë“ ë“ í•œ íŒŒíŠ¸ë„ˆê°€ ë˜ì–´, ê³ ê°ì˜ ì„±ê³µì„ í•¨ê»˜ ë§Œë“¤ì–´ê°€ê² ìŠµë‹ˆë‹¤.",
+          "ê°ì‚¬í•©ë‹ˆë‹¤."
         ]
       },
       "companyInfo": {
-        "title": "±â¾÷Á¤º¸",
+        "title": "ê¸°ì—…ì •ë³´",
         "items": [
           {
-            "label": "È¸»ç¸í",
-            "value": "(ÁÖ)FLAG Co., Ltd."
+            "label": "íšŒì‚¬ëª…",
+            "value": "(ì£¼)FLAG Co., Ltd."
           },
           {
-            "label": "´ëÇ¥ÀÌ»ç",
-            "value": "°­µµÇö"
+            "label": "ëŒ€í‘œì´ì‚¬",
+            "value": "ê°•ë„í˜„"
           },
           {
-            "label": "º»»çÁÖ¼Ò",
-            "value": "¼­¿ïÆ¯º°½Ã °­³²±¸ Å×Çì¶õ·Î70±æ 14-6, 8Ãþ 804È£(´ëÄ¡µ¿, ¼¼¿ÕÁ¾ÇÕ»ó»çºôµù)"
+            "label": "ë³¸ì‚¬ì£¼ì†Œ",
+            "value": "ì„œìš¸íŠ¹ë³„ì‹œ ê°•ë‚¨êµ¬ í…Œí—¤ëž€ë¡œ70ê¸¸ 14-6, 8ì¸µ 804í˜¸(ëŒ€ì¹˜ë™, ì„¸ì™•ì¢…í•©ìƒì‚¬ë¹Œë”©)"
           },
           {
-            "label": "Áö»çÁÖ¼Ò",
+            "label": "ì§€ì‚¬ì£¼ì†Œ",
             "value": "-"
           }
         ]
       },
       "history": {
-        "title": "ÁÖ¿ä¿¬Çõ",
-        "subtitle": "ÀÚ¿¬À» º¸È£ÇÏ¸ç ÀÚ¿¬°ú ÇÏ³ªµÇ´Â °øÇØ¾ø°í ±ú²ýÇÑ ¿¡³ÊÁö!\nÇÃ·¡±×°¡ ¸¸µé¾î°©´Ï´Ù.",
+        "title": "ì£¼ìš”ì—°í˜",
+        "subtitle": "ìžì—°ì„ ë³´í˜¸í•˜ë©° ìžì—°ê³¼ í•˜ë‚˜ë˜ëŠ” ê³µí•´ì—†ê³  ê¹¨ë—í•œ ì—ë„ˆì§€!\ní”Œëž˜ê·¸ê°€ ë§Œë“¤ì–´ê°‘ë‹ˆë‹¤.",
         "years": [
           {
             "year": "2017",
             "events": [
-              "ÅÂ¾ç±¤ ´ë¿©»ç¾÷À» ¸ñÀûÀ¸·Î ¹ýÀÎ ¼³¸³",
-              "2014³â¤ý2015³â ÅÂ¾ç±¤ ´ë¿©»ç¾÷±Ç ¾ç¼ö",
-              "'2017³âµµ ÅÂ¾ç±¤ ´ë¿©»ç¾÷ÀÚ' ¼±Á¤-ÇÑ±¹¿¡³ÊÁö°ø´Ü",
-              "±¸¹Ì ¹Ì¼ÒÁö¿ò ¾ÆÆÄÆ® ÅÂ¾ç±¤ ¼³Ä¡(¿µ³²±Ç ÃÖ´ë±Ô¸ð)",
-              "´Üµ¶ÁÖÅÃ 2,157kW, °øµ¿ÁÖÅÃ 500kW º¸±Þ"
+              "íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ì„ ëª©ì ìœ¼ë¡œ ë²•ì¸ ì„¤ë¦½",
+              "2014ë…„ã†2015ë…„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ê¶Œ ì–‘ìˆ˜",
+              "'2017ë…„ë„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ìž' ì„ ì •-í•œêµ­ì—ë„ˆì§€ê³µë‹¨",
+              "êµ¬ë¯¸ ë¯¸ì†Œì§€ì›€ ì•„íŒŒíŠ¸ íƒœì–‘ê´‘ ì„¤ì¹˜(ì˜ë‚¨ê¶Œ ìµœëŒ€ê·œëª¨)",
+              "ë‹¨ë…ì£¼íƒ 2,157kW, ê³µë™ì£¼íƒ 500kW ë³´ê¸‰"
             ]
           },
           {
             "year": "2018",
             "events": [
-              "Àü±â°ø»ç¾÷ µî·Ï(°æ³²-01847)",
-              "±¸¹Ì ¾ÆÆÄÆ® ÅÂ¾ç±¤ ÁØ°ø½Ä(±¹³»ÃÖÃÊ °øµ¿ÁÖÅÃ ¿ä±Ý»ó°è°Å·¡ ¿Ï·á)",
-              "'2018³âµµ ÅÂ¾ç±¤ ´ë¿©»ç¾÷ÀÚ' ¼±Á¤-ÇÑ±¹¿¡³ÊÁö°ø´Ü",
-              "´Üµ¶ÁÖÅÃ 3,165kW, °øµ¿ÁÖÅÃ 786kW º¸±Þ"
+              "ì „ê¸°ê³µì‚¬ì—… ë“±ë¡(ê²½ë‚¨-01847)",
+              "êµ¬ë¯¸ ì•„íŒŒíŠ¸ íƒœì–‘ê´‘ ì¤€ê³µì‹(êµ­ë‚´ìµœì´ˆ ê³µë™ì£¼íƒ ìš”ê¸ˆìƒê³„ê±°ëž˜ ì™„ë£Œ)",
+              "'2018ë…„ë„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ìž' ì„ ì •-í•œêµ­ì—ë„ˆì§€ê³µë‹¨",
+              "ë‹¨ë…ì£¼íƒ 3,165kW, ê³µë™ì£¼íƒ 786kW ë³´ê¸‰"
             ]
           },
           {
             "year": "2019",
             "events": [
-              "±¸¹Ì È®Àå´ÜÁö ¾ÆÆÄÆ® ÅÂ¾ç±¤ ÁØ°ø½Ä (È®Àå´ÜÁö À¯ÀÏÀÇ Àü µ¿¿¡ ÅÂ¾ç±¤¼³ºñ ¼³Ä¡)",
-              "'2019³âµµ ÅÂ¾ç±¤ ´ë¿©»ç¾÷ÀÚ' ¼±Á¤-ÇÑ±¹¿¡³ÊÁö°ø´Ü",
-              "´Üµ¶ÁÖÅÃ 2,619kW, °øµ¿ÁÖÅÃ 1,055kW º¸±Þ",
-              "ISO9001(Ç°Áú°æ¿µ½Ã½ºÅÛÀÎÁõ¼­) ÀÎÁõ"
+              "êµ¬ë¯¸ í™•ìž¥ë‹¨ì§€ ì•„íŒŒíŠ¸ íƒœì–‘ê´‘ ì¤€ê³µì‹ (í™•ìž¥ë‹¨ì§€ ìœ ì¼ì˜ ì „ ë™ì— íƒœì–‘ê´‘ì„¤ë¹„ ì„¤ì¹˜)",
+              "'2019ë…„ë„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ìž' ì„ ì •-í•œêµ­ì—ë„ˆì§€ê³µë‹¨",
+              "ë‹¨ë…ì£¼íƒ 2,619kW, ê³µë™ì£¼íƒ 1,055kW ë³´ê¸‰",
+              "ISO9001(í’ˆì§ˆê²½ì˜ì‹œìŠ¤í…œì¸ì¦ì„œ) ì¸ì¦"
             ]
           },
           {
             "year": "2020",
             "events": [
-              "2020³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤",
-              "2020 ½Å·Ú¸¸Á·µµ 1À§ ºê·£µå ´ë»ó ¼ö»ó",
-              "¡®2020³âµµ ÅÂ¾ç±¤ ´ë¿©»ç¾÷ÀÚ¡¯ ¼±Á¤-ÇÑ±¹¿¡³ÊÁö°ø´Ü",
-              "´º¿¡³ÊÁöÆÄ¿ö¿Í ÇÕº´ (ÅÂ¾ç±¤ ¹ßÀü»ç¾÷)",
-              "´Üµ¶ÁÖÅÃ 1,323kW, °øµ¿ÁÖÅÃ 418kW º¸±Þ"
+              "2020ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •",
+              "2020 ì‹ ë¢°ë§Œì¡±ë„ 1ìœ„ ë¸Œëžœë“œ ëŒ€ìƒ ìˆ˜ìƒ",
+              "â€˜2020ë…„ë„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ìžâ€™ ì„ ì •-í•œêµ­ì—ë„ˆì§€ê³µë‹¨",
+              "ë‰´ì—ë„ˆì§€íŒŒì›Œì™€ í•©ë³‘ (íƒœì–‘ê´‘ ë°œì „ì‚¬ì—…)",
+              "ë‹¨ë…ì£¼íƒ 1,323kW, ê³µë™ì£¼íƒ 418kW ë³´ê¸‰"
             ]
           },
           {
             "year": "2021",
             "events": [
-              "2021³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤",
-              "'2021³âµµ ÅÂ¾ç±¤ ´ë¿©»ç¾÷ÀÚ' ¼±Á¤-ÇÑ±¹¿¡³ÊÁö°ø´Ü"
+              "2021ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •",
+              "'2021ë…„ë„ íƒœì–‘ê´‘ ëŒ€ì—¬ì‚¬ì—…ìž' ì„ ì •-í•œêµ­ì—ë„ˆì§€ê³µë‹¨"
             ]
           },
           {
             "year": "2022",
             "events": [
-              "2022³â ½ÅÀç»ý¿¡³ÊÁö À¶º¹ÇÕÁö¿ø»ç¾÷ ¼±Á¤",
-              "2022³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤",
-              "°æ»ó³²µµ ¿¡³ÊÁö´ë»ó Ã¢¿øÆ¯·Ê½ÃÀå Ç¥Ã¢ ¼ö»ó"
+              "2022ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ìœµë³µí•©ì§€ì›ì‚¬ì—… ì„ ì •",
+              "2022ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •",
+              "ê²½ìƒë‚¨ë„ ì—ë„ˆì§€ëŒ€ìƒ ì°½ì›íŠ¹ë¡€ì‹œìž¥ í‘œì°½ ìˆ˜ìƒ"
             ]
           },
           {
             "year": "2023",
             "events": [
-              "(ÁÖ)¾¾Æ¼¾Ë¿¡³ÊÁö »ç¸í º¯°æ",
-              "(ÁÖ)¾¾Æ¼¾Ë °ü°è»ç ÆíÀÔ",
-              "2023³â ½ÅÀç»ý¿¡³ÊÁö À¶º¹ÇÕÁö¿ø»ç¾÷ ¼±Á¤(Á¦ÁÖÆ¯º°ÀÚÄ¡µµ ¼­±ÍÆ÷½Ã)",
-              "2023³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤",
-              "RE100 ¸¶À» È®»êÀ» À§ÇÑ °æ±âµµ ÁÖÅÃ ÅÂ¾ç±¤ Áö¿ø»ç¾÷ ¼±Á¤",
-              "°æ³²¿¡³ÊÁö´ë»ó ¼ö»ó"
+              "(ì£¼)ì”¨í‹°ì•Œì—ë„ˆì§€ ì‚¬ëª… ë³€ê²½",
+              "(ì£¼)ì”¨í‹°ì•Œ ê´€ê³„ì‚¬ íŽ¸ìž…",
+              "2023ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ìœµë³µí•©ì§€ì›ì‚¬ì—… ì„ ì •(ì œì£¼íŠ¹ë³„ìžì¹˜ë„ ì„œê·€í¬ì‹œ)",
+              "2023ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •",
+              "RE100 ë§ˆì„ í™•ì‚°ì„ ìœ„í•œ ê²½ê¸°ë„ ì£¼íƒ íƒœì–‘ê´‘ ì§€ì›ì‚¬ì—… ì„ ì •",
+              "ê²½ë‚¨ì—ë„ˆì§€ëŒ€ìƒ ìˆ˜ìƒ"
             ]
           },
           {
             "year": "2024",
             "events": [
-              "2024³â ½ÅÀç»ý¿¡³ÊÁö À¶º¹ÇÕÁö¿ø»ç¾÷ ¼±Á¤(Á¦ÁÖÆ¯º°ÀÚÄ¡µµ ¼­±ÍÆ÷½Ã)",
-              "2024³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤",
-              "2024³â ½ÅÀç»ý¿¡³ÊÁö À¶º¹ÇÕÁö¿ø»ç¾÷ ¼±Á¤(°æ»ó³²µµ Ã¢³ç±º)"
+              "2024ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ìœµë³µí•©ì§€ì›ì‚¬ì—… ì„ ì •(ì œì£¼íŠ¹ë³„ìžì¹˜ë„ ì„œê·€í¬ì‹œ)",
+              "2024ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •",
+              "2024ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ìœµë³µí•©ì§€ì›ì‚¬ì—… ì„ ì •(ê²½ìƒë‚¨ë„ ì°½ë…•êµ°)"
             ]
           },
           {
             "year": "2025",
-            "events": ["2025³â ½ÅÀç»ý¿¡³ÊÁö º¸±Þ»ç¾÷ Âü¿©±â¾÷ ¼±Á¤"]
+            "events": ["2025ë…„ ì‹ ìž¬ìƒì—ë„ˆì§€ ë³´ê¸‰ì‚¬ì—… ì°¸ì—¬ê¸°ì—… ì„ ì •"]
           }
         ]
       }
     }
   },
   "footer": {
-    "tagline": "½Å·ÚÇÒ ¼ö ÀÖ´Â RE100 ÆÄÆ®³Ê ÇÃ·¡±×°¡ ¿¡³ÊÁö ÀüÈ¯ÀÇ ¿©Á¤À» ÇÔ²²ÇÕ´Ï´Ù.",
+    "tagline": "ì‹ ë¢°í•  ìˆ˜ ìžˆëŠ” RE100 íŒŒíŠ¸ë„ˆ í”Œëž˜ê·¸ê°€ ì—ë„ˆì§€ ì „í™˜ì˜ ì—¬ì •ì„ í•¨ê»˜í•©ë‹ˆë‹¤.",
     "menus": [
       {
-        "title": "È¸»ç¼Ò°³",
+        "title": "íšŒì‚¬ì†Œê°œ",
         "items": [
           {
-            "label": "ÀÎ»ç¸»",
+            "label": "ì¸ì‚¬ë§",
             "href": "/about/about-1"
           }
         ]
       },
       {
-        "title": "»ç¾÷ºÐ¾ß",
+        "title": "ì‚¬ì—…ë¶„ì•¼",
         "items": [
           {
-            "label": "ÁöºØÀÓ´ë »ç¾÷",
+            "label": "ì§€ë¶•ìž„ëŒ€ ì‚¬ì—…",
             "href": "/service/service-1"
           },
           {
-            "label": "ÇÑÀü¼öÀü",
+            "label": "í•œì „ìˆ˜ì „",
             "href": "/service/service-2"
           },
           {
-            "label": "Á¤ºÎÁö¿ø»ç¾÷",
+            "label": "ì •ë¶€ì§€ì›ì‚¬ì—…",
             "href": "/service/service-3"
           },
           {
-            "label": "RE100ÄÁ¼³ÆÃ",
+            "label": "RE100ì»¨ì„¤íŒ…",
             "href": "/service/service-4"
           },
           {
-            "label": "±ÝÀ¶¼Ö·ç¼ÇÆÃ",
+            "label": "ê¸ˆìœµì†”ë£¨ì…˜íŒ…",
             "href": "/service/service-5"
           }
         ]
       },
       {
-        "title": "°í°´¼¾ÅÍ",
+        "title": "ê³ ê°ì„¼í„°",
         "items": [
           {
-            "label": "°í°´¹®ÀÇ",
+            "label": "ê³ ê°ë¬¸ì˜",
             "href": "/support/contact"
           },
           {
-            "label": "ÀÚÁÖ ¹¯´Â Áú¹®",
+            "label": "ìžì£¼ ë¬»ëŠ” ì§ˆë¬¸",
             "href": "/support/faq"
           }
         ]
       }
     ],
     "infoLines": [
-      "(ÁÖ)FLAG Co., Ltd. | ´ëÇ¥ÀÌ»ç: °­µµÇö",
-      "º»»ç: ¼­¿ïÆ¯º°½Ã °­³²±¸ Å×Çì¶õ·Î70±æ 14-6, 8Ãþ 804È£(´ëÄ¡µ¿, ¼¼¿ÕÁ¾ÇÕ»ó»çºôµù)",
-      "Áö»ç: -",
-      "»ç¾÷ÀÚµî·Ï¹øÈ£: 821-86-01526"
+      "(ì£¼)FLAG Co., Ltd. | ëŒ€í‘œì´ì‚¬: ê°•ë„í˜„",
+      "ë³¸ì‚¬: ì„œìš¸íŠ¹ë³„ì‹œ ê°•ë‚¨êµ¬ í…Œí—¤ëž€ë¡œ70ê¸¸ 14-6, 8ì¸µ 804í˜¸(ëŒ€ì¹˜ë™, ì„¸ì™•ì¢…í•©ìƒì‚¬ë¹Œë”©)",
+      "ì§€ì‚¬: -",
+      "ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸: 821-86-01526"
     ],
     "quickLinks": [
       {
-        "label": "°í°´¹®ÀÇ",
+        "label": "ê³ ê°ë¬¸ì˜",
         "href": "/support/contact"
       },
       {
-        "label": "°³ÀÎÁ¤º¸Ã³¸®¹æÄ§",
+        "label": "ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨",
         "href": "/legal/privacy"
       }
     ],
     "hotline": {
-      "title": "°í°´¹®ÀÇ",
+      "title": "ê³ ê°ë¬¸ì˜",
       "phone": "1666-0309",
-      "details": ["»ó´ã½Ã°£: ÆòÀÏ 08:30 ~ 17:30", "ÁÖ¸» ¹× °øÈÞÀÏ ÈÞ¹«"]
+      "details": ["ìƒë‹´ì‹œê°„: í‰ì¼ 08:30 ~ 17:30", "ì£¼ë§ ë° ê³µíœ´ì¼ íœ´ë¬´"]
     },
     "socials": [
       {
-        "label": "³×ÀÌ¹ö ºí·Î±×",
+        "label": "ë„¤ì´ë²„ ë¸”ë¡œê·¸",
         "href": ""
       },
       {
-        "label": "Ä«Ä«¿À Ã¤³Î",
+        "label": "ì¹´ì¹´ì˜¤ ì±„ë„",
         "href": ""
       },
       {
@@ -476,5 +476,3 @@
     ]
   }
 }
-
-
