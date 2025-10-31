@@ -1,18 +1,18 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout.jsx";
-import ComingSoon from "./pages/ComingSoon.jsx";
-import Home from "./pages/Home.jsx";
-import AboutGreeting from "./pages/about/AboutGreeting.jsx";
+import MainLayout from "@/layouts/MainLayout.jsx";
+import ComingSoon from "@/pages/ComingSoon.jsx";
+import Home from "@/pages/Home.jsx";
+import AboutGreeting from "@/pages/about/AboutGreeting.jsx";
 
 //서비스 지붕임대/한전수전
-import ServiceRoofLease from "./pages/ServiceRoofLease/ServiceRoofLease";
-import PowerService from "./pages/PowerService/PowerService";
+import ServiceRoofLease from "@/pages/ServiceRoofLease/ServiceRoofLease";
+import PowerService from "@/pages/PowerService/PowerService";
 
 //문의/자주묻는질문/개인정보
-import { EnerisCustomerSection } from "./pages/CustomerSection";
+import { EnerisCustomerSection } from "@/pages/CustomerSection";
 
-import EnerisFaq from "./pages/enerisfaq/EnerisFaq.jsx";
-import EnerisPrivacy from "./pages/privacy/EnerisPrivacy.jsx";
+import EnerisFaq from "@/pages/enerisfaq/EnerisFaq.jsx";
+import EnerisPrivacy from "@/pages/privacy/EnerisPrivacy.jsx";
 
 function App() {
   return (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Pill } from "./Pill";
 import { FeatureItem } from "./FeatureItem";
 import { Calculator } from "./Calculator";
-import { SectionCard } from "../PowerService/SectionCard";
+import { SectionCard } from "../PowerService";
 
 export default function ServiceRoofLease({ data = rooftop }) {
   const { hero, estimator, features, process, cases, contact } = data;

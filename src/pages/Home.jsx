@@ -1,6 +1,6 @@
-import FeatureGrid from '../components/FeatureGrid.jsx'
-import Hero from '../components/Hero.jsx'
-import Newsletter from '../components/Newsletter.jsx'
+import FeatureGrid from "@/components/FeatureGrid.jsx";
+import Hero from "@/components/Hero.jsx";
+import Newsletter from "@/components/Newsletter.jsx";
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <FeatureGrid />
       <Newsletter />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
