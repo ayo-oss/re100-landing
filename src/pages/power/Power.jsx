@@ -1,6 +1,6 @@
 // SavePower.jsx
 import React from "react";
-import data from "./power.json";
+import power from "./power.json";
 
 const H2 = ({ children }) => (
   <h2 className="text-xl font-semibold text-gray-900">{children}</h2>
@@ -15,10 +15,10 @@ export default function SavePower() {
       <div className="container mx-auto px-6 space-y-14">
         {/* Hero */}
         <header>
-          <h1 className="text-3xl font-bold tracking-tight">{data.title}</h1>
-          <P>{data.subtitle}</P>
+          <h1 className="text-3xl font-bold tracking-tight">{power.title}</h1>
+          <P>{power.subtitle}</P>
           <div className="mt-4 grid gap-2 text-sm text-gray-800">
-            {data.hero.bullets.map((t, i) => (
+            {power.hero.bullets.map((t, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-gray-900"></span>{" "}
                 {t}
@@ -29,7 +29,7 @@ export default function SavePower() {
 
         {/* Tariff */}
         <section>
-          <H2>{data.tariff.title}</H2>
+          <H2>{power.tariff.title}</H2>
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-left text-sm border-separate border-spacing-y-1">
               <thead className="text-gray-500">
@@ -40,7 +40,7 @@ export default function SavePower() {
                 </tr>
               </thead>
               <tbody>
-                {data.tariff.rows.map((r, i) => (
+                {power.tariff.rows.map((r, i) => (
                   <tr key={i} className="bg-white shadow-sm">
                     <td className="py-3 px-4 font-medium">{r.class}</td>
                     <td className="py-3 px-4">{r.basic.toLocaleString()}</td>
@@ -57,7 +57,7 @@ export default function SavePower() {
             </table>
           </div>
           <ul className="mt-2 list-disc pl-6 text-sm text-gray-600">
-            {data.tariff.notes.map((n, i) => (
+            {power.tariff.notes.map((n, i) => (
               <li key={i}>{n}</li>
             ))}
           </ul>
@@ -65,9 +65,9 @@ export default function SavePower() {
 
         {/* Eligibility */}
         <section>
-          <H2>{data.eligibility.title}</H2>
+          <H2>{power.eligibility.title}</H2>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2 list-disc pl-6 text-sm text-gray-700">
-            {data.eligibility.items.map((t, i) => (
+            {power.eligibility.items.map((t, i) => (
               <li key={i}>{t}</li>
             ))}
           </ul>
@@ -75,12 +75,12 @@ export default function SavePower() {
 
         {/* Partner */}
         <section>
-          <H2>{data.partner.title}</H2>
+          <H2>{power.partner.title}</H2>
           <P className="mt-1">
-            <b>{data.partner.name}</b>
+            <b>{power.partner.name}</b>
           </P>
           <ul className="mt-2 list-disc pl-6 text-sm text-gray-700">
-            {data.partner.desc.map((t, i) => (
+            {power.partner.desc.map((t, i) => (
               <li key={i}>{t}</li>
             ))}
           </ul>
@@ -88,9 +88,9 @@ export default function SavePower() {
 
         {/* Segments */}
         <section>
-          <H2>{data.segments.title}</H2>
+          <H2>{power.segments.title}</H2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {data.segments.cards.map((c, i) => (
+            {power.segments.cards.map((c, i) => (
               <div
                 key={i}
                 className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
@@ -111,9 +111,9 @@ export default function SavePower() {
 
         {/* Cases */}
         <section>
-          <H2>{data.cases.title}</H2>
+          <H2>{power.cases.title}</H2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {data.cases.items.map((c, i) => (
+            {power.cases.items.map((c, i) => (
               <div
                 key={i}
                 className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
@@ -121,12 +121,12 @@ export default function SavePower() {
                 <div className="font-medium text-gray-900">{c.name}</div>
                 <div className="mt-2 text-sm text-gray-700">
                   {c.from}
-                  {data.cases.unit.power} → {c.to}
-                  {data.cases.unit.power}
+                  {power.cases.unit.power} → {c.to}
+                  {power.cases.unit.power}
                 </div>
                 <div className="mt-1 text-sm text-gray-700">
                   절감액 {c.saving.toLocaleString()}
-                  {data.cases.unit.money}
+                  {power.cases.unit.money}
                 </div>
               </div>
             ))}
@@ -135,9 +135,9 @@ export default function SavePower() {
 
         {/* Benefits */}
         <section>
-          <H2>{data.benefits.title}</H2>
+          <H2>{power.benefits.title}</H2>
           <ul className="mt-3 list-disc pl-6 text-sm text-gray-700">
-            {data.benefits.bullets.map((t, i) => (
+            {power.benefits.bullets.map((t, i) => (
               <li key={i}>{t}</li>
             ))}
           </ul>
@@ -145,9 +145,9 @@ export default function SavePower() {
 
         {/* Process */}
         <section>
-          <H2>{data.process.title}</H2>
+          <H2>{power.process.title}</H2>
           <ol className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 list-decimal pl-6 text-sm text-gray-700">
-            {data.process.steps.map((s, i) => (
+            {power.process.steps.map((s, i) => (
               <li
                 key={i}
                 className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
@@ -163,9 +163,9 @@ export default function SavePower() {
 
         {/* Badges */}
         <section>
-          <H2>{data.badges.title}</H2>
+          <H2>{power.badges.title}</H2>
           <div className="mt-3 flex flex-wrap gap-2">
-            {data.badges.items.map((b, i) => (
+            {power.badges.items.map((b, i) => (
               <span
                 key={i}
                 className="rounded-full border border-gray-300 bg-white px-3 py-1 text-xs shadow-sm"
@@ -178,9 +178,9 @@ export default function SavePower() {
 
         {/* Alliances */}
         <section>
-          <H2>{data.alliances.title}</H2>
+          <H2>{power.alliances.title}</H2>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2 text-sm text-gray-700">
-            {data.alliances.orgs.map((o, i) => (
+            {power.alliances.orgs.map((o, i) => (
               <li
                 key={i}
                 className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
@@ -194,9 +194,9 @@ export default function SavePower() {
 
         {/* Metrics */}
         <section>
-          <H2>{data.metrics.title}</H2>
+          <H2>{power.metrics.title}</H2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {data.metrics.stats.map((s, i) => (
+            {power.metrics.stats.map((s, i) => (
               <div
                 key={i}
                 className="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm"
@@ -213,10 +213,10 @@ export default function SavePower() {
 
         {/* CTA */}
         <section>
-          <H2>{data.cta.title}</H2>
-          <P>{data.cta.desc}</P>
+          <H2>{power.cta.title}</H2>
+          <P>{power.cta.desc}</P>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {data.cta.formFields.map((f, i) => (
+            {power.cta.formFields.map((f, i) => (
               <input
                 key={i}
                 placeholder={f}

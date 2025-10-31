@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import data from "./customer.json";
+import customer from "./customer.json";
 
 const GAS_ENDPOINT =
   import.meta.env.VITE_GAS_ENDPOINT ||
@@ -52,7 +52,7 @@ export default function EnerisdataSection() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
 
-  const inquiryTypes = useMemo(() => data.inquiryTypes, []);
+  const inquiryTypes = useMemo(() => enerisfaq.inquiryTypes, []);
   const expectsOpaqueResponse = GAS_ENDPOINT.includes("script.google");
 
   const onChange = (e) => {
@@ -71,15 +71,15 @@ export default function EnerisdataSection() {
 
   const validate = () => {
     const nextErrors = {};
-    if (!form.name.trim()) nextErrors.name = data.errors.name;
+    if (!form.name.trim()) nextErrors.name = enerisfaq.errors.name;
     if (!form.phone.trim() || !phoneRegex.test(form.phone))
-      nextErrors.phone = data.errors.phone;
-    if (!form.address.trim()) nextErrors.address = data.errors.address;
+      nextErrors.phone = enerisfaq.errors.phone;
+    if (!form.address.trim()) nextErrors.address = enerisfaq.errors.address;
     if (!form.email.trim() || !emailRegex.test(form.email))
-      nextErrors.email = data.errors.email;
-    if (!form.type) nextErrors.type = data.errors.type;
-    if (!form.message.trim()) nextErrors.message = data.errors.message;
-    if (!form.agree) nextErrors.agree = data.errors.agree;
+      nextErrors.email = enerisfaq.errors.email;
+    if (!form.type) nextErrors.type = enerisfaq.errors.type;
+    if (!form.message.trim()) nextErrors.message = enerisfaq.errors.message;
+    if (!form.agree) nextErrors.agree = enerisfaq.errors.agree;
     return nextErrors;
   };
 
@@ -133,9 +133,9 @@ export default function EnerisdataSection() {
       const isJsonResponse = res.headers
         ?.get("content-type")
         ?.includes("application/json");
-      const data = isJsonResponse ? await res.json() : null;
-      if (!res.ok || (isJsonResponse && !data?.ok)) {
-        throw new Error(data?.message || "Server error");
+      const customer = isJsonResponse ? await res.json() : null;
+      if (!res.ok || (isJsonResponse && !customer?.ok)) {
+        throw new Error(customer?.message || "Server error");
       }
       setDone(true);
       setForm(createInitialFormState());
@@ -151,51 +151,59 @@ export default function EnerisdataSection() {
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         <header className="mb-12">
           <h1 className="text-display text-[2.5rem] font-bold leading-tight text-slate-900">
-            {data.title}
+            {enerisfaq.title}
           </h1>
           <p className="text-description mt-4 text-[1.222rem] leading-7 text-slate-600">
-            {data.subtitle}
+            {enerisfaq.subtitle}
           </p>
           <p className="text-body mt-3 flex items-center text-[1.125rem] text-slate-500">
             <span
               aria-hidden
               className="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500"
             />
-            <span className="sr-only">{data.requiredMark}</span>
-            {data.requiredNotice}
+            <span className="sr-only">{enerisfaq.requiredMark}</span>
+            {enerisfaq.requiredNotice}
           </p>
         </header>
 
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-            <Field label={data.fields.name} required error={fieldErrors.name}>
+            <Field
+              label={enerisfaq.fields.name}
+              required
+              error={fieldErrors.name}
+            >
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={onChange}
-                data-field="name"
+                customer-field="name"
                 autoComplete="name"
                 className={getInputClass(Boolean(fieldErrors.name))}
-                placeholder={data.placeholders.name}
+                placeholder={enerisfaq.placeholders.name}
               />
             </Field>
 
-            <Field label={data.fields.phone} required error={fieldErrors.phone}>
+            <Field
+              label={enerisfaq.fields.phone}
+              required
+              error={fieldErrors.phone}
+            >
               <input
                 type="tel"
                 name="phone"
                 value={form.phone}
                 onChange={onChange}
-                data-field="phone"
+                customer-field="phone"
                 autoComplete="tel"
                 className={getInputClass(Boolean(fieldErrors.phone))}
-                placeholder={data.placeholders.phone}
+                placeholder={enerisfaq.placeholders.phone}
               />
             </Field>
 
             <Field
-              label={data.fields.address}
+              label={enerisfaq.fields.address}
               required
               full
               error={fieldErrors.address}
@@ -205,38 +213,46 @@ export default function EnerisdataSection() {
                 name="address"
                 value={form.address}
                 onChange={onChange}
-                data-field="address"
+                customer-field="address"
                 autoComplete="street-address"
                 className={getInputClass(Boolean(fieldErrors.address))}
-                placeholder={data.placeholders.address}
+                placeholder={enerisfaq.placeholders.address}
               />
             </Field>
 
-            <Field label={data.fields.email} required error={fieldErrors.email}>
+            <Field
+              label={enerisfaq.fields.email}
+              required
+              error={fieldErrors.email}
+            >
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={onChange}
-                data-field="email"
+                customer-field="email"
                 autoComplete="email"
                 className={getInputClass(Boolean(fieldErrors.email))}
-                placeholder={data.placeholders.email}
+                placeholder={enerisfaq.placeholders.email}
               />
             </Field>
 
-            <Field label={data.fields.type} required error={fieldErrors.type}>
+            <Field
+              label={enerisfaq.fields.type}
+              required
+              error={fieldErrors.type}
+            >
               <div className="relative">
                 <select
                   name="type"
                   value={form.type}
                   onChange={onChange}
-                  data-field="type"
+                  customer-field="type"
                   className={`${getInputClass(
                     Boolean(fieldErrors.type)
                   )} appearance-none pr-8`}
                 >
-                  <option value="">{data.placeholders.type}</option>
+                  <option value="">{enerisfaq.placeholders.type}</option>
                   {inquiryTypes.map((opt) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
@@ -267,7 +283,7 @@ export default function EnerisdataSection() {
             </Field>
 
             <Field
-              label={data.fields.message}
+              label={enerisfaq.fields.message}
               required
               full
               error={fieldErrors.message}
@@ -276,12 +292,12 @@ export default function EnerisdataSection() {
                 name="message"
                 value={form.message}
                 onChange={onChange}
-                data-field="message"
+                customer-field="message"
                 className={`${getInputClass(
                   Boolean(fieldErrors.message),
                   "area"
                 )} min-h-[200px] resize-none`}
-                placeholder={data.placeholders.message}
+                placeholder={enerisfaq.placeholders.message}
               />
             </Field>
           </div>
@@ -299,16 +315,16 @@ export default function EnerisdataSection() {
               htmlFor="agree"
               className="text-body text-[1.125rem] text-slate-600"
             >
-              {data.privacy.prefix}
+              {enerisfaq.privacy.prefix}
               <a
-                href={data.privacy.link}
+                href={enerisfaq.privacy.link}
                 target="_blank"
                 rel="noreferrer"
                 className="mx-1 underline"
               >
-                {data.privacy.anchor}
+                {enerisfaq.privacy.anchor}
               </a>
-              {data.privacy.suffix}
+              {enerisfaq.privacy.suffix}
             </label>
           </div>
 
@@ -324,7 +340,9 @@ export default function EnerisdataSection() {
               disabled={submitting}
               className={getButtonClass("primary")}
             >
-              {submitting ? data.buttons.submitting : data.buttons.submit}
+              {submitting
+                ? customer.buttons.submitting
+                : customer.buttons.submit}
             </button>
           </div>
         </form>
@@ -337,17 +355,17 @@ export default function EnerisdataSection() {
           >
             <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
               <div className="text-title text-[2rem] font-semibold mb-2">
-                {data.modal.thanksTitle}
+                {enerisfaq.modal.thanksTitle}
               </div>
               <p className="text-body text-[1.125rem] text-gray-600">
-                {data.modal.thanksBody}
+                {enerisfaq.modal.thanksBody}
               </p>
               <div className="mt-6 flex justify-end">
                 <button
                   onClick={() => setDone(false)}
                   className={getButtonClass("primary", false)}
                 >
-                  {data.buttons.close}
+                  {enerisfaq.buttons.close}
                 </button>
               </div>
             </div>

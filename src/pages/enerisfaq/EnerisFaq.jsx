@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import data from "./enerisfaq.json";
+import enerisfaq from "./enerisfaq.json";
 
 export default function EnerisFaq() {
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState(null);
 
-  const filtered = data.items.filter((item) =>
+  const filtered = enerisfaq.items.filter((item) =>
     (item.category + item.question + JSON.stringify(item.answer))
       .toLowerCase()
       .includes(query.toLowerCase())
   );
-  const totalCount = data.items.length;
+  const totalCount = enerisfaq.items.length;
   const totalLabel = `Total ${totalCount}\uAC74`;
 
   return (
@@ -19,21 +19,21 @@ export default function EnerisFaq() {
         <header>
           <p className="text-sm font-medium text-slate-500">{totalLabel}</p>
           <h1 className="mt-2 text-[2.5rem] font-bold leading-tight text-slate-900">
-            {data.title}
+            {enerisfaq.title}
           </h1>
         </header>
 
         <div className="mt-10 flex justify-center">
           <div className="relative w-full max-w-xl">
             <label htmlFor="faq-search" className="sr-only">
-              {data.searchPlaceholder}
+              {enerisfaq.searchPlaceholder}
             </label>
             <input
               id="faq-search"
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={data.searchPlaceholder}
+              placeholder={enerisfaq.searchPlaceholder}
               className="peer w-full border-b border-slate-300 bg-transparent pb-3 text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none"
             />
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400 transition-colors peer-focus:text-emerald-500">
@@ -132,7 +132,7 @@ export default function EnerisFaq() {
           })}
           {filtered.length === 0 && (
             <div className="mt-20 px-8 py-50 text-center text-[1.125rem] text-slate-500">
-              {data.nonefaq}
+              {enerisfaq.nonefaq}
             </div>
           )}
         </div>
