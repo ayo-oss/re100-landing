@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./rooftop.json";
+import rooftop from "./rooftop.json";
 import { Link, NavLink } from "react-router-dom";
 
 function Pill({ children }) {
@@ -167,7 +167,7 @@ function Calculator({ est }) {
   );
 }
 
-export default function ServiceRoofLease({ data = data, onCta }) {
+export default function ServiceRoofLease({ data = rooftop, onCta }) {
   const { hero, estimator, features, process, cases, contact } = data;
   const featureItems = React.useMemo(
     () => (Array.isArray(features?.items) ? features.items : []),
