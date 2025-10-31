@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import data from "./data.json";
 
-export default function data() {
+export default function EnerisFaq() {
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState(null);
 
