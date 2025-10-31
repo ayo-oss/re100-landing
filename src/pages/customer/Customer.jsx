@@ -1,8 +1,3 @@
-// =============================================
-// File: EnerisCustomerSection.jsx
-// Description: Eneris 怨좉컼臾몄쓽 ?뱀뀡 (?대?吏 泥⑤? ?쒓굅 踰꾩쟾)
-// =============================================
-
 import React, { useMemo, useState } from "react";
 import customer from "./customer.json";
 
@@ -25,6 +20,20 @@ const getInputClass = (hasError, variant = "underline") =>
   variant === "area"
     ? `${areaInputClass}${hasError ? ` ${areaErrorClass}` : ""}`
     : `${underlineInputClass}${hasError ? ` ${underlineErrorClass}` : ""}`;
+const buttonBaseClass =
+  "inline-flex items-center justify-center rounded-full border font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
+const buttonVariants = {
+  primary:
+    "bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-500 hover:border-emerald-500 active:bg-emerald-700 focus-visible:ring-emerald-500",
+  secondary:
+    "bg-white text-emerald-700 border-emerald-500 hover:bg-emerald-50 active:bg-emerald-100 focus-visible:ring-emerald-500",
+};
+const getButtonClass = (variant = "primary", fullWidth = true) => {
+  const widthClass = fullWidth ? "w-full sm:w-auto" : "w-auto";
+  return `${buttonBaseClass} ${widthClass} px-8 py-3 text-sm ${
+    buttonVariants[variant] || buttonVariants.primary
+  }`;
+};
 const createInitialFormState = () => ({
   name: "",
   phone: "",
@@ -93,7 +102,7 @@ export default function EnerisCustomerSection() {
     }
     setFieldErrors({});
     if (!GAS_ENDPOINT) {
-      setError("?섍꼍 蹂??GAS_ENDPOINT)媛 ?ㅼ젙?섏? ?딆븯?듬땲??");
+      setError("Server endpoint is not configured.");
       return;
     }
 
@@ -121,8 +130,9 @@ export default function EnerisCustomerSection() {
         setForm(createInitialFormState());
         return;
       }
-      const isJsonResponse =
-        res.headers?.get("content-type")?.includes("application/json");
+      const isJsonResponse = res.headers
+        ?.get("content-type")
+        ?.includes("application/json");
       const data = isJsonResponse ? await res.json() : null;
       if (!res.ok || (isJsonResponse && !data?.ok)) {
         throw new Error(data?.message || "Server error");
@@ -158,138 +168,138 @@ export default function EnerisCustomerSection() {
 
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-                <Field
-                  label={customer.fields.name}
-                  required
-                  error={fieldErrors.name}
-                >
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={onChange}
-                    data-field="name"
-                    autoComplete="name"
-                    className={getInputClass(Boolean(fieldErrors.name))}
-                    placeholder={customer.placeholders.name}
-                  />
-                </Field>
+            <Field
+              label={customer.fields.name}
+              required
+              error={fieldErrors.name}
+            >
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={onChange}
+                data-field="name"
+                autoComplete="name"
+                className={getInputClass(Boolean(fieldErrors.name))}
+                placeholder={customer.placeholders.name}
+              />
+            </Field>
 
-                <Field
-                  label={customer.fields.phone}
-                  required
-                  error={fieldErrors.phone}
-                >
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={onChange}
-                    data-field="phone"
-                    autoComplete="tel"
-                    className={getInputClass(Boolean(fieldErrors.phone))}
-                    placeholder={customer.placeholders.phone}
-                  />
-                </Field>
+            <Field
+              label={customer.fields.phone}
+              required
+              error={fieldErrors.phone}
+            >
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={onChange}
+                data-field="phone"
+                autoComplete="tel"
+                className={getInputClass(Boolean(fieldErrors.phone))}
+                placeholder={customer.placeholders.phone}
+              />
+            </Field>
 
-                <Field
-                  label={customer.fields.address}
-                  required
-                  full
-                  error={fieldErrors.address}
-                >
-                  <input
-                    type="text"
-                    name="address"
-                    value={form.address}
-                    onChange={onChange}
-                    data-field="address"
-                    autoComplete="street-address"
-                    className={getInputClass(Boolean(fieldErrors.address))}
-                    placeholder={customer.placeholders.address}
-                  />
-                </Field>
+            <Field
+              label={customer.fields.address}
+              required
+              full
+              error={fieldErrors.address}
+            >
+              <input
+                type="text"
+                name="address"
+                value={form.address}
+                onChange={onChange}
+                data-field="address"
+                autoComplete="street-address"
+                className={getInputClass(Boolean(fieldErrors.address))}
+                placeholder={customer.placeholders.address}
+              />
+            </Field>
 
-                <Field
-                  label={customer.fields.email}
-                  required
-                  error={fieldErrors.email}
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={onChange}
-                    data-field="email"
-                    autoComplete="email"
-                    className={getInputClass(Boolean(fieldErrors.email))}
-                    placeholder={customer.placeholders.email}
-                  />
-                </Field>
+            <Field
+              label={customer.fields.email}
+              required
+              error={fieldErrors.email}
+            >
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={onChange}
+                data-field="email"
+                autoComplete="email"
+                className={getInputClass(Boolean(fieldErrors.email))}
+                placeholder={customer.placeholders.email}
+              />
+            </Field>
 
-                <Field
-                  label={customer.fields.type}
-                  required
-                  error={fieldErrors.type}
+            <Field
+              label={customer.fields.type}
+              required
+              error={fieldErrors.type}
+            >
+              <div className="relative">
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={onChange}
+                  data-field="type"
+                  className={`${getInputClass(
+                    Boolean(fieldErrors.type)
+                  )} appearance-none pr-8`}
                 >
-                  <div className="relative">
-                    <select
-                      name="type"
-                      value={form.type}
-                      onChange={onChange}
-                      data-field="type"
-                      className={`${getInputClass(
-                        Boolean(fieldErrors.type)
-                      )} appearance-none pr-8`}
-                    >
-                      <option value="">{customer.placeholders.type}</option>
-                      {inquiryTypes.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400"
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6.5 8 10.5 12 6.5"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </Field>
+                  <option value="">{customer.placeholders.type}</option>
+                  {inquiryTypes.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6.5 8 10.5 12 6.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </Field>
 
-                <Field
-                  label={customer.fields.message}
-                  required
-                  full
-                  error={fieldErrors.message}
-                >
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={onChange}
-                    data-field="message"
-                    className={`${getInputClass(
-                      Boolean(fieldErrors.message),
-                      "area"
-                    )} min-h-[200px] resize-none`}
-                    placeholder={customer.placeholders.message}
-                  />
-                </Field>
+            <Field
+              label={customer.fields.message}
+              required
+              full
+              error={fieldErrors.message}
+            >
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={onChange}
+                data-field="message"
+                className={`${getInputClass(
+                  Boolean(fieldErrors.message),
+                  "area"
+                )} min-h-[200px] resize-none`}
+                placeholder={customer.placeholders.message}
+              />
+            </Field>
           </div>
 
           <div className="flex items-start gap-3">
@@ -321,28 +331,15 @@ export default function EnerisCustomerSection() {
             </div>
           )}
 
-          <div className="flex flex-wrap gap-3">
-            <button type="submit" disabled={submitting} className="btn-primary">
+          <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
+            <button
+              type="submit"
+              disabled={submitting}
+              className={getButtonClass("primary")}
+            >
               {submitting
                 ? customer.buttons.submitting
                 : customer.buttons.submit}
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setForm({
-                  name: "",
-                  phone: "",
-                  address: "",
-                  email: "",
-                  type: "",
-                  message: "",
-                  agree: false,
-                })
-              }
-              className="btn-secondary"
-            >
-              {customer.buttons.reset}
             </button>
           </div>
         </form>
@@ -360,8 +357,11 @@ export default function EnerisCustomerSection() {
               <p className="text-body text-gray-600">
                 {customer.modal.thanksBody}
               </p>
-              <div className="mt-6 text-right">
-                <button onClick={() => setDone(false)} className="btn-primary">
+              <div className="mt-6 flex justify-end">
+                <button
+                  onClick={() => setDone(false)}
+                  className={getButtonClass("primary", false)}
+                >
                   {customer.buttons.close}
                 </button>
               </div>
@@ -395,5 +395,3 @@ function Field({ label, children, full = false, required = false, error }) {
     </label>
   );
 }
-
-
