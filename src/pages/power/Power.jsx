@@ -192,46 +192,6 @@ export default function SavePower() {
             ))}
           </ul>
         </section>
-
-        {/* Metrics */}
-        <section>
-          <H2>{power.metrics.title}</H2>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {power.metrics.stats.map((s, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm"
-              >
-                <div className="text-3xl font-bold text-gray-900">
-                  {s.value}
-                  {s.suffix}
-                </div>
-                <div className="mt-1 text-sm text-gray-700">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section>
-          <H2>{power.cta.title}</H2>
-          <P>{power.cta.desc}</P>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {power.cta.formFields.map((f, i) => (
-              <input
-                key={i}
-                placeholder={f}
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm outline-none focus:ring-2 focus:ring-gray-200"
-              />
-            ))}
-          </div>
-          <Link
-            to="/support/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] border text-button font-semibold text-slate-800 hover:bg-slate-100"
-          >
-            {contact.cta}
-          </Link>
-        </section>
       </div>
     </section>
   );
