@@ -9,11 +9,11 @@ const GAS_ENDPOINT =
 const phoneRegex = /^(01[0-9]|0[2-9])[0-9\-]{7,11}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const underlineInputClass =
-  "block w-full border-b border-gray-300 bg-transparent px-0 pb-3 text-body font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
+  "block w-full border-b border-gray-300 bg-transparent px-0 pb-3 text-body text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
 const underlineErrorClass =
   "border-red-400 text-red-600 placeholder:text-red-400 focus:border-red-500";
 const areaInputClass =
-  "block w-full rounded-md border border-gray-300 bg-transparent px-4 py-4 text-body font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
+  "block w-full rounded-md border border-gray-300 bg-transparent px-4 py-4 text-body text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-0 focus:border-emerald-500";
 const areaErrorClass =
   "border-red-400 text-red-600 placeholder:text-red-400 focus:border-red-500";
 const getInputClass = (hasError, variant = "underline") =>
@@ -30,7 +30,7 @@ const buttonVariants = {
 };
 const getButtonClass = (variant = "primary", fullWidth = true) => {
   const widthClass = fullWidth ? "w-full sm:w-auto" : "w-auto";
-  return `${buttonBaseClass} ${widthClass} px-8 py-3 text-sm ${
+  return `${buttonBaseClass} ${widthClass} px-8 py-3 text-button text-[1.111rem] sm:px-12 sm:py-4 ${
     buttonVariants[variant] || buttonVariants.primary
   }`;
 };
@@ -150,13 +150,13 @@ export default function EnerisCustomerSection() {
     <section className="bg-white py-20">
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         <header className="mb-12">
-          <h1 className="text-2xl font-semibold leading-tight text-slate-900">
+          <h1 className="text-display text-[2.5rem] font-bold leading-tight text-slate-900">
             {customer.title}
           </h1>
-          <p className="mt-4 text-base leading-7 text-slate-600">
+          <p className="text-description mt-4 text-[1.222rem] leading-7 text-slate-600">
             {customer.subtitle}
           </p>
-          <p className="mt-3 flex items-center text-sm text-slate-500">
+          <p className="text-body mt-3 flex items-center text-[1.125rem] text-slate-500">
             <span
               aria-hidden
               className="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500"
@@ -311,7 +311,7 @@ export default function EnerisCustomerSection() {
               onChange={onChange}
               className="mt-1 h-5 w-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
             />
-            <label htmlFor="agree" className="text-sm text-slate-600">
+            <label htmlFor="agree" className="text-body text-[1.125rem] text-slate-600">
               {customer.privacy.prefix}
               <a
                 href={customer.privacy.link}
@@ -351,10 +351,10 @@ export default function EnerisCustomerSection() {
             aria-modal
           >
             <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-              <div className="text-title font-semibold mb-2">
+              <div className="text-title text-[2rem] font-semibold mb-2">
                 {customer.modal.thanksTitle}
               </div>
-              <p className="text-body text-gray-600">
+              <p className="text-body text-[1.125rem] text-gray-600">
                 {customer.modal.thanksBody}
               </p>
               <div className="mt-6 flex justify-end">
@@ -376,7 +376,7 @@ export default function EnerisCustomerSection() {
 function Field({ label, children, full = false, required = false, error }) {
   return (
     <label className={full ? "block sm:col-span-2" : "block"}>
-      <span className="flex items-center gap-2 text-base font-semibold text-slate-900">
+      <span className="flex items-center gap-2 text-body text-[1.125rem] font-semibold text-slate-900">
         {label}
         {required && (
           <>

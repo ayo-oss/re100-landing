@@ -40,7 +40,6 @@
   "buttons": {
     "submit": "문의하기",
     "submitting": "접수 중...",
-    "reset": "초기화",
     "close": "닫기"
   },
   "modal": {
