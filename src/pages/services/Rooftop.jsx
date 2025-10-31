@@ -1,5 +1,6 @@
 import React from "react";
 import rooftop from "./rooftop.json";
+import { Link, NavLink } from "react-router-dom";
 
 function Pill({ children }) {
   return (
@@ -254,13 +255,12 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
               <p className="text-description text-slate-600">
                 {hero.highlight}
               </p>
-              <button
-                type="button"
-                onClick={onCta}
+              <Link
+                to="/support/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition-colors hover:bg-brand-dark"
               >
                 {hero.ctaText}
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -337,13 +337,12 @@ export default function ServiceRoofLease({ data = rooftop, onCta }) {
               {contact.disclaimer}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={onCta}
+          <Link
+            to="/support/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] border text-button font-semibold text-slate-800 hover:bg-slate-100"
           >
             {contact.cta}
-          </button>
+          </Link>
         </div>
       </div>
     </section>

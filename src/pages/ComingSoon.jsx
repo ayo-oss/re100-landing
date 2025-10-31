@@ -1,7 +1,7 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 function ComingSoon() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <section className="border-t border-slate-100 bg-emerald-50/40 py-24">
@@ -10,14 +10,11 @@ function ComingSoon() {
           Page In Progress
         </p>
         <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-          ÁØºñ ÁßÀÎ ÆäÀÌÁöÀÔ´Ï´Ù.
+          ì¤€ë¹„ì¤‘ì¸ í˜ì´ì§€ ì…ë‹ˆë‹¤.
         </h1>
-        <p className="text-base text-slate-600">
-          {location.pathname} ÆäÀÌÁö´Â Áö±İ ÄÜÅÙÃ÷¸¦ ±¸¼º ÁßÀÌ¿¡¿ä. ºü¸¥ ½ÃÀÏ ³»¿¡ ¾÷µ¥ÀÌÆ®ÇÒ°Ô¿ä.
-        </p>
       </div>
     </section>
-  )
+  );
 }
 
-export default ComingSoon
+export default ComingSoon;
