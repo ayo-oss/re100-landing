@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout.jsx";
 import ComingSoon from "./pages/ComingSoon.jsx";
 import Home from "./pages/Home.jsx";
@@ -25,14 +25,19 @@ function App() {
           <Route path="news" element={<ComingSoon />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
-        <Route path="services">
-          <Route index element={<Rooftop />} />
-          <Route path="services-1" element={<Rooftop />} />
-          <Route path="services-2" element={<Power />} />
-          <Route path="services-3" element={<ComingSoon />} />
-          <Route path="services-4" element={<ComingSoon />} />
-          <Route path="services-5" element={<ComingSoon />} />
+        <Route path="service">
+          <Route index element={<Navigate replace to="service-1" />} />
+          <Route path="service-1" element={<Rooftop />} />
+          <Route path="service-2" element={<Power />} />
+          <Route path="service-3" element={<ComingSoon />} />
+          <Route path="service-4" element={<ComingSoon />} />
+          <Route path="service-5" element={<ComingSoon />} />
+          <Route path="*" element={<ComingSoon />} />
         </Route>
+        <Route
+          path="services/:legacy?"
+          element={<Navigate replace to="/service/service-1" />}
+        />
         <Route path="cases">
           <Route index element={<ComingSoon />} />
           <Route path="power" element={<ComingSoon />} />

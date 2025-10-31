@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import content from "../content/ko/ko.json";
 import logo from "../assets/logo-g.png";
 
@@ -8,9 +8,16 @@ const {
 } = content;
 
 const isExternalLink = (href) => /^https?:\/\//i.test(href);
+const getSectionRoot = (href = "") => {
+  if (!href.startsWith("/")) return "/";
+  const parts = href.split("/").filter(Boolean);
+  if (parts.length === 0) return "/";
+  return `/${parts[0]}`;
+};
 
 function Header() {
   const [activeLabel, setActiveLabel] = useState(null);
+  const { pathname } = useLocation();
 
   const activeItem = useMemo(() => {
     const target = primary.find((item) => item.label === activeLabel);
@@ -42,9 +49,14 @@ function Header() {
           <nav className="hidden items-center gap-20 text-lg font-semibold text-slate-800 lg:flex">
             {primary.map((item) => {
               const isOpen = activeLabel === item.label;
+              const sectionRoot = getSectionRoot(item.href);
+              const isSectionActive =
+                !isExternalLink(item.href) &&
+                (pathname === sectionRoot ||
+                  pathname.startsWith(`${sectionRoot}/`));
               const baseClasses = [
                 "relative py-2 transition-colors",
-                isOpen
+                isOpen || isSectionActive
                   ? "text-brand-dark"
                   : "text-slate-700 hover:text-brand-dark",
               ].join(" ");
@@ -76,7 +88,7 @@ function Header() {
                   className={({ isActive }) =>
                     [
                       "relative py-2 transition-colors",
-                      isActive || isOpen
+                      isActive || isOpen || isSectionActive
                         ? "text-brand-dark"
                         : "text-slate-700 hover:text-brand-dark",
                     ].join(" ")
