@@ -23,7 +23,8 @@ const fallback = (value, alt) => {
 export function TariffTable({ table, labels = {} }) {
   if (!isObject(table)) return null;
 
-  const paletteKey = table.tone && palettes[table.tone] ? table.tone : "emerald";
+  const paletteKey =
+    table.tone && palettes[table.tone] ? table.tone : "emerald";
   const palette = palettes[paletteKey];
 
   const columns = isObject(table.columns) ? table.columns : {};
@@ -36,9 +37,15 @@ export function TariffTable({ table, labels = {} }) {
     Boolean(columns.detail) || rows.some((r) => isArray(r.details).length);
 
   const groupLabel = fallback(columns.group, fallback(labels.plan, "구분"));
-  const optionLabel = fallback(columns.option, fallback(labels.option, "요금제"));
+  const optionLabel = fallback(
+    columns.option,
+    fallback(labels.option, "요금제")
+  );
   const baseLabel = fallback(columns.base, fallback(labels.base, "기본요금"));
-  const detailLabel = fallback(columns.detail, fallback(labels.detail, "시간대"));
+  const detailLabel = fallback(
+    columns.detail,
+    fallback(labels.detail, "시간대")
+  );
   const usageHeading = fallback(
     table.usageHeading,
     fallback(labels.usage, "전력량요금(원/kWh)")
@@ -80,7 +87,7 @@ export function TariffTable({ table, labels = {} }) {
     >
       <div className="flex items-start justify-between gap-6 px-8 pt-8">
         <div>
-          <h3 className="text-content-title font-semibold text-slate-900">
+          <h3 className="text-content-title font-semibold ">
             {asString(table.title)}
           </h3>
           {table.description ? (
@@ -150,7 +157,10 @@ export function TariffTable({ table, labels = {} }) {
 
                 if (details.length) {
                   return details.map((detail, detailIndex) => (
-                    <tr key={`${rowIndex}-${detailIndex}`} className={baseClass}>
+                    <tr
+                      key={`${rowIndex}-${detailIndex}`}
+                      className={baseClass}
+                    >
                       {detailIndex === 0 ? (
                         <td
                           className="px-5 py-5 align-top"
@@ -168,7 +178,10 @@ export function TariffTable({ table, labels = {} }) {
                         </td>
                       ) : null}
                       {detailIndex === 0 ? (
-                        <td className="px-5 py-5 align-top" rowSpan={details.length}>
+                        <td
+                          className="px-5 py-5 align-top"
+                          rowSpan={details.length}
+                        >
                           {renderBaseCell(row.base)}
                         </td>
                       ) : null}
@@ -199,7 +212,9 @@ export function TariffTable({ table, labels = {} }) {
                         {asString(row.option)}
                       </td>
                     ) : null}
-                    <td className="px-5 py-5 align-top">{renderBaseCell(row.base)}</td>
+                    <td className="px-5 py-5 align-top">
+                      {renderBaseCell(row.base)}
+                    </td>
                     {showDetail ? (
                       <td className="px-5 py-5 text-body text-slate-600">
                         {asString(row.detail)}

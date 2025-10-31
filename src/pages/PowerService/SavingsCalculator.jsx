@@ -77,7 +77,7 @@ export default function SavingsCalculator() {
   return (
     <div className="relative mb-20 overflow-hidden p-8 md:p-12">
       <div className="relative z-10">
-        <h2 className="text-content-title text-slate-900">{STRINGS.title}</h2>
+        <h2 className="text-content-title ">{STRINGS.title}</h2>
         {STRINGS.subtitle ? (
           <p className="mt-2 text-body text-slate-600">{STRINGS.subtitle}</p>
         ) : null}
@@ -99,11 +99,7 @@ export default function SavingsCalculator() {
                   className="w-full appearance-none rounded-full bg-emerald-600 px-5 py-4 pr-12 text-left text-title font-semibold text-white shadow-lg transition focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
                 >
                   {CATEGORIES.map((category) => (
-                    <option
-                      key={category.id}
-                      value={category.id}
-                      className="text-slate-900"
-                    >
+                    <option key={category.id} value={category.id} className="">
                       {category.label}
                     </option>
                   ))}
@@ -144,7 +140,7 @@ export default function SavingsCalculator() {
                   min="0"
                   value={usageKw}
                   onChange={handleUsageChange}
-                  className="w-full bg-transparent text-title font-semibold text-slate-900 outline-none"
+                  className="w-full bg-transparent text-title font-semibold  outline-none"
                 />
                 <span className="text-title font-semibold text-slate-500">
                   {STRINGS.usageSuffix}
@@ -164,7 +160,7 @@ export default function SavingsCalculator() {
               <div className="text-body font-medium text-slate-600">
                 {STRINGS.usageLabel}
               </div>
-              <div className="mt-2 text-display font-semibold text-slate-900">
+              <div className="mt-2 text-display font-semibold ">
                 {formatNumber(usageKw, locale)}
                 <span className="ml-1 text-title font-semibold text-slate-500">
                   {STRINGS.usageSuffix}
@@ -176,7 +172,7 @@ export default function SavingsCalculator() {
               <div className="text-body font-medium text-slate-600">
                 {STRINGS.minLabel}
               </div>
-              <div className="mt-2 text-display font-semibold text-slate-900">
+              <div className="mt-2 text-display font-semibold ">
                 {formatCurrency(minMonthlySavings, locale)}
               </div>
               <div className="mt-1 text-footer text-slate-500">

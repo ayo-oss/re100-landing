@@ -31,7 +31,7 @@ function Hero() {
         <p className="text-2xl font-semibold uppercase tracking-[0.25em] text-brand-dark">
           {copy.hero.eyebrow}
         </p>
-        <h1 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
+        <h1 className="mt-6 text-4xl font-bold leading-tight  md:text-5xl">
           {copy.hero.title}
         </h1>
         <p className="mt-6 max-w-2xl text-base text-slate-600 md:text-2xl">
@@ -58,7 +58,7 @@ function Greeting() {
             <span className="text-2xl font-semibold uppercase tracking-[0.35em] text-brand-dark">
               {copy.greeting.title}
             </span>
-            <h2 className="text-3xl font-bold leading-snug text-slate-900 md:text-4xl">
+            <h2 className="text-3xl font-bold leading-snug  md:text-4xl">
               {copy.greeting.headline}
             </h2>
           </div>
@@ -79,7 +79,7 @@ function CompanyInfo() {
       <div className="absolute -right-40 top-8 hidden h-72 w-72 rounded-full bg-brand/10 blur-3xl md:block" />
       <div className="container relative">
         <div className="mx-auto max-w-2xl text-center">
-          <h3 className="text-2xl font-bold text-slate-900 md:text-3xl">
+          <h3 className="text-2xl font-bold  md:text-3xl">
             {copy.companyInfo.title}
           </h3>
         </div>
@@ -108,7 +108,7 @@ function History() {
           <span className="text-2xl font-semibold uppercase tracking-[0.28em] text-brand-dark">
             {copy.history.title}
           </span>
-          <h3 className="text-3xl font-bold text-slate-900 md:text-4xl">
+          <h3 className="text-3xl font-bold  md:text-4xl">
             {copy.history.subtitle.split("\n").map((line) => (
               <span key={line} className="block">
                 {line}

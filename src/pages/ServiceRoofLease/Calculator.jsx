@@ -9,7 +9,7 @@ export function Calculator({ est }) {
   return (
     <div className="relative overflow-hidden p-8 mb-20">
       <div className="relative z-10">
-        <h2 className="text-content-title text-slate-900">{est.title}</h2>
+        <h2 className="text-content-title ">{est.title}</h2>
         <div className="mt-8 grid gap-10 lg:grid-cols-[260px,minmax(0,1fr)] lg:items-center">
           <div>
             <label
@@ -29,7 +29,7 @@ export function Calculator({ est }) {
                   <option
                     key={option.label ?? index}
                     value={index}
-                    className="text-slate-900"
+                    className=""
                   >
                     {option.label}
                   </option>
@@ -60,7 +60,7 @@ export function Calculator({ est }) {
               <dt className="text-body font-medium text-slate-600">
                 {est.capacityLabel}
               </dt>
-              <dd className="mt-2 text-display font-semibold text-slate-900">
+              <dd className="mt-2 text-display font-semibold ">
                 {numberWithCommas(kw)}
                 <span className="ml-1 text-title font-semibold text-slate-500">
                   kW
@@ -71,7 +71,7 @@ export function Calculator({ est }) {
               <dt className="text-body font-medium text-slate-600">
                 {est.annualIncomeLabel}
               </dt>
-              <dd className="mt-2 text-display font-semibold text-slate-900">
+              <dd className="mt-2 text-display font-semibold ">
                 {numberWithCommas(annual)}
                 <span className="ml-1 text-title font-semibold text-slate-500">
                   {est.currencySuffix}

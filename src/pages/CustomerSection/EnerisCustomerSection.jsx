@@ -21,7 +21,7 @@ export default function EnerisCustomerSection() {
     <section className="bg-white py-20">
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         <header className="mb-12">
-          <h1 className="text-display text-[2.5rem] font-bold leading-tight text-slate-900">
+          <h1 className="text-display text-[2.5rem] font-bold leading-tight ">
             {customer.title}
           </h1>
           <p className="text-description mt-4 text-[1.222rem] leading-7 text-slate-600">
@@ -264,6 +264,6 @@ export default function EnerisCustomerSection() {
           </div>
         )}
       </div>
-      </section>
+    </section>
   );
 }

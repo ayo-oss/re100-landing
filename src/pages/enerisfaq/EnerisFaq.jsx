@@ -18,7 +18,7 @@ export default function EnerisFaq() {
       <div className="mx-auto max-w-5xl px-4 md:px-8">
         <header>
           <p className="text-sm font-medium text-slate-500">{totalLabel}</p>
-          <h1 className="mt-2 text-[2.5rem] font-bold leading-tight text-slate-900">
+          <h1 className="mt-2 text-[2.5rem] font-bold leading-tight ">
             {enerisfaq.title}
           </h1>
         </header>
@@ -34,7 +34,7 @@ export default function EnerisFaq() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={enerisfaq.searchPlaceholder}
-              className="peer w-full border-b border-slate-300 bg-transparent pb-3 text-[1.125rem] font-medium text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none"
+              className="peer w-full border-b border-slate-300 bg-transparent pb-3 text-[1.125rem] font-medium  placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none"
             />
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400 transition-colors peer-focus:text-emerald-500">
               <svg
@@ -82,7 +82,7 @@ export default function EnerisFaq() {
                     <div className="text-sm font-semibold text-emerald-600">
                       {item.category}
                     </div>
-                    <h2 className="mt-1 text-[1.6rem] font-semibold leading-tight text-slate-900">
+                    <h2 className="mt-1 text-[1.6rem] font-semibold leading-tight ">
                       {item.question}
                     </h2>
                   </div>

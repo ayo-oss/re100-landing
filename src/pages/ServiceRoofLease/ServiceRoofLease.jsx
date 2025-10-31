@@ -39,7 +39,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
         {/* Hero */}
         <div className="mx-auto max-w-4xl text-center">
           <Pill>{hero.badge}</Pill>
-          <h1 className="mt-5 text-display text-slate-900 leading-tight tracking-tight">
+          <h1 className="mt-5 text-display  leading-tight tracking-tight">
             {hero.title}
           </h1>
           <p className="mt-6 text-title text-brand-dark">{hero.highlight}</p>
@@ -109,9 +109,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
         <div className="mt-16 grid md:grid-cols-1">
           <Calculator est={estimator} />
           <div className="rounded-[10px] p-6 bg-white/70">
-            <h2 className="text-content-title text-slate-900 mb-20">
-              {features.title}
-            </h2>
+            <h2 className="text-content-title  mb-20">{features.title}</h2>
             <div className="mt-6 space-y-6">
               <div className="grid place-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {featureFirstRow.map((item) => (
@@ -131,7 +129,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
 
         {/* Process */}
         <div className="mt-16 rounded-[10px] p-6">
-          <h2 className="text-content-title text-slate-900">{process.title}</h2>
+          <h2 className="text-content-title ">{process.title}</h2>
           <p className="mt-2 text-body text-slate-600">{process.subtitle}</p>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-5 gap-6">
             {process.steps.map((s) => (
@@ -142,7 +140,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
 
         {/* Cases */}
         {/* <div className="mt-16">
-          <h2 className="text-content-title text-slate-900">{cases.title}</h2>
+          <h2 className="text-content-title ">{cases.title}</h2>
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cases.items.map((c, idx) => (
               <figure
@@ -155,7 +153,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
                   className="w-full h-48 object-cover"
                 />
                 <figcaption className="p-4">
-                  <div className="text-content-title text-slate-900">
+                  <div className="text-content-title ">
                     {c.capacity}
                   </div>
                   <div className="mt-1 text-body text-slate-600">
@@ -170,9 +168,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
         {/* Bottom CTA */}
         <div className="mt-16 flex items-center justify-between rounded-[10px] p-6">
           <div>
-            <h3 className="text-content-title text-slate-900">
-              {contact.title}
-            </h3>
+            <h3 className="text-content-title ">{contact.title}</h3>
             <p className="text-body text-slate-600 mt-2">
               {contact.disclaimer}
             </p>

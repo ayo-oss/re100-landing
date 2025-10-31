@@ -9,7 +9,7 @@ export function Field({
 }) {
   return (
     <label className={full ? "block sm:col-span-2" : "block"}>
-      <span className="flex items-center gap-2 text-body text-[1.125rem] font-semibold text-slate-900">
+      <span className="flex items-center gap-2 text-body text-[1.125rem] font-semibold ">
         {label}
         {required && (
           <>

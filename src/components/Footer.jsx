@@ -75,7 +75,7 @@ function Footer() {
       </div>
       <div className="container mt-12 border-t border-slate-100 pt-6">
         <p className="text-center text-footer text-slate-400">
-          {new Date().getFullYear()} FLAG. All rights reserved.
+          {new Date().getFullYear()} ©FLAG. All rights reserved.
         </p>
       </div>
     </footer>

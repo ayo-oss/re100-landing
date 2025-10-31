@@ -40,6 +40,65 @@ export default function PowerService() {
     "aa2.jpeg": segmentRetailImg,
     "aa3.jpeg": segmentDataImg,
   };
+  const processPalettes = [
+    {
+      bg: "bg-emerald-500",
+      ring: "ring-emerald-200/60",
+      text: "text-emerald-500",
+    },
+    { bg: "bg-sky-500", ring: "ring-sky-200/60", text: "text-sky-500" },
+    { bg: "bg-blue-500", ring: "ring-blue-200/60", text: "text-blue-500" },
+    {
+      bg: "bg-purple-500",
+      ring: "ring-purple-200/60",
+      text: "text-purple-500",
+    },
+  ];
+  const processIcons = [
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M6 7h12M6 12h12M6 17h7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M4 8.5 9.5 4m11 11-5.5 4.5M12 14l2 2 5-4m-9-2-2-2-5 4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+      <path
+        d="m6 12 3.2 3 8.8-9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 21a9 9 0 1 0-9-9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+  ];
 
   const powerUnit = asString(cases?.unit?.power, "kW");
   const moneyUnit = asString(cases?.unit?.money, "KRW");
@@ -51,7 +110,7 @@ export default function PowerService() {
         <header className="mx-auto max-w-4xl space-y-6 text-center">
           <Pill>{asString(hero.badge)}</Pill>
           <div className="space-y-4">
-            <h1 className="text-display font-semibold leading-tight text-slate-900">
+            <h1 className="text-display font-semibold leading-tight ">
               {asString(hero.title)}
             </h1>
             <p className="text-description text-slate-600">
@@ -78,7 +137,7 @@ export default function PowerService() {
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
                   {asString(m.label)}
                 </div>
-                <div className="mt-2 text-title font-semibold text-slate-900">
+                <div className="mt-2 text-title font-semibold ">
                   {asString(m.value)}
                 </div>
               </div>
@@ -104,7 +163,7 @@ export default function PowerService() {
         {tariffTables.length ? (
           <section className="space-y-8">
             <div className="space-y-3 text-center">
-              <h2 className="text-content-title font-semibold text-slate-900">
+              <h2 className="text-content-title font-semibold ">
                 {asString(tariff.title)}
               </h2>
               <p className="text-sm text-slate-600">
@@ -174,7 +233,7 @@ export default function PowerService() {
                     />
                   </div>
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-title font-semibold text-slate-900">
+                    <h3 className="text-title font-semibold ">
                       {asString(card.name)}
                     </h3>
                   </div>
@@ -208,7 +267,7 @@ export default function PowerService() {
                 key={i}
                 className="rounded-[10px] border border-emerald-100 bg-white/95 p-6 shadow-soft"
               >
-                <h3 className="text-title font-semibold text-slate-900">
+                <h3 className="text-title font-semibold ">
                   {asString(item.name)}
                 </h3>
                 <p className="mt-2 text-sm text-slate-600">
@@ -228,12 +287,77 @@ export default function PowerService() {
           eyebrow="Benefits"
           title={asString(benefits.title)}
           description={asString(benefits.subtitle)}
+          className="relative overflow-hidden"
         >
-          <ul className="grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
-            {benefitBullets.map((b, i) => (
-              <BulletItem key={i}>{b}</BulletItem>
-            ))}
-          </ul>
+          <div className="relative">
+            <header className="mb-12 text-center">
+              <h3 className="text-display font-semibold">
+                {asString(benefits.title)}
+              </h3>
+              <p className="mt-3 text-description">
+                {asString(benefits.subtitle)}
+              </p>
+            </header>
+
+            <ul className="grid gap-10 text-left sm:grid-cols-2 lg:grid-cols-4">
+              {benefitBullets.map((b, i) => {
+                const index = i % 3;
+                const icon =
+                  index === 0 ? (
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="m18 9-3-3m3 3-3 3m-12 1 5.2 5.2a1 1 0 0 0 1.4 0L20 7.8a2 2 0 0 0 0-2.8l-1-1a2 2 0 0 0-2.8 0L3.2 16.2a1 1 0 0 0 0 1.4L8.4 23"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : index === 1 ? (
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M4 4h16M4 10h16M4 16h16M4 21h9"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 3a9 9 0 0 0-9 9c0 4.418 6 9 9 9s9-4.582 9-9a9 9 0 0 0-9-9Z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="m8 12.5 2.5 2.5L16 9"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  );
+
+                return (
+                  <li
+                    key={i}
+                    className="relative flex flex-col items-center gap-5 rounded-[24px] border border-white/20 bg-white/5 px-6 py-8 text-center"
+                  >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-white">
+                      {icon}
+                    </div>
+                    <p className="text-body leading-relaxed text-blue-50">
+                      {b}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </SectionCard>
 
         <SectionCard
@@ -241,23 +365,43 @@ export default function PowerService() {
           title={asString(process.title)}
           description="Transparent step-by-step workflow from assessment to verification."
         >
-          <ol className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {processSteps.map((step, i) => (
-              <li
-                key={i}
-                className="flex h-full flex-col gap-3 rounded-[10px] border border-emerald-100 bg-white/95 p-5 shadow-soft"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-600">
-                    {i + 1}
-                  </span>
-                  <h3 className="text-sm font-semibold text-slate-900">
-                    {asString(step.title)}
-                  </h3>
-                </div>
-                <p className="text-sm text-slate-600">{asString(step.desc)}</p>
-              </li>
-            ))}
+          <ol className="relative flex flex-col gap-10 lg:flex-row lg:items-stretch lg:justify-between">
+            {processSteps.map((step, i) => {
+              const palette = processPalettes[i % processPalettes.length];
+              const icon = processIcons[i % processIcons.length];
+              return (
+                <li
+                  key={i}
+                  className="relative flex flex-1 flex-col items-center text-center"
+                >
+                  <div className="flex flex-col items-center gap-5">
+                    <div className="relative flex items-center justify-center">
+                      <div
+                        className={`flex h-16 w-16 items-center justify-center rounded-full text-title font-semibold text-white ring-4 ${palette.bg} ${palette.ring}`}
+                      >
+                        {i + 1}
+                      </div>
+                      {i < processSteps.length - 1 ? (
+                        <span className="hidden lg:block absolute left-full top-1/2 ml-4 h-[2px] w-40 -translate-y-1/2 bg-slate-200" />
+                      ) : null}
+                    </div>
+                    <div
+                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 bg-white ${palette.text} shadow-soft`}
+                    >
+                      <span className={palette.text}>{icon}</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <h3 className="text-title font-semibold ">
+                      {asString(step.title)}
+                    </h3>
+                    <p className="text-body text-slate-600">
+                      {asString(step.desc)}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </SectionCard>
 
@@ -284,7 +428,7 @@ export default function PowerService() {
                   key={i}
                   className="rounded-[10px] border border-emerald-100 bg-white/95 px-5 py-4 shadow-soft"
                 >
-                  <div className="text-sm font-semibold text-slate-900">
+                  <div className="text-sm font-semibold ">
                     {asString(org.name)}
                   </div>
                   <div className="text-xs uppercase tracking-[0.18em] text-slate-500">
