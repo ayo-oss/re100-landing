@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import customer from "./customer.json";
 
 const GAS_ENDPOINT =
@@ -54,6 +54,14 @@ export default function EnerisCustomerSection() {
 
   const inquiryTypes = useMemo(() => customer.inquiryTypes, []);
   const expectsOpaqueResponse = GAS_ENDPOINT.includes("script.google");
+
+  useEffect(() => {
+    if (!done) return;
+    const timer = window.setTimeout(() => {
+      setDone(false);
+    }, 5000);
+    return () => window.clearTimeout(timer);
+  }, [done]);
 
   const onChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -348,26 +356,55 @@ export default function EnerisCustomerSection() {
         </form>
 
         {done && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-6"
-            role="dialog"
-            aria-modal
-          >
-            <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-              <div className="text-title text-[2rem] font-semibold mb-2">
-                {customer.modal.thanksTitle}
-              </div>
-              <p className="text-body text-[1.125rem] text-gray-600">
-                {customer.modal.thanksBody}
-              </p>
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={() => setDone(false)}
-                  className={getButtonClass("primary", false)}
+          <div className="pointer-events-none fixed inset-x-0 top-6 z-50 flex justify-center px-4">
+            <div className="pointer-events-auto flex w-full max-w-xl items-start gap-4 rounded-2xl border border-emerald-200 bg-white px-6 py-5 shadow-xl">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {customer.buttons.close}
-                </button>
+                  <path
+                    d="M5 10.5 8.5 14 15 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
+              <div className="flex-1">
+                <div className="text-sm font-semibold text-emerald-700">
+                  성공
+                </div>
+                <p className="mt-1 text-body text-slate-700">
+                  타당성 검토 문의가 성공적으로 완료하였습니다.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setDone(false)}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+                aria-label="알림 닫기"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m5 5 8 8M13 5l-8 8"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         )}
