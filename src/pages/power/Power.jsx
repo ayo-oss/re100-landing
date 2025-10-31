@@ -1,6 +1,6 @@
 // SavePower.jsx
 import React from "react";
-import data from "./savePowerData.json";
+import data from "./power.json";
 
 const H2 = ({ children }) => (
   <h2 className="text-xl font-semibold text-gray-900">{children}</h2>
