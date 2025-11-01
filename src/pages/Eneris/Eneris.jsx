@@ -1,7 +1,9 @@
-import React, { useMemo, useState } from "react";
+﻿import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+
+import { Pill } from "@/components/Pill";
 import eneris from "./eneris.json";
 
-const HERO_BACKGROUND = "https://www.eneris.kr/images/common/sub_visual0401.jpg";
 const CONTAINER_CLASS = "container";
 
 const AWARDS = [
@@ -23,17 +25,20 @@ const HIGHLIGHTS = [
   {
     image: "https://www.eneris.kr/images/service/img_service04_0201.png",
     title: "무상 점검",
-    description: "주기적인 설비 진단과 안전 점검으로 안정적인 발전 효율을 유지합니다.",
+    description:
+      "주기적인 설비 진단과 안전 점검으로 안정적인 발전 효율을 유지합니다.",
   },
   {
     image: "https://www.eneris.kr/images/service/img_service04_0202.png",
     title: "지자체 보조금",
-    description: "지역별 보조금 제도까지 함께 검토하여 설치 비용 부담을 낮춥니다.",
+    description:
+      "지역별 보조금 제도까지 함께 검토하여 설치 비용 부담을 낮춥니다.",
   },
   {
     image: "https://www.eneris.kr/images/service/img_service04_0203.png",
     title: "태양광 부지 설계",
-    description: "주택 구조와 일사량을 분석해 최적의 패널 배치와 구조 설계를 제공합니다.",
+    description:
+      "주택 구조와 일사량을 분석해 최적의 패널 배치와 구조 설계를 제공합니다.",
   },
 ];
 
@@ -69,7 +74,8 @@ const SUPPORTS = [
   {
     image: "https://www.eneris.kr/images/service/img_service04_0401.png",
     title: "기존 설비 개보수",
-    description: "노후 설비도 Eneris가 책임지고 리모델링하여 발전량을 회복시킵니다.",
+    description:
+      "노후 설비도 Eneris가 책임지고 리모델링하여 발전량을 회복시킵니다.",
   },
   {
     image: "https://www.eneris.kr/images/service/img_service04_0402.png",
@@ -92,7 +98,8 @@ const PROCESS_STEPS = [
   {
     image: "https://www.eneris.kr/images/service/img_service04_0303.png",
     title: "자재 입고 및 검수",
-    description: "품질 검수와 자재 관리 시스템으로 시공 불량을 사전에 차단합니다.",
+    description:
+      "품질 검수와 자재 관리 시스템으로 시공 불량을 사전에 차단합니다.",
   },
   {
     image: "https://www.eneris.kr/images/service/img_service04_0304.png",
@@ -123,8 +130,18 @@ const GALLERY_IMAGES = [
 
 const FORM_FIELDS = [
   { id: "name", label: "이름", type: "text", placeholder: "이름을 입력하세요" },
-  { id: "phone", label: "연락처", type: "tel", placeholder: "연락처를 입력하세요" },
-  { id: "address", label: "주소", type: "text", placeholder: "설치 주소를 입력하세요" },
+  {
+    id: "phone",
+    label: "연락처",
+    type: "tel",
+    placeholder: "연락처를 입력하세요",
+  },
+  {
+    id: "address",
+    label: "주소",
+    type: "text",
+    placeholder: "설치 주소를 입력하세요",
+  },
 ];
 
 export default function Eneris0401() {
@@ -146,49 +163,30 @@ export default function Eneris0401() {
 
 function HeroSection({ hero }) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={HERO_BACKGROUND}
-          alt=""
-          loading="lazy"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-slate-900/65" />
-      </div>
-      <div
-        className={`relative z-10 ${CONTAINER_CLASS} flex flex-col gap-10 py-16 text-white md:py-24`}
-      >
-        <div className="space-y-6">
-          {hero.badge ? (
-            <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.4em] text-emerald-200">
-              {hero.badge}
-            </span>
-          ) : null}
-          {hero.title ? (
-            <h1 className="text-3xl font-semibold leading-tight md:text-5xl">{hero.title}</h1>
-          ) : null}
-          {hero.subtitle ? (
-            <p className="text-lg leading-relaxed text-white/85 md:text-xl">
-              {hero.subtitle}
-            </p>
-          ) : null}
+    <section className="relative overflow-hidden py-40">
+      <div className="absolute inset-0" />
+
+      <div className="container mx-auto px-4 relative">
+        <div className="mx-auto max-w-4xl text-center">
+          <Pill>{hero.badge}</Pill>
+
+          <h1 className="mt-5 text-display  leading-tight tracking-tight">
+            {hero.title}
+          </h1>
+          <p className="mt-6 text-title text-brand-dark">{hero.subtitle}</p>
           {hero.note ? (
             <p className="text-sm text-white/70 md:text-base">{hero.note}</p>
           ) : null}
         </div>
 
-        <div className="flex flex-wrap gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
-          <span>주택용 태양광</span>
-          <span className="opacity-50">/</span>
-          <a
-            href="https://www.eneris.kr/service/service_0402.php"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:text-white"
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-description text-slate-600">{hero.highlight}</p>
+          <Link
+            to="/support/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-button font-semibold text-white shadow-soft transition-colors hover:bg-brand-dark"
           >
-            건물 태양광
-          </a>
+            {"건물태양광"}
+          </Link>
         </div>
       </div>
     </section>
@@ -205,7 +203,12 @@ function AwardsSection() {
             className="flex h-full flex-col items-center gap-6 rounded-[32px] border border-emerald-100 bg-emerald-50/70 p-8 text-center shadow-soft"
           >
             <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-soft">
-              <img src={award.image} alt="" loading="lazy" className="h-14 w-14 object-contain" />
+              <img
+                src={award.image}
+                alt=""
+                loading="lazy"
+                className="h-14 w-14 object-contain"
+              />
             </span>
             <p className="text-base font-semibold leading-relaxed text-emerald-900">
               {award.lines.map((line, lineIndex) => (
@@ -230,7 +233,9 @@ function HighlightSection() {
           {HIGHLIGHT_NOTE.banner.split("\n").map((line, index) => (
             <React.Fragment key={line + index}>
               {line}
-              {index === HIGHLIGHT_NOTE.banner.split("\n").length - 1 ? null : <br />}
+              {index === HIGHLIGHT_NOTE.banner.split("\n").length - 1 ? null : (
+                <br />
+              )}
             </React.Fragment>
           ))}
         </h2>
@@ -250,16 +255,24 @@ function HighlightSection() {
                 />
               </div>
               <div className="flex flex-1 flex-col gap-3 px-8 py-8">
-                <h3 className="text-xl font-semibold text-slate-900">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{item.description}</p>
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-12 space-y-2 rounded-[28px] border border-emerald-100 bg-white px-8 py-6 text-center shadow-soft md:px-12 md:py-8">
-          <p className="text-lg font-semibold text-emerald-700 md:text-xl">{HIGHLIGHT_NOTE.summary}</p>
-          <p className="text-sm leading-relaxed text-slate-500">{HIGHLIGHT_NOTE.footnote}</p>
+          <p className="text-lg font-semibold text-emerald-700 md:text-xl">
+            {HIGHLIGHT_NOTE.summary}
+          </p>
+          <p className="text-sm leading-relaxed text-slate-500">
+            {HIGHLIGHT_NOTE.footnote}
+          </p>
         </div>
       </div>
     </section>
@@ -269,7 +282,8 @@ function HighlightSection() {
 function ProgressSection() {
   const [activeIndex, setActiveIndex] = useState(2);
 
-  const { households, savings } = PROGRESS_STEPS[activeIndex] || PROGRESS_STEPS[0];
+  const { households, savings } =
+    PROGRESS_STEPS[activeIndex] || PROGRESS_STEPS[0];
 
   const progressPercent = useMemo(() => {
     if (PROGRESS_STEPS.length <= 1) return 0;
@@ -345,7 +359,9 @@ function SupportSection() {
   return (
     <section className="bg-slate-50 py-20 md:py-24">
       <div className={CONTAINER_CLASS}>
-        <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">Eneris 맞춤 서비스</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">
+          Eneris 맞춤 서비스
+        </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {SUPPORTS.map((support) => (
             <div
@@ -361,8 +377,12 @@ function SupportSection() {
                 />
               </div>
               <div className="flex flex-1 flex-col gap-4 px-8 py-8">
-                <h3 className="text-xl font-semibold text-slate-900">{support.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{support.description}</p>
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {support.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {support.description}
+                </p>
               </div>
             </div>
           ))}
@@ -376,7 +396,9 @@ function ProcessSection() {
   return (
     <section className="bg-white py-20 md:py-24">
       <div className={CONTAINER_CLASS}>
-        <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">시공 프로세스</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">
+          시공 프로세스
+        </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-5">
           {PROCESS_STEPS.map((step, index) => (
             <div
@@ -384,13 +406,22 @@ function ProcessSection() {
               className="flex flex-col items-center gap-5 rounded-[28px] border border-emerald-100 bg-white p-6 text-center shadow-soft"
             >
               <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 shadow-soft">
-                <img src={step.image} alt="" loading="lazy" className="h-12 w-12 object-contain" />
+                <img
+                  src={step.image}
+                  alt=""
+                  loading="lazy"
+                  className="h-12 w-12 object-contain"
+                />
               </span>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-600">
                 Step.{String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-base font-semibold text-slate-900">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-slate-600">{step.description}</p>
+              <h3 className="text-base font-semibold text-slate-900">
+                {step.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-600">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -424,7 +455,9 @@ function GallerySection() {
                   className="h-64 w-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent p-4">
-                  <p className="text-center text-sm font-semibold text-white">{item.title}</p>
+                  <p className="text-center text-sm font-semibold text-white">
+                    {item.title}
+                  </p>
                 </div>
               </div>
             </div>
@@ -494,15 +527,21 @@ function ContactSection() {
             Eneris 상담이 필요하신가요?
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
-            보조금, 설치 일정, 유지관리까지 전문가가 한 번에 답해드립니다. 아래 정보를
-            남겨주시면 빠르게 연락드리겠습니다.
+            보조금, 설치 일정, 유지관리까지 전문가가 한 번에 답해드립니다. 아래
+            정보를 남겨주시면 빠르게 연락드리겠습니다.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
             <div className="grid gap-4 md:grid-cols-2">
               {FORM_FIELDS.map((field) => (
-                <label key={field.id} htmlFor={field.id} className="flex flex-col gap-2">
-                  <span className="text-sm font-semibold text-slate-700">{field.label}</span>
+                <label
+                  key={field.id}
+                  htmlFor={field.id}
+                  className="flex flex-col gap-2"
+                >
+                  <span className="text-sm font-semibold text-slate-700">
+                    {field.label}
+                  </span>
                   <input
                     id={field.id}
                     type={field.type}
@@ -516,7 +555,9 @@ function ContactSection() {
             </div>
 
             <label htmlFor="comment" className="flex flex-col gap-2">
-              <span className="text-sm font-semibold text-slate-700">문의 내용을 남겨주세요</span>
+              <span className="text-sm font-semibold text-slate-700">
+                문의 내용을 남겨주세요
+              </span>
               <textarea
                 id="comment"
                 value={formState.comment}

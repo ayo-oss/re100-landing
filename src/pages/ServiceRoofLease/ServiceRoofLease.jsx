@@ -7,6 +7,7 @@ import { Calculator } from "./Calculator";
 import SectionCard from "@/components/SectionCard";
 import ContactCTA from "@/components/ContactCTA";
 import ctaContent from "@/content/ko/cta.json";
+import headerImg from "@/assets/about/f0df38c0-c5fb-460f-ac59-10bf4e6db126.png";
 import {
   Search,
   DesignPencil,
@@ -84,7 +85,15 @@ export default function ServiceRoofLease({ data = rooftop }) {
 
   return (
     <section className="relative overflow-hidden py-40">
-      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0 bg-white">
+        {/* <img
+          src={headerImg}
+          alt=""
+          loading="lazy"
+          className="w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-900/65" /> */}
+      </div>
       <div className="container mx-auto px-4 relative">
         {/* Hero */}
         <div className="mx-auto max-w-4xl text-center">
