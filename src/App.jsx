@@ -8,7 +8,7 @@ import AboutGreeting from "@/pages/about/AboutGreeting.jsx";
 import ServiceRoofLease from "@/pages/ServiceRoofLease/ServiceRoofLease";
 import PowerService from "@/pages/PowerService/PowerService";
 import Eneris from "@/pages/Eneris/Eneris";
-
+import Er100 from "@/pages/ER100/Er100";
 //문의/자주묻는질문/개인정보
 import { EnerisCustomerSection } from "@/pages/CustomerSection";
 
@@ -32,7 +32,7 @@ function App() {
           <Route path="service-1" element={<ServiceRoofLease />} />
           <Route path="service-2" element={<PowerService />} />
           <Route path="service-3" element={<Eneris />} />
-          <Route path="service-4" element={<ComingSoon />} />
+          <Route path="service-4" element={<Er100 />} />
           <Route path="service-5" element={<ComingSoon />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
