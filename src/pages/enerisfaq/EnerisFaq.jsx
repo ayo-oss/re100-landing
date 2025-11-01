@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Search, NavArrowDown } from "iconoir-react";
 import enerisfaq from "./enerisfaq.json";
 
 export default function EnerisFaq() {
@@ -36,18 +37,8 @@ export default function EnerisFaq() {
               placeholder={enerisfaq.searchPlaceholder}
               className="peer w-full border-b border-slate-300 bg-transparent pb-3 text-[1.125rem] font-medium  placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none"
             />
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400 transition-colors peer-focus:text-emerald-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="h-5 w-5"
-              >
-                <circle cx="11" cy="11" r="6" />
-                <path d="m20 20-3.35-3.35" strokeLinecap="round" />
-              </svg>
+                        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-slate-400 transition-colors peer-focus:text-emerald-500">
+              <Search className="h-5 w-5" strokeWidth={1.5} />
             </span>
           </div>
         </div>
@@ -88,22 +79,11 @@ export default function EnerisFaq() {
                   </div>
                   <span
                     className={`inline-flex h-6 w-6 items-center justify-center text-slate-400 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-emerald-500 py-10" : ""
+                      isOpen ? "rotate-180 text-emerald-500" : ""
                     }`}
                     aria-hidden
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
+                    <NavArrowDown className="h-5 w-5" strokeWidth={1.5} />
                   </span>
                 </button>
                 <div

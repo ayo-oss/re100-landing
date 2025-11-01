@@ -2,8 +2,8 @@ import React from "react";
 import power from "./power.json";
 import { Link } from "react-router-dom";
 import { isArray, isObject, asString, formatNumber } from "./utils";
-import { Pill } from "./Pill";
-import { BulletItem } from "./BulletItem";
+import { Pill } from "@/components/Pill";
+import { BulletItem } from "@/components/BulletItem";
 import SectionCard from "@/components/SectionCard";
 import ContactCTA from "@/components/ContactCTA";
 import ctaContent from "@/content/ko/cta.json";
@@ -14,6 +14,15 @@ import SavingsCalculator from "./SavingsCalculator";
 import segmentFactoryImg from "@/assets/PowerService/aa1.jpeg";
 import segmentRetailImg from "@/assets/PowerService/aa2.jpeg";
 import segmentDataImg from "@/assets/PowerService/aa3.jpeg";
+import {
+  DatabaseSearch,
+  BrainResearch,
+  Tools,
+  ShieldCheck,
+  Wallet,
+  StatsUpSquare,
+  HeadsetHelp,
+} from "iconoir-react";
 
 export default function PowerService() {
   const hero = isObject(power.hero) ? power.hero : {};
@@ -48,61 +57,30 @@ export default function PowerService() {
     {
       bg: "bg-emerald-500",
       ring: "ring-emerald-200/60",
-      text: "text-emerald-500",
+      iconBg: "bg-emerald-50",
+      iconText: "text-emerald-600",
     },
-    { bg: "bg-sky-500", ring: "ring-sky-200/60", text: "text-sky-500" },
-    { bg: "bg-blue-500", ring: "ring-blue-200/60", text: "text-blue-500" },
+    {
+      bg: "bg-sky-500",
+      ring: "ring-sky-200/60",
+      iconBg: "bg-sky-50",
+      iconText: "text-sky-600",
+    },
+    {
+      bg: "bg-blue-500",
+      ring: "ring-blue-200/60",
+      iconBg: "bg-blue-50",
+      iconText: "text-blue-600",
+    },
     {
       bg: "bg-purple-500",
       ring: "ring-purple-200/60",
-      text: "text-purple-500",
+      iconBg: "bg-purple-50",
+      iconText: "text-purple-600",
     },
   ];
-  const processIcons = [
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M6 7h12M6 12h12M6 17h7"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M4 8.5 9.5 4m11 11-5.5 4.5M12 14l2 2 5-4m-9-2-2-2-5 4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="m6 12 3.2 3 8.8-9"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 21a9 9 0 1 0-9-9"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>,
-  ];
+  const processIcons = [DatabaseSearch, BrainResearch, Tools, ShieldCheck];
+  const benefitIconMap = [Wallet, StatsUpSquare, HeadsetHelp];
 
   const powerUnit = asString(cases?.unit?.power, "kW");
   const moneyUnit = asString(cases?.unit?.money, "KRW");
@@ -305,54 +283,14 @@ export default function PowerService() {
 
             <ul className="grid text-left sm:grid-cols-2 lg:grid-cols-3">
               {benefitBullets.map((b, i) => {
-                const index = i % 3;
-                const icon =
-                  index === 0 ? (
-                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="m18 9-3-3m3 3-3 3m-12 1 5.2 5.2a1 1 0 0 0 1.4 0L20 7.8a2 2 0 0 0 0-2.8l-1-1a2 2 0 0 0-2.8 0L3.2 16.2a1 1 0 0 0 0 1.4L8.4 23"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  ) : index === 1 ? (
-                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M4 4h16M4 10h16M4 16h16M4 21h9"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  ) : (
-                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12 3a9 9 0 0 0-9 9c0 4.418 6 9 9 9s9-4.582 9-9a9 9 0 0 0-9-9Z"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="m8 12.5 2.5 2.5L16 9"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  );
-
+                const BenefitIcon = benefitIconMap[i % benefitIconMap.length] || Wallet;
                 return (
                   <li
                     key={i}
                     className="relative flex flex-col items-center gap-8 px-10 py-10 text-center"
                   >
                     <div className="flex h-24 w-24 border items-center justify-center rounded-full bg-white/15">
-                      {icon}
+                      <BenefitIcon className="h-7 w-7" strokeWidth={1.8} />
                     </div>
                     <p className="text-body leading-relaxed">{b}</p>
                   </li>
@@ -370,7 +308,7 @@ export default function PowerService() {
           <ol className="relative flex flex-col gap-10 mt-20 lg:flex-row lg:items-stretch lg:justify-between">
             {processSteps.map((step, i) => {
               const palette = processPalettes[i % processPalettes.length];
-              const icon = processIcons[i % processIcons.length];
+              const IconComponent = processIcons[i % processIcons.length];
               return (
                 <li
                   key={i}
@@ -388,9 +326,9 @@ export default function PowerService() {
                       ) : null}
                     </div>
                     <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 bg-white ${palette.text} shadow-soft`}
+                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 ${palette.iconBg} ${palette.iconText} shadow-soft`}
                     >
-                      <span className={palette.text}>{icon}</span>
+                      <IconComponent className="h-6 w-6" strokeWidth={1.6} />
                     </div>
                   </div>
                   <div className="mt-6 space-y-3">

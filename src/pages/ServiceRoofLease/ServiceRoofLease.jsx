@@ -1,12 +1,21 @@
 import React from "react";
 import rooftop from "./rooftop.json";
 import { Link } from "react-router-dom";
-import { Pill } from "./Pill";
+import { Pill } from "@/components/Pill";
 import { FeatureItem } from "./FeatureItem";
 import { Calculator } from "./Calculator";
 import SectionCard from "@/components/SectionCard";
 import ContactCTA from "@/components/ContactCTA";
 import ctaContent from "@/content/ko/cta.json";
+import {
+  Search,
+  DesignPencil,
+  ShieldCheck,
+  Hammer,
+  GraphUp,
+  SunLight,
+  Check,
+} from "iconoir-react";
 
 export default function ServiceRoofLease({ data = rooftop }) {
   const { hero, estimator, features, process, cases } = data;
@@ -71,86 +80,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
       iconText: "text-indigo-600",
     },
   ];
-  const processIcons = [
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M4 4h16v6H4z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M4 14h16v6H4z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8 4v16M12 8h4M12 18h4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M3 6h18M3 12h18M3 18h11"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <path
-        d="M7 6v12"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M5 4h14v16H5z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 8h6M9 12h6M9 16h4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M5 20h14l-2-11H7l-2 11Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 9V6a3 3 0 0 1 6 0v3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>,
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 21a9 9 0 1 0-9-9"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.5 13.5 11 16l5-5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>,
-  ];
+  const processIcons = [Search, DesignPencil, ShieldCheck, Hammer, GraphUp];
 
   return (
     <section className="relative overflow-hidden py-40">
@@ -175,19 +105,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
                 </p>
               </div>
               <div className="mx-auto hidden h-28 w-28 items-center justify-center rounded-full bg-emerald-50 text-brand-dark lg:flex">
-                <svg
-                  aria-hidden="true"
-                  className="h-16 w-16"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 48 48"
-                >
-                  <path d="M24 6v6M37.5 10.5l-4.2 4.2M42 24h-6M37.5 37.5l-4.2-4.2M24 36v6M14.7 14.7l-4.2-4.2M12 24H6M14.7 33.3l-4.2 4.2" />
-                  <path d="M24 18a9 9 0 1 1-9 9" />
-                  <path d="M6 42h36" strokeLinecap="round" />
-                  <path d="M11 42l6-10h14l6 10" strokeLinecap="round" />
-                </svg>
+                <SunLight className="h-16 w-16" strokeWidth={1.6} />
               </div>
             </div>
 
@@ -195,16 +113,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
               {hero.bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-3 px-6 py-4">
                   <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-brand-dark">
-                    <svg
-                      aria-hidden="true"
-                      className="h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
+                    <Check className="h-4 w-4" strokeWidth={1.8} />
                   </span>
                   <span>{b}</span>
                 </li>
@@ -260,7 +169,7 @@ export default function ServiceRoofLease({ data = rooftop }) {
           <ol className="relative flex flex-col gap-10 mt-20  lg:flex-row lg:items-stretch lg:justify-between">
             {processSteps.map((step, index) => {
               const palette = processPalettes[index % processPalettes.length];
-              const icon = processIcons[index % processIcons.length];
+              const IconComponent = processIcons[index % processIcons.length];
               return (
                 <li
                   key={index}
@@ -278,9 +187,9 @@ export default function ServiceRoofLease({ data = rooftop }) {
                       ) : null}
                     </div>
                     <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 ${palette.iconBg} shadow-soft ${palette.iconText}`}
+                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-100 ${palette.iconBg} ${palette.iconText} shadow-soft`}
                     >
-                      <span className={palette.iconText}>{icon}</span>
+                      <IconComponent className="h-6 w-6" strokeWidth={1.6} />
                     </div>
                   </div>
                   <div className="mt-6 space-y-3">

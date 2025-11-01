@@ -1,0 +1,25 @@
+﻿{
+  "hero": {
+    "topline": "월 평균 전기요금 절감 시뮬레이션",
+    "topnote": "* 시뮬레이션 값은 평균 요율과 가정치를 기반으로 하며 실제 요금과 차이가 있을 수 있습니다.",
+    "title_line1": "태양광 · ESS 도입 시",
+    "title_line2": "얼마나 절감할 수 있을까요?",
+    "after_prefix": "월 예상 절감액",
+    "after_suffix": "입니다",
+    "annual_prefix": "연간 최대 절감액",
+    "annual_suffix": "예상"
+  },
+  "slider": {
+    "aria_label": "현재 월 전기요금",
+    "min": 500000,
+    "max": 2000000,
+    "step": 150000
+  },
+  "calc": {
+    "monthly_saving_at_min_bill": 130000,
+    "monthly_saving_at_max_bill": 520000
+  },
+  "notes": {
+    "disclaimer": "* 설비 용량, 가동 패턴, 요금제에 따라 실제 절감액은 달라질 수 있습니다."
+  }
+}

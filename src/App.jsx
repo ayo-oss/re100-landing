@@ -7,6 +7,7 @@ import AboutGreeting from "@/pages/about/AboutGreeting.jsx";
 //서비스 지붕임대/한전수전
 import ServiceRoofLease from "@/pages/ServiceRoofLease/ServiceRoofLease";
 import PowerService from "@/pages/PowerService/PowerService";
+import Eneris from "@/pages/Eneris/Eneris";
 
 //문의/자주묻는질문/개인정보
 import { EnerisCustomerSection } from "@/pages/CustomerSection";
@@ -30,7 +31,7 @@ function App() {
           <Route index element={<Navigate replace to="service-1" />} />
           <Route path="service-1" element={<ServiceRoofLease />} />
           <Route path="service-2" element={<PowerService />} />
-          <Route path="service-3" element={<ComingSoon />} />
+          <Route path="service-3" element={<Eneris />} />
           <Route path="service-4" element={<ComingSoon />} />
           <Route path="service-5" element={<ComingSoon />} />
           <Route path="*" element={<ComingSoon />} />

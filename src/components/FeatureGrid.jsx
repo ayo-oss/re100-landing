@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "iconoir-react";
 import content from "../content/ko/ko.json";
 
 const { services } = content;
@@ -76,17 +77,7 @@ function FeatureGrid() {
                       </span>
                     </span>
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/70 text-slate-600 transition-colors duration-300 group-hover:border-brand/40 group-hover:bg-brand group-hover:text-white">
-                      <svg
-                        aria-hidden="true"
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m13 6 6 6-6 6" />
-                      </svg>
+                      <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
                     </span>
                   </div>
                 </div>

@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
+import { NavArrowDown } from "iconoir-react";
 import DATA from "./savings.config.json";
 
-const CATEGORIES = Array.isArray(DATA.categories) ? DATA.categories : [];
-const DEFAULT_CATEGORY_ID = CATEGORIES[0]?.id ?? "";
+const categories = Array.isArray(DATA.categories) ? DATA.categories : [];
+const DEFAULT_CATEGORY_ID = categories[0]?.id ?? "";
 const DEFAULT_USAGE_KW = Number(DATA.defaults?.usage_kw ?? 0);
 
 const STRING_FALLBACKS = {
@@ -10,39 +11,44 @@ const STRING_FALLBACKS = {
   subtitle: "",
   categoryLabel: "분야 선택",
   usageLabel: "월 사용량",
-  usageHint: "kW 단위로 입력하세요.",
+  usageHint: "kW 단위로 입력해 주세요.",
   usageSuffix: "kW",
-  rangeTemplate: "월 {min}% ~ {max}% 절감 예상",
-  minLabel: "월 최저 절감액",
-  maxLabel: "월 최대 절감액",
+  rangeTemplate: "월 {min}% ~ {max}% 절감",
+  minLabel: "최소 절감액 (월)",
+  maxLabel: "최대 절감액 (월)",
   annualSuffix: "연 환산",
   note: "",
 };
 
 const STRINGS = { ...STRING_FALLBACKS, ...(DATA.strings ?? {}) };
+const locale = DATA.locale ?? "ko-KR";
+const currencyCode = DATA.currency_code ?? "KRW";
 
-const formatNumber = (value, locale) =>
+const formatNumber = (value) =>
   new Intl.NumberFormat(locale).format(Math.max(0, Math.round(value)));
 
-const formatCurrency = (value, locale) => `${formatNumber(value, locale)}원`;
+const formatCurrency = (value) =>
+  new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currencyCode,
+    maximumFractionDigits: 0,
+  }).format(Math.max(0, Math.round(value)));
 
 const template = (str, vars) =>
   str.replace(/\{(.*?)\}/g, (_, key) => String(vars[key] ?? ""));
 
-const clampNonNegativeNumber = (value, fallback) => {
-  if (value === "" || value === null || value === undefined) return 0;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
-};
-
 export default function SavingsCalculator() {
   const [categoryId, setCategoryId] = useState(DEFAULT_CATEGORY_ID);
-  const [usageKw, setUsageKw] = useState(DEFAULT_USAGE_KW);
-
-  const selectedCategory = useMemo(
-    () => CATEGORIES.find((c) => c.id === categoryId) ?? CATEGORIES[0] ?? null,
-    [categoryId]
+  const [usageInput, setUsageInput] = useState(
+    DEFAULT_USAGE_KW > 0 ? String(DEFAULT_USAGE_KW) : ""
   );
+
+  const selectedCategory =
+    categories.find((c) => c.id === categoryId) ?? categories[0] ?? null;
+
+  const parsedUsage = Number(usageInput);
+  const usageValue =
+    Number.isFinite(parsedUsage) && parsedUsage >= 0 ? parsedUsage : 0;
 
   const rangeText = selectedCategory
     ? template(STRINGS.rangeTemplate, {
@@ -56,7 +62,7 @@ export default function SavingsCalculator() {
       selectedCategory.demand_kw_month_won
     : 0;
 
-  const monthlyCost = basePerKwMonthly * usageKw;
+  const monthlyCost = basePerKwMonthly * usageValue;
   const minMonthlySavings = selectedCategory
     ? monthlyCost * (selectedCategory.percent_min / 100)
     : 0;
@@ -67,23 +73,39 @@ export default function SavingsCalculator() {
   const minAnnualSavings = minMonthlySavings * 12;
   const maxAnnualSavings = maxMonthlySavings * 12;
 
-  const locale = DATA.locale ?? "ko-KR";
-
   const handleUsageChange = (event) => {
-    const next = clampNonNegativeNumber(event.target.value, usageKw);
-    setUsageKw(next);
+    const { value } = event.target;
+    if (value === "") {
+      setUsageInput("");
+      return;
+    }
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed) || parsed < 0) return;
+    setUsageInput(value);
   };
 
+  const handleUsageBlur = () => {
+    if (usageInput === "") {
+      setUsageInput("0");
+    }
+  };
+
+  if (!categories.length) {
+    return null;
+  }
+
   return (
-    <div className="relative mb-20 overflow-hidden p-8 md:p-12">
+    <div className="relative mb-20 overflow-hidden rounded-[24px] border border-emerald-100 bg-white/80 p-8 shadow-soft md:p-12">
       <div className="relative z-10">
-        <h2 className="text-content-title ">{STRINGS.title}</h2>
+        <h2 className="text-content-title font-semibold text-slate-900">
+          {STRINGS.title}
+        </h2>
         {STRINGS.subtitle ? (
           <p className="mt-2 text-body text-slate-600">{STRINGS.subtitle}</p>
         ) : null}
 
-        <div className="mt-8 flex flex-col gap-2 lg:flex-row lg:items-stretch">
-          <div className="flex flex-col gap-2 rounded-[10px] border border-emerald-100 bg-emerald-50/60 px-6 py-6 shadow-soft lg:w-[360px] lg:flex-shrink-0">
+        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-stretch">
+          <div className="flex flex-col gap-6 rounded-[18px] border border-emerald-100 bg-emerald-50/60 px-6 py-6 shadow-soft lg:w-[360px] lg:flex-shrink-0">
             <div>
               <label
                 htmlFor="power-savings-category"
@@ -94,31 +116,18 @@ export default function SavingsCalculator() {
               <div className="relative mt-4 w-full">
                 <select
                   id="power-savings-category"
-                  value={categoryId}
+                  value={selectedCategory?.id ?? ""}
                   onChange={(event) => setCategoryId(event.target.value)}
                   className="w-full appearance-none rounded-full bg-emerald-600 px-5 py-4 pr-12 text-left text-title font-semibold text-white shadow-lg transition focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
                 >
-                  {CATEGORIES.map((category) => (
-                    <option key={category.id} value={category.id} className="">
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
                       {category.label}
                     </option>
                   ))}
                 </select>
                 <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-white">
-                  <svg
-                    aria-hidden="true"
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 9l6 6 6-6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <NavArrowDown className="h-5 w-5" strokeWidth={2} />
                 </span>
               </div>
               {rangeText ? (
@@ -138,9 +147,10 @@ export default function SavingsCalculator() {
                   id="power-savings-usage"
                   type="number"
                   min="0"
-                  value={usageKw}
+                  value={usageInput}
                   onChange={handleUsageChange}
-                  className="w-full bg-transparent text-title font-semibold  outline-none"
+                  onBlur={handleUsageBlur}
+                  className="w-full bg-transparent text-title font-semibold outline-none"
                 />
                 <span className="text-title font-semibold text-slate-500">
                   {STRINGS.usageSuffix}
@@ -155,42 +165,40 @@ export default function SavingsCalculator() {
             </div>
           </div>
 
-          <div className="grid flex-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col justify-center rounded-[10px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
+          <div className="grid flex-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col justify-center rounded-[18px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
               <div className="text-body font-medium text-slate-600">
                 {STRINGS.usageLabel}
               </div>
-              <div className="mt-2 text-display font-semibold ">
-                {formatNumber(usageKw, locale)}
+              <div className="mt-2 text-display font-semibold text-slate-900">
+                {formatNumber(usageValue)}
                 <span className="ml-1 text-title font-semibold text-slate-500">
                   {STRINGS.usageSuffix}
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-col justify-center rounded-[10px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
+            <div className="flex flex-col justify-center rounded-[18px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
               <div className="text-body font-medium text-slate-600">
                 {STRINGS.minLabel}
               </div>
-              <div className="mt-2 text-display font-semibold ">
-                {formatCurrency(minMonthlySavings, locale)}
+              <div className="mt-2 text-display font-semibold text-emerald-600">
+                {formatCurrency(minMonthlySavings)}
               </div>
               <div className="mt-1 text-footer text-slate-500">
-                {STRINGS.annualSuffix}{" "}
-                {formatCurrency(minAnnualSavings, locale)}
+                {STRINGS.annualSuffix} {formatCurrency(minAnnualSavings)}
               </div>
             </div>
 
-            <div className="flex flex-col justify-center rounded-[10px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
+            <div className="flex flex-col justify-center rounded-[18px] border border-emerald-100 bg-white px-6 py-6 text-center shadow-soft">
               <div className="text-body font-medium text-slate-600">
                 {STRINGS.maxLabel}
               </div>
-              <div className="mt-2 text-display font-semibold text-red-500">
-                {formatCurrency(maxMonthlySavings, locale)}
+              <div className="mt-2 text-display font-semibold text-rose-500">
+                {formatCurrency(maxMonthlySavings)}
               </div>
               <div className="mt-1 text-footer text-slate-500">
-                {STRINGS.annualSuffix}{" "}
-                {formatCurrency(maxAnnualSavings, locale)}
+                {STRINGS.annualSuffix} {formatCurrency(maxAnnualSavings)}
               </div>
             </div>
           </div>

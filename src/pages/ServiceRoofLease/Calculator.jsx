@@ -1,4 +1,5 @@
 import React from "react";
+import { NavArrowDown } from "iconoir-react";
 import { useCalculator } from "./useCalculator";
 import { numberWithCommas } from "./utils";
 
@@ -36,20 +37,7 @@ export function Calculator({ est }) {
                 ))}
               </select>
               <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-white">
-                <svg
-                  aria-hidden="true"
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 9l6 6 6-6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <NavArrowDown className="h-5 w-5" strokeWidth={2} />
               </span>
             </div>
             <p className="mt-4 text-footer text-slate-600">{est.note}</p>
